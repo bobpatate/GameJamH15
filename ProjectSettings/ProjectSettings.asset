@@ -12,7 +12,7 @@ PlayerSettings:
   targetResolution: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: GameJamProject
+  productName: GameJamH15
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 1024
@@ -71,7 +71,7 @@ PlayerSettings:
   iPhoneBundleIdentifier: com.Company.ProductName
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
-  productGUID: 8c1a43a59c7ccb34292b5a902e04b87c
+  productGUID: 7079c8eee4cce6c488fe9e7daf460a36
   iPhoneBundleVersion: 1.0
   iPhoneShortBundleVersion: 1.0
   AndroidBundleVersionCode: 1
@@ -163,7 +163,7 @@ PlayerSettings:
   flashStrippingLevel: 2
   spritePackerPolicy: 
   scriptingDefineSymbols: {}
-  metroPackageName: GameJamProject
+  metroPackageName: GameJamH15
   metroPackageLogo: 
   metroPackageLogo140: 
   metroPackageLogo180: 
@@ -174,7 +174,7 @@ PlayerSettings:
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: GameJamProject
+  metroApplicationDescription: GameJamH15
   metroStoreTileLogo80: 
   metroStoreTileLogo: 
   metroStoreTileLogo140: 
