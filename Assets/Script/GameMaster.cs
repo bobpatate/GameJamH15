@@ -89,10 +89,17 @@ public class GameMaster : MonoBehaviour {
 		}
 	}
 
+	public void StartNextLevel(){
+		currentLevel++;
+		StartLevel(currentLevel);
+	}
+
 	//Initialize number of enemies to spawn
 	private void StartLevel(int currentLevel){
 		Time.timeScale = 1; //unpause game
-		playerRef.SetActive(true);
+		//playerRef.SetActive(true);
+		playerRef.transform.GetChild(0).renderer.enabled = true;
+		playerRef.GetComponent<PlayerController> ().enabled = true;
 
 		InvokeRepeating("SpawnEnemy", 0, enemySpawnDelay);
 
@@ -110,7 +117,9 @@ public class GameMaster : MonoBehaviour {
 	//Show endgame, pause game
 	private void EndLevel(){
 		Time.timeScale = 0; //pause game
-		playerRef.SetActive(false);
+		//playerRef.SetActive(false);
+		playerRef.transform.GetChild(0).renderer.enabled = false;
+		playerRef.GetComponent<PlayerController> ().enabled = false;
 
 		endGameMenu.Display();
 	}
