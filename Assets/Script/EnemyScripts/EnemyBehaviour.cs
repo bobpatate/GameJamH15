@@ -4,11 +4,11 @@ using System.Collections;
 public class EnemyBehaviour : MonoBehaviour
 {
     private float fear = 0.0f;
-    private float maxFear = 100.0f;
     private NavMeshAgent agent;
 	private bool isScared = false;
     private float stun_end_time;
 
+    public float maxFear = 100.0f;
     public Vector3 targetPoint = new Vector3(20, 20, 20); //Determine it through an empty GameObject corresponding to the exit of the map
  
     // Use this for initialization
