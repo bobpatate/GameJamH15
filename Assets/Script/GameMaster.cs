@@ -21,7 +21,12 @@ public class GameMaster : MonoBehaviour {
 
 	public int currentLevel = 0;
 	[SerializeField] private float enemySpawnDelay = 5.0f;
-	[SerializeField] private int nb_enemy_tot = 10;
+	[SerializeField] private int enemyTotal = 10;
+	[SerializeField] private float percentageToKill = 50.0f;
+
+	internal int enemiesToKillToWin; //percentageToKill*enemyTotal
+
+	public GameObject[] spawnPoints;
 
 	public GameObject guiGO;
 	public GameObject endGameMenuGO;
@@ -29,11 +34,15 @@ public class GameMaster : MonoBehaviour {
 	private EndRoundScreenScript endGameMenu;
 
 	private string currentGamePhase = "Day"; //or "Night"
-	private int dayTimer = 0;
+	private int dayTimer = 30; //seconds to place towers during day
 	private int roundTotalTime = 0;
+	private bool canSpawn = true;
+	private int spawnRandomizer = 0; //doesn't really work ATM
 
-	private int enemiesLeftToSpawn;
-	private bool round_is_success = true; 
+	private int enemiesLeftToSpawn; //number of enemies left to spawn
+	private int enemiesLeft; //number of enemies that are in game or not yet spawned
+	private int enemiesInGame = 0; //number of enemies in game
+	private bool round_is_success = false; 
     private int nb_enemy_scared = 0;
     private float xp_won = 0;
     private float life_left = 3;
@@ -50,6 +59,8 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	void Start(){
+		Random.seed = (int)System.DateTime.Now.Ticks;
+
 		StartLevel (currentLevel);
 
 		gui = guiGO.GetComponent<ConstructionGUI>();
@@ -60,34 +71,79 @@ public class GameMaster : MonoBehaviour {
 	void Update(){
 		roundTotalTime = Mathf.RoundToInt(Time.time);
 
-		if((roundTotalTime % enemySpawnDelay) == 0){
-			Debug.Log(roundTotalTime);
+		//In game. Spawn enemies
+		if(enemiesLeftToSpawn > 0){
+			if((roundTotalTime + spawnRandomizer) % enemySpawnDelay == 0){
+				if(canSpawn){
+					spawnRandomizer = Random.Range(0,1);
+					SpawnEnemy();
+					canSpawn = false;
+				}
+			}
+			else{
+				canSpawn = true;
+			}
 		}
+		//Endgame
+		else if(enemiesLeft == 0){
+			if(nb_enemy_scared >= enemiesToKillToWin){
+				round_is_success = true;
+			}
+			else{
+				round_is_success = false;
+			}
 
+			EndLevel();
+		}
 	}
 
+	//Initialize number of enemies to spawn
 	private void StartLevel(int currentLevel){
 		Time.timeScale = 1; //unpause game
 
 		roundTotalTime = 0;
 
-		nb_enemy_tot += Mathf.RoundToInt(nb_enemy_tot * 1.2f);
-		enemiesLeftToSpawn = nb_enemy_tot;
+		enemyTotal += Mathf.RoundToInt(enemyTotal * 1.2f);
+		enemiesLeftToSpawn = enemyTotal;
+		enemiesLeft = enemyTotal;
+
+		enemiesToKillToWin = (int)(percentageToKill*enemyTotal);
+
+		enemySpawnDelay -= currentLevel;
 	}
 
+	//Show endgame, pause game
 	private void EndLevel(){
+		Time.timeScale = 0; //pause game
+
 		endGameMenu.Display();
 	}
 
+	//Spawn enemy at random spawn point
 	private void SpawnEnemy(){
+		Debug.Log("spawn");
+		int selected = Random.Range(0, spawnPoints.Length);
+		spawnPoints[selected].GetComponent<SpawnPoint>().spawn();
 
-	}
-
-
-	public void DeadEnemy(){
+		enemiesInGame ++;
 		enemiesLeftToSpawn --;
-		nb_enemy_scared ++;
 	}
+
+	//Enemy got through
+	public void safeEnemy(){
+		enemiesInGame --;
+		enemiesLeft --;
+	}
+
+	//Scared an enemy successfully
+	public void killedEnemy(){
+		enemiesInGame --;
+		enemiesLeft --;
+		nb_enemy_scared ++;
+
+		xp_won += 10;
+	}
+
 
     public bool isRoundSuccess()
     {
@@ -101,10 +157,10 @@ public class GameMaster : MonoBehaviour {
 
     public int getNbTotEnemy()
     {
-        return nb_enemy_tot;
-    }
-
-    public float getNbXPWon()
+		return enemyTotal;
+	}
+	
+	public float getNbXPWon()
     {
         return xp_won;
     }
