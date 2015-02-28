@@ -22,8 +22,8 @@ public class EndRoundScreenScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //Display();
-        Hide();
+        Display();
+        //Hide();
     }
 
     public void Display()

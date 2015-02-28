@@ -18,20 +18,17 @@ public class GameMaster : MonoBehaviour {
 		}
 	}
 
+
 	public int currentLevel = 0;
 
-    //TODO Take care of the following var please, my GameMaster :3
-    bool round_is_success = true; 
-    float nb_enemy_scared = 0;
-    float nb_enemy_tot = 0;
-    float xp_won = 0;
-    float life_left = 3;
+	[SerializeField] private float enemySpawnDelay = 5.0f;
 
-
-
-
-	[SerializeField] private int enemiesToSpawn = 10;
+	[SerializeField] private int nb_enemy_tot = 10;
 	private int enemiesLeftToSpawn;
+	private bool round_is_success = true; 
+    private int nb_enemy_scared = 0;
+    private float xp_won = 0;
+    private float life_left = 3;
 
 	void Awake(){
 		if(_instance == null){
@@ -49,12 +46,14 @@ public class GameMaster : MonoBehaviour {
 	}
 
 	void Update(){
-
+		if(Time.deltaTime % enemySpawnDelay < 1){
+			//Debug.Log ("Spawn");
+		}
 	}
 
 	void StartLevel(int currentLevel){
-		//enemiesToSpawn += enemiesToSpawn * 1.2;
-		enemiesLeftToSpawn = enemiesToSpawn;
+		nb_enemy_tot += Mathf.RoundToInt(nb_enemy_tot * 1.2f);
+		enemiesLeftToSpawn = nb_enemy_tot;
 	}
 
 	void SpawnEnemy(){
@@ -63,7 +62,7 @@ public class GameMaster : MonoBehaviour {
 
 	void DeadEnemy(){
 		enemiesLeftToSpawn --;
-		//
+		nb_enemy_scared ++;
 	}
 
     public bool isRoundSuccess()
@@ -71,12 +70,12 @@ public class GameMaster : MonoBehaviour {
         return round_is_success;
     }
 
-    public float getNbEnemyScared()
+    public int getNbEnemyScared()
     {
         return nb_enemy_scared;
     }
 
-    public float getNbTotEnemy()
+    public int getNbTotEnemy()
     {
         return nb_enemy_tot;
     }
