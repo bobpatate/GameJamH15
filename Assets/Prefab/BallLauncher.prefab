@@ -25,7 +25,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166824}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -57,7 +57,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166824}
-  m_Mesh: {fileID: 4300000, guid: cb863a7e31519d1499e472a9ffdb4acd, type: 3}
+  m_Mesh: {fileID: 4300000, guid: e74bef69623533d44b39544c619d6a2a, type: 3}
 --- !u!65 &6566824
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -82,6 +82,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball_prefab: {fileID: 408606, guid: 912f68a0be17c0d40b880ce6d055907a, type: 2}
+  max_radius: 25
+  min_reload_time: 1000
+  base_radius: 7
+  base_reload_time: 5000
+  ball_speed: 600
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

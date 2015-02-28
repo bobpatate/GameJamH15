@@ -18,4 +18,16 @@ public class SpawnPoint : MonoBehaviour {
 	public void spawn(){
 		Instantiate(enemyPrefab, transform.position, transform.rotation);
 	}
+
+    void OnTriggerEnter(Collider Other)
+    {
+        if(Other.tag == "Enemy")
+        {
+            if(Other.GetComponent<EnemyBehaviour>().getFear() >= Other.GetComponent<EnemyBehaviour>().getMaxFear())
+            {
+                Destroy(Other.gameObject);
+            }
+        }
+
+    }
 }

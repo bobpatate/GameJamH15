@@ -3,12 +3,12 @@ using System.Collections;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public Vector3 targetPoint = new Vector3(20, 20, 20); //Determine it through an empty GameObject corresponding to the exit of the map
-    float fear = 0.0f;
-    float maxFear = 100.0f;
-
+    private float fear = 0.0f;
+    private float maxFear = 100.0f;
     private NavMeshAgent agent;
 
+    public Vector3 targetPoint = new Vector3(20, 20, 20); //Determine it through an empty GameObject corresponding to the exit of the map
+ 
     // Use this for initialization
     void Start()
     {
@@ -48,8 +48,9 @@ public class EnemyBehaviour : MonoBehaviour
     private void launchHorrifiedAnimation()
     {
 		GameMaster.instance.killedEnemy();
-		Destroy(gameObject); //TODO
+        int nbOfSpawn = GameMaster.instance.spawnPoints.Length;
+        int spawn = Random.Range(0, nbOfSpawn);//The enemy will run randomly to a spawn point
+        GameObject spawnPoint = GameMaster.instance.spawnPoints[spawn];
+        targetPoint = spawnPoint.transform.position;
     }
-
-
 }
