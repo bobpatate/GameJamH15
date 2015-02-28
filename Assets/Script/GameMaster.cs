@@ -20,6 +20,16 @@ public class GameMaster : MonoBehaviour {
 
 	public int currentLevel = 0;
 
+    //TODO Take care of the following var please, my GameMaster :3
+    bool round_is_success = true; 
+    float nb_enemy_scared = 0;
+    float nb_enemy_tot = 0;
+    float xp_won = 0;
+    float life_left = 3;
+
+
+
+
 	[SerializeField] private int enemiesToSpawn = 10;
 	private int enemiesLeftToSpawn;
 
@@ -55,4 +65,29 @@ public class GameMaster : MonoBehaviour {
 		enemiesLeftToSpawn --;
 		//
 	}
+
+    public bool isRoundSuccess()
+    {
+        return round_is_success;
+    }
+
+    public float getNbEnemyScared()
+    {
+        return nb_enemy_scared;
+    }
+
+    public float getNbTotEnemy()
+    {
+        return nb_enemy_tot;
+    }
+
+    public float getNbXPWon()
+    {
+        return xp_won;
+    }
+
+    public float getLifeLeft()
+    {
+        return life_left;
+    }
 }

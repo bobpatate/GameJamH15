@@ -48,6 +48,21 @@ public class CharacterStats : MonoBehaviour
         return enhancement_and_reload_speed;
     }
 
+    public float getStatMovementSpeed()
+    {
+        return movement_speed_stat;
+    }
+
+    public float getStatBuildingSpeed()
+    {
+        return building_speed_stat;
+    }
+
+    public float getStatEnhancementAndReloadSpeed()
+    {
+        return enhancement_and_reload_speed_stat;
+    }
+
 
 
 }

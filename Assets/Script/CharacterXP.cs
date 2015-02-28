@@ -18,12 +18,27 @@ public class CharacterXP : MonoBehaviour
 
     private void levelUpWhilePossible()
     {
-        while (current_xp >= (int) (base_xp_to_up * Mathf.Pow(1.1f, current_level)))
+        while (current_xp >= getXPNeedToUp())
         {
+            current_xp -= getXPNeedToUp();
             ++current_level;
-            current_xp -= (int)(base_xp_to_up * Mathf.Pow(1.1f, current_level));
             stat_points_to_spend += stat_points_per_up;
         }
+    }
+
+    public float getCurrentLevel()
+    {
+        return current_level;
+    }
+
+    public float getCurrentXP()
+    {
+        return current_xp;
+    }
+
+    public float getXPNeedToUp()
+    {
+        return (int)(base_xp_to_up * Mathf.Pow(1.5f, current_level - 1));
     }
 
     public float getStatPointsToSpend()
