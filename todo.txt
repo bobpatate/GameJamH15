@@ -13,7 +13,7 @@
 	End Game Screen
 		Stats attribution
 1-Map - Gab
-1-Enemies
+1-Enemies - Yohann
 	Fear
 	Pathfinding
 	Sprite
