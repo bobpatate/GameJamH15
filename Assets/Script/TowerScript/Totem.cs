@@ -37,19 +37,11 @@ public class Totem : Towers {
         next_attack_time = Time.time + reload_time;
     }
 
-    public override bool upgrade()
+    public override void upgrade()
     {
-        if (level < maxLevel)
-        {
-            ++level;
-            float ratio = (level - 1) / (maxLevel - 1);
-            sc.radius = base_radius + (max_radius - base_radius) * ratio;
-            reload_time = base_reload_time + (min_reload_time - base_reload_time) * ratio;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        ++level;
+        float ratio = (level - 1) / (maxLevel - 1);
+        sc.radius = base_radius + (max_radius - base_radius) * ratio;
+        reload_time = base_reload_time + (min_reload_time - base_reload_time) * ratio;
     }
 }
