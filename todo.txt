@@ -2,6 +2,8 @@
 	Buidling
 	Enhancement
 	Reload
+	Sprite
+	Animation
 1-Character stats
 	Movement speed
 	Building speed
@@ -14,6 +16,8 @@
 1-Enemies
 	Fear
 	Pathfinding
+	Sprite
+	Animations
 2-Gameplay phases
 2-Victory condition
 	Win Screen
@@ -23,6 +27,8 @@
 	Ball Launcher
 	Totem
 	Death Portal
+	Sprite
+	Animations
 3-Tower radius upgrade
 3-Level progression
 3-UI
