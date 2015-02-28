@@ -72,7 +72,7 @@ public class GameMaster : MonoBehaviour {
 		roundTotalTime = Mathf.RoundToInt(Time.time);
 
 		//In game. Spawn enemies
-		if(enemiesLeftToSpawn > 0){
+		if(enemiesLeftToSpawn <= enemyTotal){
 			if((roundTotalTime + spawnRandomizer) % enemySpawnDelay == 0){
 				if(canSpawn){
 					spawnRandomizer = Random.Range(0,1);
@@ -103,7 +103,9 @@ public class GameMaster : MonoBehaviour {
 
 		roundTotalTime = 0;
 
-		enemyTotal += Mathf.RoundToInt(enemyTotal * 1.2f);
+		if(currentLevel != 0)
+			enemyTotal += Mathf.RoundToInt(enemyTotal * 1.2f);
+		Debug.Log ("total: " + enemyTotal);
 		enemiesLeftToSpawn = enemyTotal;
 		enemiesLeft = enemyTotal;
 
@@ -121,12 +123,12 @@ public class GameMaster : MonoBehaviour {
 
 	//Spawn enemy at random spawn point
 	private void SpawnEnemy(){
-		Debug.Log("spawn");
 		int selected = Random.Range(0, spawnPoints.Length);
 		spawnPoints[selected].GetComponent<SpawnPoint>().spawn();
 
 		enemiesInGame ++;
 		enemiesLeftToSpawn --;
+		Debug.Log("Left: "+enemiesLeftToSpawn);
 	}
 
 	//Enemy got through
