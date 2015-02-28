@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	
 	public Vector2 speed = new Vector2(1,0);
-	GameObject tower;
+	GameObject tower = null;
 	bool showConstructionUI;
 	private bool axisInUse;
 	public GameObject mGui;
@@ -25,11 +25,15 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetButtonDown("Fire1")) {
 			Debug.Log("Button A");
-			float dist = Mathf.Sqrt(Mathf.Pow(tower.transform.position.x - transform.position.x, 2) + Mathf.Pow(tower.transform.position.z - transform.position.z, 2));
-			if(dist > 2){
-				//On construit
+			if(tower != null){
+				float dist = Mathf.Sqrt(Mathf.Pow(tower.transform.position.x - transform.position.x, 2) + Mathf.Pow(tower.transform.position.z - transform.position.z, 2));
+				if(dist < 2){
+					//On construit
+				}else{
+					//On construit pas
+				}
 			}else{
-				//On construit pas
+				//On construit
 			}
 		}
 		if (Input.GetButtonDown ("Fire2")) {
@@ -54,6 +58,13 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (Input.GetAxisRaw ("RTrigger") == 0 && Input.GetAxisRaw ("LTrigger") == 0) {
 			axisInUse = false;
+		}
+
+		if (Input.GetAxis("HDPad") < 0) {
+			//appel d'une fonction pour décrémenter
+		}
+		if (Input.GetAxis("HDPad") > 0) {
+			//appel d'une fonction pour incrémenter
 		}
 	}
 
