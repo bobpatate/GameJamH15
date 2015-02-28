@@ -17,7 +17,7 @@ public class TowerCollision : MonoBehaviour {
 	{
 		Debug.Log (other.gameObject.tag);
 		if (other.gameObject.tag == "Enemy") {
-			//transform.parent.GetComponent<TowerScript>().setTarget(other.gameObject.transform);
+			transform.parent.GetComponent<TowerScript>().setTarget(other.gameObject.transform);
 		}
 		if (other.gameObject.tag.Equals("Player")) {
 			other.gameObject.GetComponent<PlayerController>().getTriggerInfo(gameObject);
@@ -28,7 +28,7 @@ public class TowerCollision : MonoBehaviour {
 	{
 		if (other.gameObject.transform == transform.parent.GetComponent<TowerScript>().getTarget())
 		{
-			//transform.parent.GetComponent<TowerScript>().setTarget(null);
+			transform.parent.GetComponent<TowerScript>().setTarget(null);
 		}
 		if (other.gameObject.tag == "Player") {
 			other.gameObject.GetComponent<PlayerController>().getTriggerInfo(null);
