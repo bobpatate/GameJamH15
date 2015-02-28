@@ -22,9 +22,13 @@ public class PlayerController : MonoBehaviour {
 		float inputZ = Input.GetAxis("Vertical");
 		
 		Vector3 movement = new Vector3(speed.x*inputX, 0, speed.y*inputZ);
-		
-		movement *= Time.deltaTime;
+
+        movement *= Time.deltaTime;
 		transform.Translate(movement);
+
+        Quaternion rot = new Quaternion();
+        rot.SetLookRotation(movement.normalized);
+        transform.GetChild(0).rotation = rot;
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -51,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log("Button X");
 		}
 
-		if (Input.GetAxisRaw ("LTrigger") != 0) {
+		if (Input.GetAxisRaw ("LTrigger") != 0 || Input.GetKeyDown(KeyCode.Q)) {
 			if(!axisInUse)
             {
                 if(towerInUse == 0)
@@ -67,7 +71,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetAxisRaw ("RTrigger") != 0) {
+		if (Input.GetAxisRaw ("RTrigger") != 0 || Input.GetKeyDown(KeyCode.E)) {
 			if(!axisInUse)
             {
                 if (towerInUse == 2)
