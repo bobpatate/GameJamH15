@@ -38,9 +38,9 @@ public class PlayerController : MonoBehaviour {
 				axisInUse = true;
 			}
 		}
-		if (Input.GetAxisRaw ("LTrigger") == 0) {
+		/*if (Input.GetAxisRaw ("LTrigger") == 0) {
 			axisInUse = false;
-		}
+		}*/
 
 		if (Input.GetAxisRaw ("RTrigger") != 0) {
 			if(!axisInUse){
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour {
 				axisInUse = true;
 			}
 		}
-		if (Input.GetAxisRaw ("RTrigger") == 0) {
+		if (Input.GetAxisRaw ("RTrigger") == 0 && Input.GetAxisRaw ("LTrigger") == 0) {
 			axisInUse = false;
 		}
 	}
