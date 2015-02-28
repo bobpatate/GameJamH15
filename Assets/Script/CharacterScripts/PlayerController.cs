@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (Input.GetButtonDown ("Fire2")) {
 			Debug.Log("Button B");
+			tower.GetComponent<Towers>().reload();
 		}
 		if (Input.GetButtonDown ("Fire3")) {
 			Debug.Log("Button X");
