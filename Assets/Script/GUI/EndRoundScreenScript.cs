@@ -19,19 +19,25 @@ public class EndRoundScreenScript : MonoBehaviour
     readonly string NEXT_ROUND_OK = "Start next round";
     readonly string NEXT_ROUND_FAIL = "Try again";
 
+	private GameMaster gm;
+	private GameObject player;
+	private CharacterXP playerXP;
+	private CharacterStats playerStats;
+
     // Use this for initialization
     void Start()
     {
         //Display();
         Hide();
+
+		gm = GameMaster.instance;
+		player = GameObject.Find("Player");
+		playerXP = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterXP>();
+		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
     }
 
     public void Display()
     {
-        GameMaster gm = GameMaster.instance;
-        CharacterXP playerXP = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterXP>();
-        CharacterStats playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
-
 		foreach (Transform child in transform)
         {
             switch (child.name)
@@ -85,14 +91,13 @@ public class EndRoundScreenScript : MonoBehaviour
                     break;
             }
         }
-        GameObject.FindWithTag("Player").gameObject.SetActive(false);
+    	
         transform.parent.GetChild(0).gameObject.SetActive(false);
         gameObject.SetActive(true);
     }
 
     public void Hide()
     {
-        GameObject.FindWithTag("Player").gameObject.SetActive(true);
         transform.parent.GetChild(0).gameObject.SetActive(true);
         gameObject.SetActive(false);
     }

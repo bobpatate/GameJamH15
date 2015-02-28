@@ -24,12 +24,24 @@ public class TowerScript : MonoBehaviour {
         } 		
 	}
 
-    void OnTriggerEnter( Collider other)
+	public void setTarget(Transform t){
+		target = t;
+	}
+
+	public Transform getTarget(){
+		return target;
+	}
+
+    /*void OnTriggerEnter( Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-            target = other.gameObject.transform;
-        }
+		Debug.Log (other.gameObject.tag);
+        if (other.gameObject.tag == "Enemy") {
+			target = other.gameObject.transform;
+		}
+		if (other.gameObject.tag.Equals("Player")) {
+			Debug.Log("player");
+			other.gameObject.GetComponent<PlayerController>().getTriggerInfo(gameObject);
+		}
     }
 
     void OnTriggerExit(Collider other)
@@ -37,6 +49,10 @@ public class TowerScript : MonoBehaviour {
         if (other.gameObject.transform == target)
         {
             target = null;
-        }
-    }
+		}
+		if (other.gameObject.tag == "Player") {
+			Debug.Log("plus de player");
+			other.gameObject.GetComponent<PlayerController>().getTriggerInfo(null);
+		}
+    }*/
 }
