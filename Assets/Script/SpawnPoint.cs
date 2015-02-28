@@ -3,7 +3,9 @@ using System.Collections;
 
 public class SpawnPoint : MonoBehaviour {
 
-	public GameObject enemyPrefab;
+    private int spawnRandomizer = 0;
+
+    public GameObject[] enemyToSpawn;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +18,8 @@ public class SpawnPoint : MonoBehaviour {
 	}
 
 	public void spawn(){
-		Instantiate(enemyPrefab, transform.position, transform.rotation);
+        spawnRandomizer = Random.Range(0, enemyToSpawn.Length);
+        Instantiate(enemyToSpawn[spawnRandomizer], transform.position, transform.rotation);
 	}
 
     void OnTriggerEnter(Collider Other)

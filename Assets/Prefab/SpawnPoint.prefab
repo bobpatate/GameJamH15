@@ -111,7 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b5a11ea43cab44393cefd4a40a2f64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 105392, guid: dcdf90aab059b674f82c1ff74ce5409f, type: 2}
+  enemyToSpawn:
+  - {fileID: 105392, guid: dcdf90aab059b674f82c1ff74ce5409f, type: 2}
+  - {fileID: 177938, guid: ab8154919789ee542889738ebcb63155, type: 2}
 --- !u!198 &19827370
 ParticleSystem:
   m_ObjectHideFlags: 1

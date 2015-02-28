@@ -17,42 +17,41 @@ public class GameMaster : MonoBehaviour {
 			return _instance;
 		}
 	}
-	
-	
+
+
 	public int currentLevel = 0;
 	[SerializeField] private float enemySpawnDelay = 5.0f;
 	[SerializeField] private int enemyTotal = 10;
 	[SerializeField] private float percentageToKill = 0.5f;
-	
+
 	internal int enemiesToKillToWin; //percentageToKill*enemyTotal
-	
+
 	public GameObject[] spawnPoints;
-	
+
 	public GameObject guiGO;
 	public GameObject endGameMenuGO;
 	private ConstructionGUI gui;
 	private EndRoundScreenScript endGameMenu;
-	
+
 	[SerializeField] private int dayTimer = 30; //seconds to place towers during day
 	internal float dayCountDown ; //time left to day. to display
 	private string currentGamePhase = "Day"; //or "Night"
 	private float roundTotalTime = 0;
 	private float startTime = 0;
-	
+
 	private bool canSpawn = true;
-	private int spawnRandomizer = 0; //doesn't really work ATM
-	
+
 	private int enemiesSpawned = 0; //number of enemies already spawned
 	private int enemiesLeft; //number of enemies that are in game or not yet spawned
 	private int enemiesInGame = 0; //number of enemies in game
 	private bool round_is_success = false; 
-	private int nb_enemy_scared = 0;
-	private float xp_won = 0;
-	private float life_left = 3;
-	
+    private int nb_enemy_scared = 0;
+    private float xp_won = 0;
+    private float life_left = 3;
+
 	private GameObject playerRef;
 	private GameObject light;
-	
+
 	void Awake(){
 		if(_instance == null){
 			_instance = this;
@@ -63,34 +62,34 @@ public class GameMaster : MonoBehaviour {
 				Destroy(this.gameObject);
 		}
 	}
-	
+
 	void Start(){
 		Random.seed = (int)System.DateTime.Now.Ticks;
-		
+
 		playerRef = GameObject.Find("Player");
 		light = GameObject.Find("Sun/Moon");
-		
+
 		Time.timeScale = 1; //unpause game
 		playerRef.SetActive(true);
-		
+
 		startTime = Time.time;
 		dayCountDown = dayTimer;
-		
+
 		enemiesLeft = enemyTotal;
-		
+
 		gui = guiGO.GetComponent<ConstructionGUI>();
 		endGameMenu = endGameMenuGO.GetComponent<EndRoundScreenScript>();
 	}
-	
-	
+
+
 	void Update(){
 		roundTotalTime = Time.time - startTime;
-		
+
 		//Lighting change 5 seconds before nighttime
 		if((int)roundTotalTime == (int)(dayTimer-5)){ 
 			light.GetComponent<SunMoon>().StartNight();
 		}
-		
+
 		//Set game phase
 		if(roundTotalTime < dayTimer){
 			currentGamePhase = "Day";
@@ -102,7 +101,7 @@ public class GameMaster : MonoBehaviour {
 			}
 			currentGamePhase = "Night";
 		}
-		
+
 		//Endgame
 		if(enemiesLeft <= 0){
 			if(nb_enemy_scared >= enemiesToKillToWin){
@@ -118,52 +117,39 @@ public class GameMaster : MonoBehaviour {
 			EndLevel();
 		}
 	}
-	
-	public void StartNextLevel(){
-		currentLevel++;
-		StartLevel(currentLevel);
-	}
-	
+
 	//Initialize number of enemies to spawn
 	private void StartLevel(int currentLevel){
 		Time.timeScale = 1; //unpause game
-		//playerRef.SetActive(true);
-		playerRef.transform.GetChild(0).renderer.enabled = true;
-		playerRef.GetComponent<PlayerController> ().enabled = true;
-		
+		playerRef.SetActive(true);
+
 		roundTotalTime = 0;
-		
+
 		InvokeRepeating("SpawnEnemy", 0, enemySpawnDelay);
-		
+
 		if(currentLevel != 0)
 			enemyTotal += Mathf.RoundToInt(enemyTotal * 0.8f);
 		enemiesLeft = enemyTotal;
-		
+
 		enemiesToKillToWin = (int)(percentageToKill*enemyTotal);
-		
+
 		enemySpawnDelay -= currentLevel*0.4f;
 	}
-	
+
 	//Show endgame, pause game
 	private void EndLevel(){
-			Time.timeScale = 0; //pause game
-		//playerRef.SetActive(false);
-		playerRef.transform.GetChild(0).renderer.enabled = false;
-		playerRef.GetComponent<PlayerController> ().enabled = false;
-			/*Time.timeScale = 0; //pause game
+		Time.timeScale = 0; //pause game
 		playerRef.SetActive(false);
->>>>>>> origin/master
 
-		endGameMenu.Display();*/
+		endGameMenu.Display();
 	}
-	
+
 	//Spawn enemy at random spawn point
 	private void SpawnEnemy(){
-		if(enemiesSpawned < enemyTotal){
-			spawnRandomizer = Random.Range(0,1);
-			
+		if(enemiesSpawned < enemyTotal)
+        {
 			int selected = Random.Range(0, spawnPoints.Length);
-			spawnPoints[selected].GetComponent<SpawnPoint>().spawn();
+            spawnPoints[selected].GetComponent<SpawnPoint>().spawn();
 			
 			enemiesInGame ++;
 			enemiesSpawned ++;
@@ -172,46 +158,46 @@ public class GameMaster : MonoBehaviour {
 			CancelInvoke();
 		}
 	}
-	
+
 	//Enemy got through
 	public void safeEnemy(){
 		enemiesInGame --;
 		enemiesLeft --;
 	}
-	
+
 	//Scared an enemy successfully
 	public void killedEnemy(){
 		enemiesInGame --;
 		enemiesLeft --;
 		nb_enemy_scared ++;
-		
+
 		xp_won += 1;
 		playerRef.GetComponent<CharacterXP>().addXP(1);
 	}
-	
-	
-	public bool isRoundSuccess()
-	{
-		return round_is_success;
-	}
-	
-	public int getNbEnemyScared()
-	{
-		return nb_enemy_scared;
-	}
-	
-	public int getNbTotEnemy()
-	{
+
+
+    public bool isRoundSuccess()
+    {
+        return round_is_success;
+    }
+
+    public int getNbEnemyScared()
+    {
+        return nb_enemy_scared;
+    }
+
+    public int getNbTotEnemy()
+    {
 		return enemyTotal;
 	}
 	
 	public float getNbXPWon()
-	{
-		return xp_won;
-	}
-	
-	public float getLifeLeft()
-	{
-		return life_left;
-	}
+    {
+        return xp_won;
+    }
+
+    public float getLifeLeft()
+    {
+        return life_left;
+    }
 }
