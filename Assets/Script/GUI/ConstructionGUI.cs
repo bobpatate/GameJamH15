@@ -20,15 +20,17 @@ public class ConstructionGUI : MonoBehaviour {
 	
 	}
 
-	public void changeGUI(int side){
-		if(currentPos + side > -1 && currentPos + side < 3){
-			currentPos += side;
-			for (int i = 0; i < 3; i++) {
-				if(currentPos == i)
-					transform.GetChild (0).GetChild(i).GetComponent<Image>().sprite = selected[i];
-				else
-					transform.GetChild (0).GetChild(i).GetComponent<Image>().sprite = normal[i];
-			}
-		}
+	public void changeGUI(int towerInUse){
+        for (int i = 0; i < 3; i++)
+        {
+            if (i == towerInUse)
+            {
+                transform.GetChild(0).GetChild(i).GetComponent<Image>().sprite = selected[i];
+            }
+            else
+            {
+                transform.GetChild(0).GetChild(i).GetComponent<Image>().sprite = normal[i];
+            }
+        }
 	}
 }

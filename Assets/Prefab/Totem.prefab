@@ -13,9 +13,9 @@ GameObject:
   - 23: {fileID: 2367542}
   - 135: {fileID: 13567542}
   - 114: {fileID: 11467542}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Totem
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b4856a8c8febd4e83fce2e0f336c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTime: 60
+  reloadTime: .5
   damage: 10
 --- !u!135 &13567542
 SphereCollider:
@@ -94,7 +94,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:

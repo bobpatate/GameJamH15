@@ -101,6 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 2, y: 2}
   mGui: {fileID: 0}
+  spawnableTowers:
+  - {fileID: 167542, guid: f6f1b732cc8491a4c9cf4590176067a4, type: 2}
+  - {fileID: 170220, guid: 95084d54e66c92841ba583fa86d60cb8, type: 2}
+  - {fileID: 166824, guid: 546e5840639136243b63fd02525c753b, type: 2}
 --- !u!114 &11492958
 MonoBehaviour:
   m_ObjectHideFlags: 1

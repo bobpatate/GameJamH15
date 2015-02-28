@@ -3,11 +3,14 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	
-	public Vector2 speed = new Vector2(1,0);
 	GameObject tower = null;
 	bool showConstructionUI;
 	private bool axisInUse;
-	public GameObject mGui;
+    private ushort towerInUse = 0;
+
+    public Vector2 speed = new Vector2(1, 0);
+    public GameObject mGui;
+    public GameObject[] spawnableTowers;
 	
 	void Start(){
 		showConstructionUI = false;
@@ -23,17 +26,20 @@ public class PlayerController : MonoBehaviour {
 		movement *= Time.deltaTime;
 		transform.Translate(movement);
 
-		if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1"))
+        {
 			Debug.Log("Button A");
 			if(tower != null){
 				float dist = Mathf.Sqrt(Mathf.Pow(tower.transform.position.x - transform.position.x, 2) + Mathf.Pow(tower.transform.position.z - transform.position.z, 2));
 				if(dist < 2){
 					//On construit
+                    GameObject t = (GameObject)Instantiate(spawnableTowers[towerInUse], transform.position, spawnableTowers[towerInUse].transform.rotation);
 				}else{
 					//On construit pas
 				}
 			}else{
 				//On construit
+                GameObject t = (GameObject)Instantiate(spawnableTowers[towerInUse], transform.position, spawnableTowers[towerInUse].transform.rotation);
 			}
 		}
 		if (Input.GetButtonDown ("Fire2")) {
@@ -44,18 +50,37 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetAxisRaw ("LTrigger") != 0) {
-			if(!axisInUse){
-				mGui.GetComponent<ConstructionGUI>().changeGUI(-1);
+			if(!axisInUse)
+            {
+                if(towerInUse == 0)
+                {
+                    towerInUse = 2;
+                }
+                else
+                {
+                    towerInUse--;
+                }
+				mGui.GetComponent<ConstructionGUI>().changeGUI(towerInUse);
 				axisInUse = true;
 			}
 		}
 
 		if (Input.GetAxisRaw ("RTrigger") != 0) {
-			if(!axisInUse){
-				mGui.GetComponent<ConstructionGUI>().changeGUI(1);
+			if(!axisInUse)
+            {
+                if (towerInUse == 2)
+                {
+                    towerInUse = 0;
+                }
+                else
+                {
+                    towerInUse++;
+                }
+				mGui.GetComponent<ConstructionGUI>().changeGUI(towerInUse);
 				axisInUse = true;
 			}
 		}
+
 		if (Input.GetAxisRaw ("RTrigger") == 0 && Input.GetAxisRaw ("LTrigger") == 0) {
 			axisInUse = false;
 		}
@@ -69,8 +94,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		tower = other.gameObject;
-		showConstructionUI = true;
+        if(other.tag == "tower")
+        {
+            tower = other.gameObject;
+            showConstructionUI = true;
+        }
 	}
 
 	void OnTriggerExit(Collider other){
