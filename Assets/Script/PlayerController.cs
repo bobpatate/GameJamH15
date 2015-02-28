@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	GameObject tower;
 	bool showConstructionUI;
 	private bool axisInUse;
+	public GameObject mGui;
 	
 	void Start(){
 		showConstructionUI = false;
@@ -35,16 +36,15 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetAxisRaw ("LTrigger") != 0) {
 			if(!axisInUse){
 				Debug.Log("Trigger Left");
+				mGui.GetComponent<ConstructionGUI>().changeGUI(-1);
 				axisInUse = true;
 			}
 		}
-		/*if (Input.GetAxisRaw ("LTrigger") == 0) {
-			axisInUse = false;
-		}*/
 
 		if (Input.GetAxisRaw ("RTrigger") != 0) {
 			if(!axisInUse){
 				Debug.Log("Trigger Right");
+				mGui.GetComponent<ConstructionGUI>().changeGUI(1);
 				axisInUse = true;
 			}
 		}
