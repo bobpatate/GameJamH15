@@ -69,30 +69,18 @@ public class GameMaster : MonoBehaviour {
 
 
 	void Update(){
-		roundTotalTime = Mathf.RoundToInt(Time.time);
-
-		//In game. Spawn enemies
-		if(enemiesSpawned < enemyTotal){
-			if((roundTotalTime + spawnRandomizer) % enemySpawnDelay == 0){
-				if(canSpawn){
-					spawnRandomizer = Random.Range(0,1);
-					SpawnEnemy();
-					canSpawn = false;
-				}
-			}
-			else{
-				canSpawn = true;
-			}
-		}
 		//Endgame
-		else if(enemiesLeft == 0){
+		if(enemiesLeft <= 0){
 			if(nb_enemy_scared >= enemiesToKillToWin){
 				round_is_success = true;
 			}
 			else{
 				round_is_success = false;
 			}
-
+			
+			enemiesInGame ++;
+			enemiesSpawned ++;
+			
 			EndLevel();
 		}
 	}
@@ -100,6 +88,8 @@ public class GameMaster : MonoBehaviour {
 	//Initialize number of enemies to spawn
 	private void StartLevel(int currentLevel){
 		Time.timeScale = 1; //unpause game
+
+		InvokeRepeating("SpawnEnemy", 0, enemySpawnDelay);
 
 		roundTotalTime = 0;
 
@@ -109,30 +99,37 @@ public class GameMaster : MonoBehaviour {
 
 		enemiesToKillToWin = (int)(percentageToKill*enemyTotal);
 
-		enemySpawnDelay -= currentLevel;
+		enemySpawnDelay -= currentLevel*0.4f;
 	}
 
 	//Show endgame, pause game
 	private void EndLevel(){
 		Time.timeScale = 0; //pause game
-		
+
 		endGameMenu.Display();
 	}
 
 	//Spawn enemy at random spawn point
 	private void SpawnEnemy(){
-		int selected = Random.Range(0, spawnPoints.Length);
-		spawnPoints[selected].GetComponent<SpawnPoint>().spawn();
+		//In game. Spawn enemies
+		if(enemiesSpawned < enemyTotal){
+			spawnRandomizer = Random.Range(0,1);
 
-		enemiesInGame ++;
-		enemiesSpawned ++;
+			int selected = Random.Range(0, spawnPoints.Length);
+			spawnPoints[selected].GetComponent<SpawnPoint>().spawn();
+			
+			enemiesInGame ++;
+			enemiesSpawned ++;
+		}
+		else{
+			CancelInvoke();
+		}
 	}
 
 	//Enemy got through
 	public void safeEnemy(){
 		enemiesInGame --;
 		enemiesLeft --;
-		Debug.Log(enemiesLeft);
 	}
 
 	//Scared an enemy successfully
@@ -140,9 +137,8 @@ public class GameMaster : MonoBehaviour {
 		enemiesInGame --;
 		enemiesLeft --;
 		nb_enemy_scared ++;
-		Debug.Log(enemiesLeft);
 
-		xp_won += 10;
+		xp_won += 1;
 	}
 
 
