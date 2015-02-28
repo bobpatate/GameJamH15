@@ -90,13 +90,6 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetAxisRaw ("RTrigger") == 0 && Input.GetAxisRaw ("LTrigger") == 0) {
 			axisInUse = false;
 		}
-
-		if (Input.GetAxis("HDPad") < 0) {
-			//appel d'une fonction pour décrémenter
-		}
-		if (Input.GetAxis("HDPad") > 0) {
-			//appel d'une fonction pour incrémenter
-		}
 	}
 
 	public void getTriggerInfo(GameObject tow){

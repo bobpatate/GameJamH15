@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class EndGameMenu : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class EndGameMenu : MonoBehaviour {
 	void Start () {
 		currentPos = 0;
 		currentPosSubMenu = 0;
+		changeSprite ();
 	}
 	
 	// Update is called once per frame
@@ -20,13 +22,21 @@ public class EndGameMenu : MonoBehaviour {
 	
 	}
 
-	void changePos(int side){
+	public int getCurPos(){
+		return currentPos;
+	}
+
+	public bool isInSubMenu(){
+		return inSubMenu;
+	}
+
+	public void changePos(int side){
 		if (inSubMenu) {
-			currentPosSubMenu += side;
-			if(currentPosSubMenu > 2)
-				currentPosSubMenu = 0;
-			else if(currentPosSubMenu < 0)
-				currentPosSubMenu = 2;
+			currentPos += side;
+			if(currentPos > 2)
+				currentPos = 0;
+			else if(currentPos < 0)
+				currentPos = 2;
 		} else {
 			currentPos += side;
 			if(currentPos > 1)
@@ -34,16 +44,48 @@ public class EndGameMenu : MonoBehaviour {
 			else if(currentPos < 0)
 				currentPos = 1;
 		}
+		changeSprite ();
 	}
 
-	void changeMenu(){
-		if (inSubMenu)
-			inSubMenu = true;
-		else
+	public void changeMenu(){
+		if (inSubMenu) {
 			inSubMenu = false;
+			currentPos = 0;
+		} else {
+			inSubMenu = true;
+			currentPos = 0;
+		}
+		changeSprite ();
 	}
 
 	void changeSprite(){
-		//changement des sprites, à faire quand on change les boutons pour des images
+		foreach (Transform child in transform) {
+			if(child.name.Equals("upStats")){
+				if(!inSubMenu && currentPos == 0)
+					child.GetComponent<Image>().color = Color.red;
+				else
+					child.GetComponent<Image>().color = Color.white;
+			}else if(child.name.Equals("nextRound")){
+				if(!inSubMenu && currentPos == 1)
+					child.GetComponent<Image>().color = Color.red;
+				else
+					child.GetComponent<Image>().color = Color.white;
+			}else if(child.name.Equals("mSpeed")){
+				if(inSubMenu && currentPos == 0)
+					child.GetComponent<Image>().color = Color.red;
+				else
+					child.GetComponent<Image>().color = Color.white;
+			}else if(child.name.Equals("bSpeed")){
+				if(inSubMenu && currentPos == 1)
+					child.GetComponent<Image>().color = Color.red;
+				else
+					child.GetComponent<Image>().color = Color.white;
+			}else if(child.name.Equals("eAndRSpeed")){
+				if(inSubMenu && currentPos == 2)
+					child.GetComponent<Image>().color = Color.red;
+				else
+					child.GetComponent<Image>().color = Color.white;
+			}
+		}
 	}
 }
