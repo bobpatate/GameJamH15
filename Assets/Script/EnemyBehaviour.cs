@@ -12,7 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        agent = new NavMeshAgent();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
