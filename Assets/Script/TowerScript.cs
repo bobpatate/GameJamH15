@@ -15,6 +15,6 @@ public class TowerScript : MonoBehaviour {
 
     void OnTriggerEnter( Collider other)
     {
-
+        
     }
 }

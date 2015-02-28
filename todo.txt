@@ -4,18 +4,18 @@
 	Reload
 	Sprite
 	Animation
-1-Character stats - Yohann
+1-Character stats - Yohann -> Done
 	Movement speed
 	Building speed
 	Enhancement/reload speed
-2-Levelling - Yohann
-	XP
+2-Levelling
+	XP - Yohann -> Done
 	End Game Screen
 		Stats attribution
 1-Map - Gab
 1-Enemies
-	Fear
-	Pathfinding
+	Fear - Yohann
+	Pathfinding - Yohann
 	Sprite
 	Animations
 2-Gameplay phases
