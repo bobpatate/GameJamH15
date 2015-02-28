@@ -22,6 +22,7 @@ public class EndRoundScreenScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //Display();
         Hide();
     }
 
@@ -83,12 +84,14 @@ public class EndRoundScreenScript : MonoBehaviour
                     break;
             }
         }
+        GameObject.FindWithTag("Player").gameObject.SetActive(false);
         transform.parent.GetChild(0).gameObject.SetActive(false);
         gameObject.SetActive(true);
     }
 
     public void Hide()
     {
+        GameObject.FindWithTag("Player").gameObject.SetActive(true);
         transform.parent.GetChild(0).gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
