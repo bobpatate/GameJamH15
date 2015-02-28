@@ -26,6 +26,10 @@ public class CharacterXP : MonoBehaviour
         }
     }
 
+	public void reducePointsToSpent(){
+		stat_points_to_spend -= 1;
+	}
+
     public float getCurrentLevel()
     {
         return current_level;
