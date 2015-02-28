@@ -25,9 +25,9 @@ public class ConstructionGUI : MonoBehaviour {
 			currentPos += side;
 			for (int i = 0; i < 3; i++) {
 				if(currentPos == i)
-					transform.GetChild(i).GetComponent<Image>().sprite = selected[i];
+					transform.GetChild (0).GetChild(i).GetComponent<Image>().sprite = selected[i];
 				else
-					transform.GetChild(i).GetComponent<Image>().sprite = normal[i];
+					transform.GetChild (0).GetChild(i).GetComponent<Image>().sprite = normal[i];
 			}
 		}
 	}
