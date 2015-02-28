@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd41fd6b062f4764e8b6fc0b28dfda86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 2, y: 2}
+  speed: {x: 4, y: 4}
   mGui: {fileID: 0}
   spawnableTowers:
   - {fileID: 167542, guid: f6f1b732cc8491a4c9cf4590176067a4, type: 2}

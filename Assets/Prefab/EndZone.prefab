@@ -11,6 +11,7 @@ GameObject:
   - 65: {fileID: 6523544}
   - 23: {fileID: 2323544}
   - 33: {fileID: 3388356}
+  - 114: {fileID: 11402954}
   m_Layer: 0
   m_Name: EndZone
   m_TagString: Untagged
@@ -67,8 +68,19 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: .550000012}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11402954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce1ec72641f320469ac946849b01530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
