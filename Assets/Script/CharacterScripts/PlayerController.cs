@@ -34,14 +34,16 @@ public class PlayerController : MonoBehaviour {
         {
 			Debug.Log("Button A");
 			if(tower != null){
+				Debug.Log ("On entre");
 				float dist = Mathf.Sqrt(Mathf.Pow(tower.transform.position.x - transform.position.x, 2) + Mathf.Pow(tower.transform.position.z - transform.position.z, 2));
-				if(dist < 2){
+				if(dist > 5){
 					//On construit
                     GameObject t = (GameObject)Instantiate(spawnableTowers[towerInUse], transform.position, spawnableTowers[towerInUse].transform.rotation);
 				}else{
 					//On construit pas
 				}
 			}else{
+				Debug.Log ("On entre pas");
 				//On construit
                 GameObject t = (GameObject)Instantiate(spawnableTowers[towerInUse], transform.position, spawnableTowers[towerInUse].transform.rotation);
 			}
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log("Button X");
 		}
 
-		if (Input.GetAxisRaw ("LTrigger") != 0) {
+		if (Input.GetAxisRaw ("LTrigger") != 0 || Input.GetKeyDown(KeyCode.Q)) {
 			if(!axisInUse)
             {
                 if(towerInUse == 0)
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetAxisRaw ("RTrigger") != 0) {
+		if (Input.GetAxisRaw ("RTrigger") != 0 || Input.GetKeyDown(KeyCode.E)) {
 			if(!axisInUse)
             {
                 if (towerInUse == 2)
@@ -97,7 +99,11 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider other){
+	public void getTriggerInfo(GameObject tow){
+		tower = tow;
+	}
+
+	/*void OnTriggerEnter(Collider other){
         if(other.tag == "tower")
         {
             tower = other.gameObject;
@@ -108,5 +114,5 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerExit(Collider other){
 		tower = null;
 		showConstructionUI = false;
-	}
+	}*/
 }
