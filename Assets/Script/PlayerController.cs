@@ -6,9 +6,11 @@ public class PlayerController : MonoBehaviour {
 	public Vector2 speed = new Vector2(1,0);
 	GameObject tower;
 	bool showConstructionUI;
+	private bool axisInUse;
 	
 	void Start(){
 		showConstructionUI = false;
+		axisInUse = false;
 	}
 	
 	void Update () {
@@ -29,11 +31,25 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire3")) {
 			Debug.Log("Button X");
 		}
-		if (Input.GetButtonDown ("LBumper")) {
-			Debug.Log("Bumper Left");
+
+		if (Input.GetAxisRaw ("LTrigger") != 0) {
+			if(!axisInUse){
+				Debug.Log("Trigger Left");
+				axisInUse = true;
+			}
 		}
-		if (Input.GetButtonDown ("RBumper")) {
-			Debug.Log("Bumper Right");
+		if (Input.GetAxisRaw ("LTrigger") == 0) {
+			axisInUse = false;
+		}
+
+		if (Input.GetAxisRaw ("RTrigger") != 0) {
+			if(!axisInUse){
+				Debug.Log("Trigger Right");
+				axisInUse = true;
+			}
+		}
+		if (Input.GetAxisRaw ("RTrigger") == 0) {
+			axisInUse = false;
 		}
 	}
 
