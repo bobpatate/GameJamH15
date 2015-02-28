@@ -1,4 +1,4 @@
-1-Character controls - Gab
+1-Character controls - Jordan
 	Buidling
 	Enhancement
 	Reload
@@ -12,7 +12,7 @@
 	XP
 	End Game Screen
 		Stats attribution
-1-Map - Jordan
+1-Map - Gab
 1-Enemies
 	Fear
 	Pathfinding
