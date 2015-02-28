@@ -3914,6 +3914,14 @@ Prefab:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 155530, guid: e6d5edb4f3bb4f442891d06536fb0c7b, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 155530, guid: e6d5edb4f3bb4f442891d06536fb0c7b, type: 2}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6d5edb4f3bb4f442891d06536fb0c7b, type: 2}
   m_RootGameObject: {fileID: 1726667921}
@@ -6536,7 +6544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297dfa3d197d8194c915700702d16351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  currentLevel: 0
   enemySpawnDelay: 5
   enemyTotal: 10
   percentageToKill: 50
@@ -7482,8 +7490,8 @@ GameObject:
   m_Name: Tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1726667922
 Transform:

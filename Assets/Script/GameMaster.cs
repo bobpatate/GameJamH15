@@ -39,7 +39,7 @@ public class GameMaster : MonoBehaviour {
 	private bool canSpawn = true;
 	private int spawnRandomizer = 0; //doesn't really work ATM
 
-	private int enemiesLeftToSpawn; //number of enemies left to spawn
+	private int enemiesSpawned = 0; //number of enemies already spawned
 	private int enemiesLeft; //number of enemies that are in game or not yet spawned
 	private int enemiesInGame = 0; //number of enemies in game
 	private bool round_is_success = false; 
@@ -72,7 +72,7 @@ public class GameMaster : MonoBehaviour {
 		roundTotalTime = Mathf.RoundToInt(Time.time);
 
 		//In game. Spawn enemies
-		if(enemiesLeftToSpawn <= enemyTotal){
+		if(enemiesSpawned < enemyTotal){
 			if((roundTotalTime + spawnRandomizer) % enemySpawnDelay == 0){
 				if(canSpawn){
 					spawnRandomizer = Random.Range(0,1);
@@ -105,8 +105,6 @@ public class GameMaster : MonoBehaviour {
 
 		if(currentLevel != 0)
 			enemyTotal += Mathf.RoundToInt(enemyTotal * 1.2f);
-		Debug.Log ("total: " + enemyTotal);
-		enemiesLeftToSpawn = enemyTotal;
 		enemiesLeft = enemyTotal;
 
 		enemiesToKillToWin = (int)(percentageToKill*enemyTotal);
@@ -117,7 +115,7 @@ public class GameMaster : MonoBehaviour {
 	//Show endgame, pause game
 	private void EndLevel(){
 		Time.timeScale = 0; //pause game
-
+		
 		endGameMenu.Display();
 	}
 
@@ -127,14 +125,14 @@ public class GameMaster : MonoBehaviour {
 		spawnPoints[selected].GetComponent<SpawnPoint>().spawn();
 
 		enemiesInGame ++;
-		enemiesLeftToSpawn --;
-		Debug.Log("Left: "+enemiesLeftToSpawn);
+		enemiesSpawned ++;
 	}
 
 	//Enemy got through
 	public void safeEnemy(){
 		enemiesInGame --;
 		enemiesLeft --;
+		Debug.Log(enemiesLeft);
 	}
 
 	//Scared an enemy successfully
@@ -142,6 +140,7 @@ public class GameMaster : MonoBehaviour {
 		enemiesInGame --;
 		enemiesLeft --;
 		nb_enemy_scared ++;
+		Debug.Log(enemiesLeft);
 
 		xp_won += 10;
 	}

@@ -47,7 +47,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void launchHorrifiedAnimation()
     {
-        Destroy(gameObject); //TODO
+		GameMaster.instance.killedEnemy();
+		Destroy(gameObject); //TODO
     }
 
 
