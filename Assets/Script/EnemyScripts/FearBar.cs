@@ -9,6 +9,9 @@ public class FearBar : MonoBehaviour
     private float fear = 0.0f;
     private float maxFear = 0.0f;
 
+    public float width = 80;
+    public float height = 8;
+
     void Start()
     {
         //Initialisation
@@ -38,7 +41,7 @@ public class FearBar : MonoBehaviour
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);// gets screen position.
         screenPosition.y = Screen.height - (screenPosition.y + 1);// inverts y
 
-        Rect box = new Rect(screenPosition.x - 50, screenPosition.y - 20, 100, 15);
+        Rect box = new Rect(screenPosition.x - 50, screenPosition.y - 40, width, height);
 
         GUI.DrawTexture(new Rect(box.x, box.y, box.width, box.height), background, ScaleMode.StretchToFill);
         GUI.DrawTexture(new Rect(box.x, box.y, box.width * fear / maxFear, box.height), foreground, ScaleMode.StretchToFill);

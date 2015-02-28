@@ -139,10 +139,10 @@ public class GameMaster : MonoBehaviour {
 
 	//Show endgame, pause game
 	private void EndLevel(){
-		Time.timeScale = 0; //pause game
+		/*Time.timeScale = 0; //pause game
 		playerRef.SetActive(false);
 
-		endGameMenu.Display();
+		endGameMenu.Display();*/
 	}
 
 	//Spawn enemy at random spawn point
