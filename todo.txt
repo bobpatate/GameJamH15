@@ -1,18 +1,18 @@
-1-Character controls
+1-Character controls - Jordan
 	Buidling
 	Enhancement
 	Reload
 	Sprite
 	Animation
-1-Character stats
+1-Character stats - Yohann
 	Movement speed
 	Building speed
 	Enhancement/reload speed
-2-Levelling
+2-Levelling - Yohann
 	XP
 	End Game Screen
 		Stats attribution
-1-Map
+1-Map - Gab
 1-Enemies
 	Fear
 	Pathfinding
@@ -23,7 +23,7 @@
 	Win Screen
 2-Defeat Condition
 	Level Reset
-1-Towers
+1-Towers - Francis
 	Ball Launcher
 	Totem
 	Death Portal
