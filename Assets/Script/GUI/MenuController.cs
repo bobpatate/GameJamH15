@@ -4,10 +4,11 @@ using System.Collections;
 public class MenuController : MonoBehaviour {
 
 	private bool axis2InUse = false;
+	GameObject player;
 
 	// Use this for initialization
 	void Start () {
-	
+		player = GameObject.Find("Player");
 	}
 	
 	// Update is called once per frame
@@ -17,20 +18,30 @@ public class MenuController : MonoBehaviour {
 				if(transform.GetComponent<EndGameMenu>().getCurPos() == 0){
 					transform.GetComponent<EndGameMenu>().changeMenu();
 				}else{
-
+					GameObject.Find("GameMaster").GetComponent<GameMaster>().StartNextLevel();
 				}
 			}else{
 				if(transform.GetComponent<EndGameMenu>().getCurPos() == 0){
-					
-				}if(transform.GetComponent<EndGameMenu>().getCurPos() == 1){
-					
+					if(player.GetComponent<CharacterXP>().getStatPointsToSpend() > 0){
+						player.GetComponent<CharacterXP>().reducePointsToSpent();
+						player.GetComponent<CharacterStats>().addMovementSpeedStat();
+					}
+				}else if(transform.GetComponent<EndGameMenu>().getCurPos() == 1){
+					if(player.GetComponent<CharacterXP>().getStatPointsToSpend() > 0){
+						player.GetComponent<CharacterXP>().reducePointsToSpent();
+						player.GetComponent<CharacterStats>().addBuildingSpeedStats();
+					}
 				}else{
-					
+					if(player.GetComponent<CharacterXP>().getStatPointsToSpend() > 0){
+						player.GetComponent<CharacterXP>().reducePointsToSpent();
+						player.GetComponent<CharacterStats>().addEnhancementAndReloadSpeedStat();
+					}
 				}
 			}
 		}
 		if (Input.GetButtonDown ("Fire2")) {
-			transform.GetComponent<EndGameMenu>().changeMenu();
+			if(transform.GetComponent<EndGameMenu>().isInSubMenu())
+				transform.GetComponent<EndGameMenu>().changeMenu();
 		}
 
 		if (Input.GetAxis("HDPad") < 0) {
