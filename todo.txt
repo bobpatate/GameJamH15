@@ -1,0 +1,35 @@
+1-Character controls
+	Buidling
+	Enhancement
+	Reload
+1-Character stats
+	Movement speed
+	Building speed
+	Enhancement/reload speed
+2-Levelling
+	XP
+	End Game Screen
+		Stats attribution
+1-Map
+1-Enemies
+	Fear
+	Pathfinding
+2-Gameplay phases
+2-Victory condition
+	Win Screen
+2-Defeat Condition
+	Level Reset
+1-Towers
+	Ball Launcher
+	Totem
+	Death Portal
+3-Tower radius upgrade
+3-Level progression
+3-UI
+	Tower Selection
+	Action Pop-up
+2-Music and sound
+2-Name
+3-Character choice
+4-Enemy Types
+5-Level Selector
