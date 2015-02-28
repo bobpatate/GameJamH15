@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log("Button X");
 		}
 
-		if (Input.GetAxisRaw ("LTrigger") != 0) {
+		if (Input.GetAxisRaw ("LTrigger") != 0 || Input.GetKeyDown(KeyCode.Q)) {
 			if(!axisInUse)
             {
                 if(towerInUse == 0)
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetAxisRaw ("RTrigger") != 0) {
+		if (Input.GetAxisRaw ("RTrigger") != 0 || Input.GetKeyDown(KeyCode.E)) {
 			if(!axisInUse)
             {
                 if (towerInUse == 2)
