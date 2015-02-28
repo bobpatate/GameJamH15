@@ -1690,6 +1690,14 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11430064, guid: f5bedefec2ef1094bacfd9668c2aea65, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430066, guid: f5bedefec2ef1094bacfd9668c2aea65, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5bedefec2ef1094bacfd9668c2aea65, type: 2}
   m_RootGameObject: {fileID: 734290277}
@@ -5277,7 +5285,7 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 1721595816}
   m_GameObject: {fileID: 904719840}
-  m_Mesh: {fileID: 4300000, guid: 29812bb3beefe1140bc40014649ba245, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ced54f6f157b1da4eafebeadd1484b65, type: 3}
 --- !u!1 &913894614
 GameObject:
   m_ObjectHideFlags: 0
@@ -6324,6 +6332,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1279251498}
   - 108: {fileID: 1279251497}
+  - 114: {fileID: 1279251499}
   m_Layer: 0
   m_Name: Sun/Moon
   m_TagString: Untagged
@@ -6341,7 +6350,7 @@ Light:
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .200000003
+  m_Intensity: .349999994
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -6378,6 +6387,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1279251499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279251496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c377666162728a643af057718b100420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  darkness: .200000003
+  dark: {r: .213235319, g: .218661234, b: 1, a: 0}
 --- !u!1001 &1317247806
 Prefab:
   m_ObjectHideFlags: 0
@@ -6462,7 +6484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  enemySpawnDelay: 1
+  enemySpawnDelay: 4
   enemyTotal: 10
   percentageToKill: 50
   spawnPoints:
@@ -6471,6 +6493,7 @@ MonoBehaviour:
   - {fileID: 1240618974}
   guiGO: {fileID: 734290277}
   endGameMenuGO: {fileID: 982493103}
+  dayTimer: 10
 --- !u!4 &1368111905
 Transform:
   m_ObjectHideFlags: 0
@@ -6931,7 +6954,7 @@ Transform:
   m_PrefabInternal: {fileID: 1721595816}
   m_GameObject: {fileID: 1513822987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0999999, y: .800000012, z: -6}
+  m_LocalPosition: {x: 2.0999999, y: .800000012, z: -9.01000023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 904719842}
@@ -7378,7 +7401,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452940, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6
+      value: -9.01000023
       objectReference: {fileID: 0}
     - target: {fileID: 452940, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7404,6 +7427,10 @@ Prefab:
       propertyPath: mGui
       value: 
       objectReference: {fileID: 734290277}
+    - target: {fileID: 427524, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
   m_RootGameObject: {fileID: 1513822987}

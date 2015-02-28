@@ -33,9 +33,12 @@ public class GameMaster : MonoBehaviour {
 	private ConstructionGUI gui;
 	private EndRoundScreenScript endGameMenu;
 
+	[SerializeField] private int dayTimer = 30; //seconds to place towers during day
+	internal float dayCountDown ; //time left to day. to display
 	private string currentGamePhase = "Day"; //or "Night"
-	private int dayTimer = 30; //seconds to place towers during day
-	private int roundTotalTime = 0;
+	private float roundTotalTime = 0;
+	private float startTime = 0;
+
 	private bool canSpawn = true;
 	private int spawnRandomizer = 0; //doesn't really work ATM
 
@@ -48,6 +51,7 @@ public class GameMaster : MonoBehaviour {
     private float life_left = 3;
 
 	private GameObject playerRef;
+	private GameObject light;
 
 	void Awake(){
 		if(_instance == null){
@@ -64,8 +68,15 @@ public class GameMaster : MonoBehaviour {
 		Random.seed = (int)System.DateTime.Now.Ticks;
 
 		playerRef = GameObject.Find("Player");
+		light = GameObject.Find("Sun/Moon");
 
-		StartLevel (currentLevel);
+		Time.timeScale = 1; //unpause game
+		playerRef.SetActive(true);
+
+		startTime = Time.time;
+		dayCountDown = dayTimer;
+
+		enemiesLeft = enemyTotal;
 
 		gui = guiGO.GetComponent<ConstructionGUI>();
 		endGameMenu = endGameMenuGO.GetComponent<EndRoundScreenScript>();
@@ -73,6 +84,25 @@ public class GameMaster : MonoBehaviour {
 
 
 	void Update(){
+		roundTotalTime = Time.time - startTime;
+
+		//Lighting change 5 seconds before nighttime
+		if((int)roundTotalTime == (int)(dayTimer-5)){ 
+			light.GetComponent<SunMoon>().StartNight();
+		}
+
+		//Set game phase
+		if(roundTotalTime < dayTimer){
+			currentGamePhase = "Day";
+			dayCountDown -= roundTotalTime;
+		}
+		else{
+			if(currentGamePhase.Equals("Day")){ //Call once per round
+				StartLevel(currentLevel);
+			}
+			currentGamePhase = "Night";
+		}
+
 		//Endgame
 		if(enemiesLeft <= 0){
 			if(nb_enemy_scared >= enemiesToKillToWin){
@@ -94,12 +124,12 @@ public class GameMaster : MonoBehaviour {
 		Time.timeScale = 1; //unpause game
 		playerRef.SetActive(true);
 
-		InvokeRepeating("SpawnEnemy", 0, enemySpawnDelay);
-
 		roundTotalTime = 0;
 
+		InvokeRepeating("SpawnEnemy", 0, enemySpawnDelay);
+
 		if(currentLevel != 0)
-			enemyTotal += Mathf.RoundToInt(enemyTotal * 1.2f);
+			enemyTotal += Mathf.RoundToInt(enemyTotal * 0.8f);
 		enemiesLeft = enemyTotal;
 
 		enemiesToKillToWin = (int)(percentageToKill*enemyTotal);
@@ -117,7 +147,6 @@ public class GameMaster : MonoBehaviour {
 
 	//Spawn enemy at random spawn point
 	private void SpawnEnemy(){
-		//In game. Spawn enemies
 		if(enemiesSpawned < enemyTotal){
 			spawnRandomizer = Random.Range(0,1);
 

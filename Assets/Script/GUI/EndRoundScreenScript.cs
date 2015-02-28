@@ -98,7 +98,7 @@ public class EndRoundScreenScript : MonoBehaviour
 
     public void Hide()
     {
-        transform.parent.GetChild(0).gameObject.SetActive(true);
+		transform.parent.GetChild(0).gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 
