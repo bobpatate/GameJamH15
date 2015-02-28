@@ -20,10 +20,18 @@ public class GameMaster : MonoBehaviour {
 
 
 	public int currentLevel = 0;
-
 	[SerializeField] private float enemySpawnDelay = 5.0f;
-
 	[SerializeField] private int nb_enemy_tot = 10;
+
+	public GameObject guiGO;
+	public GameObject endGameMenuGO;
+	private ConstructionGUI gui;
+	private EndRoundScreenScript endGameMenu;
+
+	private string currentGamePhase = "Day"; //or "Night"
+	private int dayTimer = 0;
+	private int roundTotalTime = 0;
+
 	private int enemiesLeftToSpawn;
 	private bool round_is_success = true; 
     private int nb_enemy_scared = 0;
@@ -43,24 +51,40 @@ public class GameMaster : MonoBehaviour {
 
 	void Start(){
 		StartLevel (currentLevel);
+
+		gui = guiGO.GetComponent<ConstructionGUI>();
+		endGameMenu = endGameMenuGO.GetComponent<EndRoundScreenScript>();
 	}
+
 
 	void Update(){
-		if(Time.deltaTime % enemySpawnDelay < 1){
-			//Debug.Log ("Spawn");
+		roundTotalTime = Mathf.RoundToInt(Time.time);
+
+		if((roundTotalTime % enemySpawnDelay) == 0){
+			Debug.Log(roundTotalTime);
 		}
+
 	}
 
-	void StartLevel(int currentLevel){
+	private void StartLevel(int currentLevel){
+		Time.timeScale = 1; //unpause game
+
+		roundTotalTime = 0;
+
 		nb_enemy_tot += Mathf.RoundToInt(nb_enemy_tot * 1.2f);
 		enemiesLeftToSpawn = nb_enemy_tot;
 	}
 
-	void SpawnEnemy(){
+	private void EndLevel(){
+		endGameMenu.Display();
+	}
+
+	private void SpawnEnemy(){
 
 	}
 
-	void DeadEnemy(){
+
+	public void DeadEnemy(){
 		enemiesLeftToSpawn --;
 		nb_enemy_scared ++;
 	}
