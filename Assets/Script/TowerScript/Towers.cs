@@ -41,7 +41,7 @@ public abstract class Towers : MonoBehaviour {
 
     public abstract void reload();
 
-    public abstract bool upgrade();
+    public abstract void upgrade();
 
     public virtual float getLevel()
     {
@@ -57,4 +57,8 @@ public abstract class Towers : MonoBehaviour {
     {
         return fear_damage;
     }
+
+	public abstract bool canUpgrade(){
+		return (level < maxLevel);
+	}
 }
