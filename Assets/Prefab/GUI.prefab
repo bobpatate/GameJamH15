@@ -233,6 +233,8 @@ GameObject:
   - 222: {fileID: 22230074}
   - 114: {fileID: 11430064}
   - 114: {fileID: 11430066}
+  - 114: {fileID: 11423588}
+  - 114: {fileID: 11423586}
   m_Layer: 5
   m_Name: endRoundScreen
   m_TagString: Untagged
@@ -585,6 +587,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11423586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14856e51e2c8ab5489b74ee638b3b79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11423588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97cd56ac5cda1e4e8baef888e36b2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normal: []
+  selected: []
 --- !u!114 &11430036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1472,13 +1498,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normal:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 1703847ca5cbd1a4c9028b5ed0782f4b, type: 3}
+  - {fileID: 21300000, guid: 05116d8e99697924eb2cab9cdde824d7, type: 3}
+  - {fileID: 21300000, guid: 388b98a1ffd6eb943b8867e59d80ac45, type: 3}
   selected:
-  - {fileID: 21300000, guid: d0a1983396e15df428c0563ac20d3b66, type: 3}
-  - {fileID: 21300000, guid: d0a1983396e15df428c0563ac20d3b66, type: 3}
-  - {fileID: 21300000, guid: d0a1983396e15df428c0563ac20d3b66, type: 3}
+  - {fileID: 21300000, guid: d52de001789aa7a4ab3ebb43a7bcdde4, type: 3}
+  - {fileID: 21300000, guid: 66cd99198216b6947a9951801fa873c8, type: 3}
+  - {fileID: 21300000, guid: 191c889bd70ff2e4bae038ce2f498759, type: 3}
 --- !u!114 &11461662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1591,7 +1617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .980392158, g: .980392158, b: .980392158, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
