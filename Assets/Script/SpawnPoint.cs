@@ -25,7 +25,8 @@ public class SpawnPoint : MonoBehaviour {
         {
             if(Other.GetComponent<EnemyBehaviour>().getFear() >= Other.GetComponent<EnemyBehaviour>().getMaxFear())
             {
-                Destroy(Other.gameObject);
+				GameMaster.instance.killedEnemy();
+				Destroy(Other.gameObject);
             }
         }
 

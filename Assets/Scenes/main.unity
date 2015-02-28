@@ -6544,7 +6544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
-  enemySpawnDelay: 1
+  enemySpawnDelay: 5
   enemyTotal: 10
   percentageToKill: .5
   spawnPoints:
@@ -6553,7 +6553,7 @@ MonoBehaviour:
   - {fileID: 1240618974}
   guiGO: {fileID: 734290277}
   endGameMenuGO: {fileID: 982493103}
-  dayTimer: 30
+  dayTimer: 10
 --- !u!4 &1368111905
 Transform:
   m_ObjectHideFlags: 0
