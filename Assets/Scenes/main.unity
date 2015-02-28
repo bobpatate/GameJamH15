@@ -1727,7 +1727,7 @@ Transform:
   - {fileID: 351401373}
   - {fileID: 332768662}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &285376102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4402,7 +4402,7 @@ RectTransform:
   - {fileID: 733429596}
   - {fileID: 982493107}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -6406,7 +6406,7 @@ MonoBehaviour:
   currentLevel: 0
   enemySpawnDelay: 1
   enemyTotal: 10
-  percentageToKill: 50
+  percentageToKill: .5
   spawnPoints:
   - {fileID: 704648606}
   - {fileID: 754242873}

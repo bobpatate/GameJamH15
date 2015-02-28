@@ -91,15 +91,13 @@ public class EndRoundScreenScript : MonoBehaviour
                     break;
             }
         }
-        player.SetActive(false);
+    	
         transform.parent.GetChild(0).gameObject.SetActive(false);
         gameObject.SetActive(true);
     }
 
     public void Hide()
     {
-        if(player)
-			player.SetActive(true);
         transform.parent.GetChild(0).gameObject.SetActive(true);
         gameObject.SetActive(false);
     }

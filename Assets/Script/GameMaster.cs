@@ -22,7 +22,7 @@ public class GameMaster : MonoBehaviour {
 	public int currentLevel = 0;
 	[SerializeField] private float enemySpawnDelay = 5.0f;
 	[SerializeField] private int enemyTotal = 10;
-	[SerializeField] private float percentageToKill = 50.0f;
+	[SerializeField] private float percentageToKill = 0.5f;
 
 	internal int enemiesToKillToWin; //percentageToKill*enemyTotal
 
@@ -47,6 +47,8 @@ public class GameMaster : MonoBehaviour {
     private float xp_won = 0;
     private float life_left = 3;
 
+	private GameObject playerRef;
+
 	void Awake(){
 		if(_instance == null){
 			_instance = this;
@@ -60,6 +62,8 @@ public class GameMaster : MonoBehaviour {
 
 	void Start(){
 		Random.seed = (int)System.DateTime.Now.Ticks;
+
+		playerRef = GameObject.Find("Player");
 
 		StartLevel (currentLevel);
 
@@ -88,6 +92,7 @@ public class GameMaster : MonoBehaviour {
 	//Initialize number of enemies to spawn
 	private void StartLevel(int currentLevel){
 		Time.timeScale = 1; //unpause game
+		playerRef.SetActive(true);
 
 		InvokeRepeating("SpawnEnemy", 0, enemySpawnDelay);
 
@@ -105,6 +110,7 @@ public class GameMaster : MonoBehaviour {
 	//Show endgame, pause game
 	private void EndLevel(){
 		Time.timeScale = 0; //pause game
+		playerRef.SetActive(false);
 
 		endGameMenu.Display();
 	}
@@ -139,6 +145,7 @@ public class GameMaster : MonoBehaviour {
 		nb_enemy_scared ++;
 
 		xp_won += 1;
+		playerRef.GetComponent<CharacterXP>().addXP(1);
 	}
 
 
