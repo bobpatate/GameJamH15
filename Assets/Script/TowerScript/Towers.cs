@@ -4,17 +4,17 @@ using System.Collections.Generic;
 
 public abstract class Towers : MonoBehaviour {
 
-    public static readonly float building_time = 1000;
+    protected static readonly float building_time = 1000;
     protected float maxLevel;
-    public float max_radius;
-    public float min_reload_time;
-    public float base_radius;
-    public float base_reload_time;
+    protected float max_radius;
+    protected float min_reload_time;
+    protected float base_radius;
+    protected float base_reload_time;
     protected float level;
     protected float reload_time;
     protected float next_attack_time;
     protected HashSet<Transform> targets;
-    public float fear_damage;
+    protected float fear_damage;
 
     protected abstract void Start();
 

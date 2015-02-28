@@ -121,13 +121,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 167542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: b6b068453aace7044a631201691e63e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  nextAttackTime: 0
-  reloadTime: .5
-  damage: 10
+  max_radius: 0
+  min_reload_time: 0
+  base_radius: 0
+  base_reload_time: 0
+  fear_damage: 0
 --- !u!135 &13506810
 SphereCollider:
   m_ObjectHideFlags: 1

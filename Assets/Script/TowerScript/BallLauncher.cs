@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class BallLauncherShoot : Towers
+public class BallLauncher : Towers
 {
     SphereCollider sc;
     public Transform ball_prefab;

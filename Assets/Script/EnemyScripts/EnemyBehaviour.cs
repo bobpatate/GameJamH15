@@ -31,7 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public void addFear(float fear_to_add)
+    public void addFearDamage(float fear_to_add)
     {
         fear += fear_to_add;
         checkHorrified();
