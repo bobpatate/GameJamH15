@@ -22,8 +22,7 @@ public class EndRoundScreenScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Display();
-        //Hide();
+        Hide();
     }
 
     public void Display()
@@ -36,7 +35,6 @@ public class EndRoundScreenScript : MonoBehaviour
             switch (child.name)
             {
                 case "roundResult":
-                    //TODO if to differentiate success and failure
                     if (gm.isRoundSuccess())
                     {
                         child.GetComponent<Text>().text = ROUND_RESULT_OK;
@@ -85,11 +83,13 @@ public class EndRoundScreenScript : MonoBehaviour
                     break;
             }
         }
+        transform.parent.GetChild(0).gameObject.SetActive(false);
         gameObject.SetActive(true);
     }
 
     public void Hide()
     {
+        transform.parent.GetChild(0).gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 
