@@ -120,9 +120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 167542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49b4856a8c8febd4e83fce2e0f336c7f, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  nextAttackTime: 0
   reloadTime: .5
   damage: 10
 --- !u!135 &13506810
