@@ -4,7 +4,6 @@ using System.Collections;
 public class TowerScript : MonoBehaviour {
 
     private Transform target = null;
-    private float timeToAttack = 0.0f;
     private float nextAttackTime = 0.0f;
 
     public static bool isBeingHitted;
@@ -13,15 +12,14 @@ public class TowerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
+        nextAttackTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (target && (Time.time <= nextAttackTime))
+        if (target && (Time.time >= nextAttackTime))
         {
             target.GetComponent<EnemyBehaviour>().addFear(damage);
-            timeToAttack = 0.0f;
             nextAttackTime = Time.time + reloadTime;
         } 		
 	}
