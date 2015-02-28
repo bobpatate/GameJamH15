@@ -22,8 +22,8 @@ public class EndRoundScreenScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Display();
-        //Hide();
+        //Display();
+        Hide();
     }
 
     public void Display()
@@ -31,7 +31,8 @@ public class EndRoundScreenScript : MonoBehaviour
         GameMaster gm = GameMaster.instance;
         CharacterXP playerXP = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterXP>();
         CharacterStats playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
-        foreach (Transform child in transform)
+
+		foreach (Transform child in transform)
         {
             switch (child.name)
             {

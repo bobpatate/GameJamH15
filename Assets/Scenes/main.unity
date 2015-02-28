@@ -9540,7 +9540,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 1
-  enemiesToSpawn: 10
+  enemySpawnDelay: 5
+  nb_enemy_tot: 10
+  guiGO: {fileID: 734290277}
+  endGameMenuGO: {fileID: 982493103}
 --- !u!4 &1368111905
 Transform:
   m_ObjectHideFlags: 0
