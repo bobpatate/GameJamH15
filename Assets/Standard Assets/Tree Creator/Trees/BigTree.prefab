@@ -134,16 +134,16 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _ShadowTex
+          name: _BumpSpecMap
         second:
-          m_Texture: {fileID: 2800000, guid: 1c0a156b985f3c94c8726dffe62a20f0, type: 3}
+          m_Texture: {fileID: 2800000, guid: 985e70e58a6b14e4ca5ab5b10519069b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _BumpSpecMap
+          name: _ShadowTex
         second:
-          m_Texture: {fileID: 2800000, guid: 985e70e58a6b14e4ca5ab5b10519069b, type: 3}
+          m_Texture: {fileID: 2800000, guid: 1c0a156b985f3c94c8726dffe62a20f0, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -459,17 +459,17 @@ MonoBehaviour:
     rootSpread: 2.46808505
     groundOffset: 0
     rootMatrix:
-      e00: 1
+      e00: -.264020652
       e01: 0
-      e02: 0
+      e02: -.964517057
       e03: 0
       e10: 0
       e11: 1
       e12: 0
       e13: 0
-      e20: 0
+      e20: .964517057
       e21: 0
-      e22: 1
+      e22: -.264020652
       e23: 0
       e30: 0
       e31: 0
@@ -1302,17 +1302,17 @@ MonoBehaviour:
     pitch: -0
     rotation: {x: 0, y: 0, z: 0, w: 1}
     matrix:
-      e00: 1
+      e00: -.264020652
       e01: 0
-      e02: 0
+      e02: -.964517057
       e03: 0
       e10: 0
       e11: 1
       e12: 0
       e13: 0
-      e20: 0
+      e20: .964517057
       e21: 0
-      e22: 1
+      e22: -.264020652
       e23: 0
       e30: 0
       e31: 0
