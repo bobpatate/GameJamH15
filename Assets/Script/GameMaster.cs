@@ -40,7 +40,6 @@ public class GameMaster : MonoBehaviour {
 	private float startTime = 0;
 
 	private bool canSpawn = true;
-	private int spawnRandomizer = 0; //doesn't really work ATM
 
 	private int enemiesSpawned = 0; //number of enemies already spawned
 	private int enemiesLeft; //number of enemies that are in game or not yet spawned
@@ -139,19 +138,18 @@ public class GameMaster : MonoBehaviour {
 
 	//Show endgame, pause game
 	private void EndLevel(){
-		/*Time.timeScale = 0; //pause game
+		Time.timeScale = 0; //pause game
 		playerRef.SetActive(false);
 
-		endGameMenu.Display();*/
+		endGameMenu.Display();
 	}
 
 	//Spawn enemy at random spawn point
 	private void SpawnEnemy(){
-		if(enemiesSpawned < enemyTotal){
-			spawnRandomizer = Random.Range(0,1);
-
+		if(enemiesSpawned < enemyTotal)
+        {
 			int selected = Random.Range(0, spawnPoints.Length);
-			spawnPoints[selected].GetComponent<SpawnPoint>().spawn();
+            spawnPoints[selected].GetComponent<SpawnPoint>().spawn();
 			
 			enemiesInGame ++;
 			enemiesSpawned ++;
