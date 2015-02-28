@@ -5,7 +5,7 @@ public class BallTrigger : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        Destroy(gameObject, 5);
 	}
 	
 	// Update is called once per frame
@@ -17,7 +17,7 @@ public class BallTrigger : MonoBehaviour {
     {
         if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<PlayerHealth>().removeHp(3);
+            other.gameObject.GetComponent<EnemyBehaviour>().setStun(5000);
             Destroy(gameObject);
         }
     }
