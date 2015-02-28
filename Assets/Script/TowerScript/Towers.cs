@@ -14,7 +14,7 @@ public abstract class Towers : MonoBehaviour {
     protected float reload_time;
     protected float next_attack_time;
     protected HashSet<Transform> targets;
-    protected float fear_damage;
+    [SerializeField] protected float fear_damage;
 
     protected abstract void Start();
 
@@ -58,7 +58,7 @@ public abstract class Towers : MonoBehaviour {
         return fear_damage;
     }
 
-	public abstract bool canUpgrade(){
+	public virtual bool canUpgrade(){
 		return (level < maxLevel);
 	}
 }

@@ -15,7 +15,7 @@ public class Totem : Towers {
         base_radius = 7;
         base_reload_time = 60;
         targets = new HashSet<Transform>();
-        fear_damage = 10;
+        //fear_damage = 10;
 
         level = 1;
         sc = transform.GetChild(0).GetComponent<SphereCollider>();
@@ -27,7 +27,9 @@ public class Totem : Towers {
     protected override void Shoot()
     {
         foreach(Transform target in targets) {
-            target.GetComponent<EnemyBehaviour>().addFearDamage(fear_damage);
+			if(target){
+            	target.GetComponent<EnemyBehaviour>().addFearDamage(fear_damage);
+			}
         }
 
     }
