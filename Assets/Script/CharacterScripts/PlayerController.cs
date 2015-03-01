@@ -25,10 +25,11 @@ public class PlayerController : MonoBehaviour {
 
         movement *= Time.deltaTime;
 		transform.Translate(movement);
-
-        Quaternion rot = new Quaternion();
-        rot.SetLookRotation(movement.normalized);
-        transform.GetChild(0).rotation = rot;
+		if(!movement.Equals(new Vector3(0,0,0))){
+	        Quaternion rot = new Quaternion();
+	        rot.SetLookRotation(movement.normalized);
+	        transform.GetChild(0).rotation = rot;
+		}
 
         if (Input.GetButtonDown("Fire1"))
         {
