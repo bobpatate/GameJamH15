@@ -11,6 +11,9 @@ public class HauntTrap : Towers {
 
     private Vector3 initPosition;
 
+    public float maxFearDamage = 300.0f;
+    public float baseFearDamage = 100.0f;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -20,7 +23,7 @@ public class HauntTrap : Towers {
         base_radius = 7;
         base_reload_time = 10;
         targets = new HashSet<Transform>();
-        fear_damage = float.MaxValue;
+        fear_damage = 100.0f;
 
         level = 1;
         sc = transform.GetChild(0).GetComponent<SphereCollider>();
@@ -77,5 +80,7 @@ public class HauntTrap : Towers {
     public override void upgrade()
     {
         ++level;
+        float ratio = (level - 1) / (maxLevel - 1);
+        fear_damage = baseFearDamage + (maxFearDamage - baseFearDamage )* ratio;
     }
 }
