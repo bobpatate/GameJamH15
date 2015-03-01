@@ -136,19 +136,22 @@ public class GameMaster : MonoBehaviour
         }
     }
 
-    public void StartNextLevel(int lv)
+    public void StartNextLevel(int lv) // lv in range[0,1]
     {
-        currentLevel += lv;
-        StartLevel(currentLevel);
         guiGO.transform.GetChild(0).gameObject.SetActive(true);
         guiGO.transform.GetChild(1).gameObject.SetActive(false);
+
+		//Reset all the shits
+		dayCountDown = dayTimer;
+		light.GetComponent<SunMoon>().reset();
         roundTotalTime = 0;
-        dayCountDown = dayTimer;
-        light.GetComponent<SunMoon>().reset();
         enemiesSpawned = 0;
         nb_enemy_scared = 0;
         enemiesInGame = 0;
         xp_won = 0;
+
+		currentLevel += lv;
+		StartLevel(currentLevel);
     }
 
     //Initialize number of enemies to spawn
@@ -160,7 +163,7 @@ public class GameMaster : MonoBehaviour
         InvokeRepeating("SpawnEnemy", 0, enemySpawnDelay);
 
         if (currentLevel != 0)
-            enemyTotal += Mathf.RoundToInt(enemyTotal * 0.8f);
+            enemyTotal = Mathf.RoundToInt(enemyTotal * 1.2f);
         enemiesLeft = enemyTotal;
 
         enemiesToKillToWin = (int)(percentageToKill * enemyTotal);
