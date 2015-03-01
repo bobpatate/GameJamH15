@@ -247,16 +247,17 @@ public class GameMaster : MonoBehaviour
         {
             GUIStyle gs = new GUIStyle(GUI.skin.box);
             gs.alignment = TextAnchor.MiddleCenter;
-            string timerText = "";
+            gs.richText = true;
+            string timerText = "<size=22>Level "+currentLevel+"</size>\n\n";
             if (currentGamePhase.Equals("Day"))
             {
-                timerText = "Night in: " + dayCountDown.ToString("0");
+                timerText += "Night in: " + dayCountDown.ToString("0");
             }
             else
             {
-                timerText = "Scared: " + nb_enemy_scared + "/" + enemyTotal + "\nLeft to spawn: " + (enemyTotal - enemiesSpawned);
+                timerText += "Scared: " + nb_enemy_scared + "/" + enemyTotal + "\nLeft to spawn: " + (enemyTotal - enemiesSpawned);
             }
-            GUI.Box(new Rect(10, 10, 115, 60), timerText, gs);
+            GUI.Box(new Rect(10, 10, 115, 90), timerText, gs);
         }
     }
 }
