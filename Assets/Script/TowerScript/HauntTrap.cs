@@ -9,6 +9,8 @@ public class HauntTrap : Towers {
     float max_nb_ball_load;
     float nb_ball_load;
 
+    private Vector3 initPosition;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -27,11 +29,15 @@ public class HauntTrap : Towers {
         max_nb_ball_load = 1;
         nb_ball_load = max_nb_ball_load;
         next_attack_time = Time.time;
+
+        initPosition = transform.position;
+        transform.position = new Vector3(transform.position.x, transform.position.y-1.1f, transform.position.z);
     }
 
     protected override void Shoot()
     {
         Transform target = getTarget();
+        PlayScaryAnimation();
         if(target != null)
         {
             if (nb_ball_load >= 1)
@@ -42,21 +48,33 @@ public class HauntTrap : Towers {
         }
     }
 
+    protected void PlayScaryAnimation()
+    {
+        transform.position = initPosition;
+    }
+
     private Transform getTarget()
     {
-        return targets.GetEnumerator().Current;
+        Transform thisTarget = null;
+        int cpt = 0;
+        foreach (Transform t in targets)
+        {
+            if(cpt == 0)
+            {
+                thisTarget = t;
+            }
+            cpt++;
+        }
+        return thisTarget;
     }
 
     public override void reload()
     {
         nb_ball_load = max_nb_ball_load;
-        next_attack_time = Time.time + reload_time;
     }
 
     public override void upgrade()
     {
         ++level;
-        float ratio = (level - 1) / (maxLevel - 1);
-        sc.radius = base_radius + (max_radius - base_radius) * ratio;
     }
 }
