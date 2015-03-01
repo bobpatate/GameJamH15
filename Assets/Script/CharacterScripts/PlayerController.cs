@@ -25,11 +25,10 @@ public class PlayerController : MonoBehaviour {
 
         movement *= Time.deltaTime;
 		transform.Translate(movement);
-		if(!movement.Equals(new Vector3(0,0,0))){
-	        Quaternion rot = new Quaternion();
-	        rot.SetLookRotation(movement.normalized);
-	        transform.GetChild(0).rotation = rot;
-		}
+
+        Quaternion rot = new Quaternion();
+        rot.SetLookRotation(movement.normalized);
+        transform.GetChild(0).rotation = rot;
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -51,11 +50,14 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (Input.GetButtonDown ("Fire2")) {
 			Debug.Log("Button B");
-			tower.GetComponent<Towers>().reload();
+            if(tower)
+            {
+                tower.GetComponent<Towers>().reload();
+            }
 		}
 		if (Input.GetButtonDown ("Fire3")) {
 			Debug.Log("Button X");
-			if(tower.GetComponent<Towers>().canUpgrade()){
+			if(tower && tower.GetComponent<Towers>().canUpgrade()){
 				tower.GetComponent<Towers>().upgrade();
 			}
 		}
@@ -99,5 +101,18 @@ public class PlayerController : MonoBehaviour {
 
 	public void getTriggerInfo(GameObject tow){
 		tower = tow;
+	}
+
+	void OnTriggerEnter(Collider other){
+        if(other.tag == "tower")
+        {
+            tower = other.gameObject;
+            showConstructionUI = true;
+        }
+	}
+
+	void OnTriggerExit(Collider other){
+		tower = null;
+		showConstructionUI = false;
 	}
 }

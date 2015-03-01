@@ -35,7 +35,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if(fear >= maxFear)
         {
-            gameObject.tag = "Untagged";
+            gameObject.tag = "DeadEnemy";
         }
     }
 

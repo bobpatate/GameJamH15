@@ -10,7 +10,6 @@ public class BallLauncher : Towers
     float max_nb_ball_load;
     float nb_ball_load;
 
-
     // Use this for initialization
     protected override void Start()
     {

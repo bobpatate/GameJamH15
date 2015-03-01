@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public abstract class Towers : MonoBehaviour {
 
-    protected float base_building_time = 1.0f;
+    [SerializeField] protected float base_building_time;
     protected float currentBuildingTime = 0.0f;
     protected float startTime = 0.0f;
 
