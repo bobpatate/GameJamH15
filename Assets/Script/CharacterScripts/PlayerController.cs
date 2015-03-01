@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour {
     public Vector2 speed = new Vector2(1, 0);
     public GameObject mGui;
     public GameObject[] spawnableTowers;
+
+	private GameMaster gm = GameMaster.instance;
 	
 	void Start(){
 		showConstructionUI = false;
@@ -51,12 +53,15 @@ public class PlayerController : MonoBehaviour {
 				Debug.Log ("On entre pas");
 				//On construit
                 GameObject t = (GameObject)Instantiate(spawnableTowers[towerInUse], transform.position, spawnableTowers[towerInUse].transform.rotation);
+
+
 			}
 		}
 		if (Input.GetButtonDown ("Fire2")) {
-			Debug.Log("Button B");
+			//Debug.Log("Button B");
             if(tower)
             {
+				Debug.Log("répare");
 				Debug.Log (tower.name);
                 tower.GetComponent<Towers>().reload();
             }
@@ -108,18 +113,5 @@ public class PlayerController : MonoBehaviour {
 
 	public void getTriggerInfo(GameObject tow){
 		tower = tow;
-	}
-
-	void OnTriggerEnter(Collider other){
-        if(other.tag == "tower")
-        {
-            tower = other.gameObject;
-            showConstructionUI = true;
-        }
-	}
-
-	void OnTriggerExit(Collider other){
-		tower = null;
-		showConstructionUI = false;
 	}
 }

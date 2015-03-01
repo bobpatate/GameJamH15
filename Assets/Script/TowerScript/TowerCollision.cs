@@ -21,7 +21,11 @@ public class TowerCollision : MonoBehaviour {
 		}
 		if (other.gameObject.tag.Equals("Player")) {
 			Debug.Log("Player In");
-			other.gameObject.GetComponent<PlayerController>().getTriggerInfo(gameObject);
+			float dist = Vector3.Distance(transform.position, other.transform.position);
+			if(dist < 10.0f){
+				Debug.Log("T'es dedant");
+				other.gameObject.GetComponent<PlayerController>().getTriggerInfo(transform.parent.gameObject);
+			}
 		}
 	}
 	
@@ -33,7 +37,9 @@ public class TowerCollision : MonoBehaviour {
         }
 		if (other.gameObject.tag == "Player") {
 			Debug.Log("Player Out");
-			other.gameObject.GetComponent<PlayerController>().getTriggerInfo(null);
+			float dist = Vector3.Distance(transform.position, other.transform.position);
+			if(dist >= 10.0f)
+				other.gameObject.GetComponent<PlayerController>().getTriggerInfo(null);
 		}
 	}
 }
