@@ -6,7 +6,7 @@ public class BallLauncher : Towers
 {
     
     public Transform ball_prefab;
-    public float ball_speed = 900;
+    public float ball_speed = 100;
     float max_nb_ball_load;
     float nb_ball_load;
 
@@ -40,7 +40,8 @@ public class BallLauncher : Towers
             if (nb_ball_load > 0)
             {
                 Transform tmpBall = (Transform)Instantiate(ball_prefab, transform.position, Quaternion.identity);
-                tmpBall.rigidbody.AddForce(direction * ball_speed);
+                //tmpBall.rigidbody.AddForce(direction * ball_speed);
+                tmpBall.GetComponent<BallTrigger>().setObjective(target);
                 --nb_ball_load;
                 next_attack_time = Time.time + reload_time;
             }
