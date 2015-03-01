@@ -575,19 +575,19 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 2197815295
+          rgba: 2466250751
         key1:
           serializedVersion: 2
-          rgba: 2986344447
+          rgba: 3254779903
         key2:
           serializedVersion: 2
-          rgba: 1811939327
+          rgba: 2365587455
         key3:
           serializedVersion: 2
-          rgba: 2248146944
+          rgba: 2600468480
         key4:
           serializedVersion: 2
-          rgba: 1795162112
+          rgba: 2147483648
         key5:
           serializedVersion: 2
           rgba: 0
@@ -605,8 +605,8 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
-        atime1: 17155
+        atime0: 193
+        atime1: 16769
         atime2: 30069
         atime3: 52043
         atime4: 65535
@@ -618,10 +618,10 @@ ParticleSystem:
       minGradient:
         key0:
           serializedVersion: 2
-          rgba: 2852126719
+          rgba: 2919235583
         key1:
           serializedVersion: 2
-          rgba: 1610612735
+          rgba: 1946157055
         key2:
           serializedVersion: 2
           rgba: 3036676096
@@ -648,7 +648,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
+        atime0: 193
         atime1: 15806
         atime2: 26985
         atime3: 40285
@@ -1260,7 +1260,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3ec86c8150116554b989c09408dfa4ca, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
