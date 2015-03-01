@@ -66,11 +66,9 @@ public abstract class Towers : MonoBehaviour
 
         if (isEnhancing)
         {
-
             currentEnhanceTime += Time.deltaTime;
             if (getEnhancePercent() >= 1)
             {
-                Debug.Log("hello");
                 currentEnhanceTime = 0;
                 isEnhancing = false;
             }
@@ -164,7 +162,7 @@ public abstract class Towers : MonoBehaviour
 
     public virtual float getBuildPercent()
     {
-        return currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() / (Mathf.Pow(1.1f, level - 1) * base_building_time);
+        return currentBuildingTime * base_building_time;
     }
 
     public virtual float getReloadPercent()
