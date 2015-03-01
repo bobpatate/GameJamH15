@@ -73,9 +73,12 @@ public class BallLauncher : Towers
 
     public override void reload()
     {
-        isReloading = true;
-        nb_ball_load = max_nb_ball_load;
-        next_attack_time = Time.time + reload_time;
+        if(nb_ball_load == 0)
+        {
+            isReloading = true;
+            nb_ball_load = max_nb_ball_load;
+            next_attack_time = Time.time + reload_time;
+        }
     }
 
     public override void upgrade()

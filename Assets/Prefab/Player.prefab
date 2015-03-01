@@ -192,10 +192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d3378225c9d1645a5468a4ff51f226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_movement_speed: 500
+  base_movement_speed: 100
   buildingSpeedRatio: {fileID: 11400000, guid: d42ad6282faecd046820807b4eb91026, type: 2}
   base_building_speed: 1
-  base_enhancement_and_reload_speed: 50
+  base_enhancement_and_reload_speed: 1
 --- !u!114 &11452940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,10 +237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d3378225c9d1645a5468a4ff51f226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_movement_speed: 500
-  buildingSpeedRatio: {fileID: 0}
+  base_movement_speed: 100
+  buildingSpeedRatio: {fileID: 11400000, guid: d42ad6282faecd046820807b4eb91026, type: 2}
   base_building_speed: 1
-  base_enhancement_and_reload_speed: 50
+  base_enhancement_and_reload_speed: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

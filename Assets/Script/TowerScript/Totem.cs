@@ -26,7 +26,7 @@ public class Totem : Towers {
         reload_time = base_reload_time;
         next_attack_time = Time.time;
 
-        Debug.Log(player.GetComponent<CharacterStats>().getBuildingSpeed());
+        canReload = false;
 
         base_building_time = player.GetComponent<CharacterStats>().getBuildingSpeed() * buildingMultiplicator;
     }
