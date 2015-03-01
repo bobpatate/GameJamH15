@@ -47,7 +47,8 @@ public class PlayerController : MonoBehaviour {
 						tower.FindChild("Spotlight").GetComponent<Light>().enabled = false;
 					dist = tmp;
 					tower = t;
-					tower.FindChild("Spotlight").GetComponent<Light>().enabled = true;
+					if(dist < 5.0f)
+						tower.FindChild("Spotlight").GetComponent<Light>().enabled = true;
 				}
 			}
 		}else{
