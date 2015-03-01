@@ -118,8 +118,8 @@ public class GameMaster : MonoBehaviour {
 		}
 	}
 
-	public void StartNextLevel(){
-		currentLevel++;
+	public void StartNextLevel(int lv){
+		currentLevel += lv;
 		StartLevel (currentLevel);
 		guiGO.transform.GetChild (0).gameObject.SetActive (true);
 		guiGO.transform.GetChild (1).gameObject.SetActive(false);

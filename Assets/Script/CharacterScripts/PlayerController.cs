@@ -100,17 +100,4 @@ public class PlayerController : MonoBehaviour {
 	public void getTriggerInfo(GameObject tow){
 		tower = tow;
 	}
-
-	/*void OnTriggerEnter(Collider other){
-        if(other.tag == "tower")
-        {
-            tower = other.gameObject;
-            showConstructionUI = true;
-        }
-	}
-
-	void OnTriggerExit(Collider other){
-		tower = null;
-		showConstructionUI = false;
-	}*/
 }
