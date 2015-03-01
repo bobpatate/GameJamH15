@@ -2,15 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class Towers : MonoBehaviour
-{
+public abstract class Towers : MonoBehaviour {
 
-    [SerializeField]
     protected float base_building_time;
+    protected float currentBuildingTime = 0.0f;
+    protected float startTime = 0.0f;
 
-    protected float currentBuildingTime = 0;
-
-    protected bool isBuilt = false;
+    protected bool hasJustBeenPlaced = true;
 
     protected float maxLevel;
     protected float max_radius;
@@ -21,9 +19,8 @@ public abstract class Towers : MonoBehaviour
     protected float reload_time;
     protected float next_attack_time;
     protected HashSet<Transform> targets;
-    [SerializeField]
-    protected float fear_damage;
-    protected SphereCollider sc;
+    [SerializeField] protected float fear_damage;
+	protected SphereCollider sc;
 
     protected GameObject player;
 
@@ -32,17 +29,19 @@ public abstract class Towers : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (!isBuilt)
+        if(hasJustBeenPlaced)
         {
-            player = GameObject.FindGameObjectWithTag("Player");
-            currentBuildingTime += Time.deltaTime;
-            isBuilt = getBuildPercent() >= 1;
+            startTime = Time.time;
+            hasJustBeenPlaced = false;   
         }
 
-        if (isBuilt)
+        currentBuildingTime = Time.time - startTime;
+
+        removeTargetThatEnded();
+
+        if (targets.Count > 0 && Time.time >= next_attack_time)
         {
-            removeTargetThatEnded();
-            if (targets.Count > 0 && Time.time >= next_attack_time)
+            if(currentBuildingTime >= base_building_time)
             {
                 Shoot();
             }
@@ -85,10 +84,9 @@ public abstract class Towers : MonoBehaviour
         return fear_damage;
     }
 
-    public virtual bool canUpgrade()
-    {
-        return (level < maxLevel);
-    }
+	public virtual bool canUpgrade(){
+		return (level < maxLevel);
+	}
 
     public virtual float getBuildingTime()
     {
@@ -100,13 +98,7 @@ public abstract class Towers : MonoBehaviour
         return currentBuildingTime;
     }
 
-    public virtual float getRadius()
-    {
-        return sc.radius;
-    }
-
-    public virtual float getBuildPercent()
-    {
-        return currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() / (Mathf.Pow(1.1f, level - 1) * base_building_time);
-    }
+	public virtual float getRadius(){
+		return sc.radius;
+	}
 }

@@ -28,8 +28,9 @@ GameObject:
   - 65: {fileID: 6552940}
   - 114: {fileID: 11452940}
   - 54: {fileID: 5432108}
-  - 114: {fileID: 11492960}
   - 114: {fileID: 11492958}
+  - 114: {fileID: 11428310}
+  - 114: {fileID: 11492960}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -180,6 +181,21 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11428310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d3378225c9d1645a5468a4ff51f226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  base_movement_speed: 500
+  buildingSpeedRatio: {fileID: 11400000, guid: d42ad6282faecd046820807b4eb91026, type: 2}
+  base_building_speed: 1
+  base_enhancement_and_reload_speed: 50
 --- !u!114 &11452940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,7 +228,7 @@ MonoBehaviour:
   stat_points_per_up: 3
 --- !u!114 &11492960
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152940}
@@ -221,8 +237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d3378225c9d1645a5468a4ff51f226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_movement_speed: 100
-  base_building_speed: 2.5
+  base_movement_speed: 500
+  buildingSpeedRatio: {fileID: 0}
+  base_building_speed: 1
   base_enhancement_and_reload_speed: 50
 --- !u!1001 &100100000
 Prefab:

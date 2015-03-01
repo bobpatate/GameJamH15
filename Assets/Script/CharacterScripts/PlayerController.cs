@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 		Vector3 movement = new Vector3(speed.x*inputX, 0, speed.y*inputZ);
 
         //Update movement speed with stats
-        movement *= gameObject.GetComponent<CharacterStats>().getMovementSpeed() / 100.0f;
+        movement *= (gameObject.GetComponent<CharacterStats>().getMovementSpeed() / 100.0f);
 
         movement *= Time.deltaTime;
 		transform.Translate(movement);

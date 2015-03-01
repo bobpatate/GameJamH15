@@ -200,10 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861d36a8ec7962246abe3ad245fe30eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_building_time: 1.79999995
   fear_damage: 0
   ball_prefab: {fileID: 408606, guid: 912f68a0be17c0d40b880ce6d055907a, type: 2}
   ball_speed: 600
+  BuildingMultiplicator: .600000024
 --- !u!135 &13517164
 SphereCollider:
   m_ObjectHideFlags: 1
