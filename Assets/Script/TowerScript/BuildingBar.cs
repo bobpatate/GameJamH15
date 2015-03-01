@@ -9,7 +9,9 @@ public class BuildingBar : MonoBehaviour {
     private float buildingTime = 0.0f;
     private float currentBuildingTime = 0.0f;
     private float lastTickedTime = 0.0f;
+
     private bool isCompleted = false;
+    private float percentDone = 0;
 
     public float width = 50;
     public float height = 6;
@@ -32,16 +34,21 @@ public class BuildingBar : MonoBehaviour {
 
     void Update()
     {
-		if (!isCompleted) {
-			if (GameObject.Find ("Player")) {
-				currentBuildingTime = gameObject.GetComponent<Towers> ().getCurrentBuildingTime ();
-				if (currentBuildingTime >= buildingTime) {
-					isCompleted = true;
-					GameObject.Find ("Player").GetComponent<PlayerController> ().enabled = true;
-				} else {
-					GameObject.Find ("Player").GetComponent<PlayerController> ().enabled = false;
-				}
-			}
+        if (!isCompleted)
+        {
+            percentDone = gameObject.GetComponent<Towers>().getBuildPercent();
+            isCompleted =  percentDone >= 1;
+        }
+
+		if(GameObject.Find("Player")){
+	        if (!isCompleted)
+	        {
+	            GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
+	        }
+	        else
+	        {
+	            GameObject.Find("Player").GetComponent<PlayerController>().enabled = true;
+	        }
 		}
     }
 
@@ -55,7 +62,7 @@ public class BuildingBar : MonoBehaviour {
             Rect box = new Rect(screenPosition.x - 20, screenPosition.y - 35, width, height);
 
             GUI.DrawTexture(new Rect(box.x, box.y, box.width, box.height), background, ScaleMode.StretchToFill);
-            GUI.DrawTexture(new Rect(box.x, box.y, box.width * currentBuildingTime / buildingTime, box.height), foreground, ScaleMode.StretchToFill);
+            GUI.DrawTexture(new Rect(box.x, box.y, box.width * percentDone, box.height), foreground, ScaleMode.StretchToFill);
         }
     }
 

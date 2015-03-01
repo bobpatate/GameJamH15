@@ -47,7 +47,8 @@ public class PlayerController : MonoBehaviour {
 						tower.FindChild("Spotlight").GetComponent<Light>().enabled = false;
 					dist = tmp;
 					tower = t;
-					tower.FindChild("Spotlight").GetComponent<Light>().enabled = true;
+					if(dist < 5.0f)
+						tower.FindChild("Spotlight").GetComponent<Light>().enabled = true;
 				}
 			}
 		}else{
@@ -60,11 +61,13 @@ public class PlayerController : MonoBehaviour {
 					//On construit
                     GameObject t = (GameObject)Instantiate(spawnableTowers[towerInUse], transform.position, spawnableTowers[towerInUse].transform.rotation);
 					gm.towers.Add(t.transform);
+					AudioManager.instance.playBuildSound();
 				}else{
 					//On construit pas
 				}
 			}else{
 				//On construit
+				AudioManager.instance.playBuildSound();
                 GameObject t = (GameObject)Instantiate(spawnableTowers[towerInUse], transform.position, spawnableTowers[towerInUse].transform.rotation);
 				gm.towers.Add(t.transform);
 
@@ -73,12 +76,14 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetButtonDown ("Fire2")) {
             if(tower != null && dist < 5.0f)
             {
+				AudioManager.instance.playReloadSound();
                 tower.GetComponent<Towers>().reload();
             }
 		}
 
 		if (Input.GetButtonDown ("Fire3")) {
 			if(tower != null && tower.GetComponent<Towers>().canUpgrade() && dist < 5.0f){
+				AudioManager.instance.playEnhanceSound();
 				tower.GetComponent<Towers>().upgrade();
 			}
 		}

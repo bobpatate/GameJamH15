@@ -44,6 +44,7 @@ public class HauntTrap : Towers {
     {
         Transform target = getTarget();
         PlayScaryAnimation();
+		transform.GetComponent<ParticleSystem> ().Play ();
         if(target != null)
         {
             if (nb_ball_load >= 1)
@@ -88,5 +89,7 @@ public class HauntTrap : Towers {
         ++level;
         float ratio = (level - 1) / (maxLevel - 1);
         fear_damage = baseFearDamage + (maxFearDamage - baseFearDamage )* ratio;
+        currentBuildingTime = 0;
+        isBuilt = false;
     }
 }

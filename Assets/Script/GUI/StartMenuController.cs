@@ -19,11 +19,12 @@ public class StartMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space))
         {
             if (!sm.getInSubMenu())
             {
-                switch (transform.GetComponent<StartMenu>().getCurrentPos())
+				AudioManager.instance.playMenuSelectSound();
+				switch (transform.GetComponent<StartMenu>().getCurrentPos())
                 {
                     case 0:
                         //New game
@@ -59,9 +60,10 @@ public class StartMenuController : MonoBehaviour
             }
             
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.Escape))
         {
-            sm.hideNewGame();
+			AudioManager.instance.playMenuSelectSound();
+			sm.hideNewGame();
             sm.hideControls();
             controlGUI = false;
             newCharGUI = false;
@@ -71,7 +73,8 @@ public class StartMenuController : MonoBehaviour
         {
             if (!VDPadInUse && !controlGUI && !newCharGUI)
             {
-                sm.changePos(1);
+				AudioManager.instance.playMenuShiftSound();
+				sm.changePos(1);
                 VDPadInUse = true;
             }
         }
@@ -79,7 +82,8 @@ public class StartMenuController : MonoBehaviour
         {
             if (!VDPadInUse && !controlGUI && !newCharGUI)
             {
-                sm.changePos(-1);
+				AudioManager.instance.playMenuShiftSound();
+				sm.changePos(-1);
                 VDPadInUse = true;
             }
         }
@@ -92,7 +96,8 @@ public class StartMenuController : MonoBehaviour
         {
             if (!HDPadInUse && newCharGUI)
             {
-                sm.changePosSubMenu();
+				AudioManager.instance.playMenuShiftSound();
+				sm.changePosSubMenu();
                 HDPadInUse = true;
             }
         }

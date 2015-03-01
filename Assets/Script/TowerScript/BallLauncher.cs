@@ -44,7 +44,8 @@ public class BallLauncher : Towers
             transform.rotation = Quaternion.LookRotation(direction);
             if (nb_ball_load > 0)
             {
-                Transform tmpBall = (Transform)Instantiate(ball_prefab, transform.position, Quaternion.identity);
+				AudioManager.instance.playShootSound();
+				Transform tmpBall = (Transform)Instantiate(ball_prefab, transform.position, Quaternion.identity);
                 //tmpBall.rigidbody.AddForce(direction * ball_speed);
                 tmpBall.GetComponent<BallTrigger>().setObjective(target);
                 --nb_ball_load;
@@ -81,6 +82,8 @@ public class BallLauncher : Towers
         float ratio = (level - 1) / (maxLevel - 1);
         sc.radius = base_radius + (max_radius - base_radius) * ratio;
         reload_time = base_reload_time + (min_reload_time - base_reload_time) * ratio;
+        currentBuildingTime = 0;
+        isBuilt = false;
     }
 
 

@@ -42,18 +42,20 @@ public class MenuController : MonoBehaviour {
 				}
 			}
 		}
-		if (Input.GetButtonDown ("Fire2")) {
+        if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.Escape))
+        {
 			if(transform.GetComponent<EndGameMenu>().isInSubMenu())
 				transform.GetComponent<EndGameMenu>().changeMenu();
 		}
 
-		if (Input.GetAxis("HDPad") < 0) {
+		if (Input.GetAxis("HDPad") < 0 || Input.GetKeyDown(KeyCode.A)) {
 			if(!axis2InUse){
 				transform.GetComponent<EndGameMenu>().changePos(-1);
 				axis2InUse = true;
 			}
 		}
-		if (Input.GetAxis("HDPad") > 0) {
+        if (Input.GetAxis("HDPad") > 0 || Input.GetKeyDown(KeyCode.D))
+        {
 			if(!axis2InUse){
 				transform.GetComponent<EndGameMenu>().changePos(1);
 				axis2InUse = true;
