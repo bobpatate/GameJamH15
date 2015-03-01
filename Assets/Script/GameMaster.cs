@@ -188,8 +188,6 @@ public class GameMaster : MonoBehaviour
         Time.timeScale = 0; //pause game
         playerRef.SetActive(false);
 
-		//AudioManager.instance.playSuccessSound();
-
         endGameMenu.Display();
     }
 

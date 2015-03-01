@@ -106,6 +106,10 @@ MonoBehaviour:
   enhance: {fileID: 8300000, guid: 5b01a8d036615e34594e9d11b31f83f3, type: 3}
   Scream: {fileID: 8300000, guid: bd9db4a8d1700494699ec473f8e5ba22, type: 3}
   shoot: {fileID: 8300000, guid: e830c6ab614b4c64cb021a390b5bfddb, type: 3}
+  safe: {fileID: 8300000, guid: a96a41dbdcad4eb4c8e28523151ebc83, type: 3}
+  success: {fileID: 8300000, guid: 0a2e050394708d94199966ec5fd85130, type: 3}
+  fail: {fileID: 8300000, guid: 5c236e94c1ffe1541b40a7acd1b0e980, type: 3}
+  hauntedTrap: {fileID: 8300000, guid: ac7b4617e4de1874f80e977942c382c8, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

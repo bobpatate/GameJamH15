@@ -49,7 +49,8 @@ public class HauntTrap : Towers {
         {
             if (nb_ball_load >= 1)
             {
-                target.GetComponent<EnemyBehaviour>().addFearDamage(fear_damage);
+				AudioManager.instance.playHauntedTrapSound();
+				target.GetComponent<EnemyBehaviour>().addFearDamage(fear_damage);
                 nb_ball_load--;
 				targets.Clear();
             }

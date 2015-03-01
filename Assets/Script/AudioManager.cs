@@ -25,6 +25,9 @@ public class AudioManager : MonoBehaviour {
 	public AudioClip Scream;
 	public AudioClip shoot;
 	public AudioClip safe;
+	public AudioClip success;
+	public AudioClip fail;
+	public AudioClip hauntedTrap;
 	
 	public void playBallHitSound(){
 		audio.PlayOneShot(ballHit);
@@ -52,5 +55,14 @@ public class AudioManager : MonoBehaviour {
 	}
 	public void playSafeSound(){
 		audio.PlayOneShot(safe);
+	}
+	public void playSuccessSound(){
+		audio.PlayOneShot(success);
+	}
+	public void playFailSound(){
+		audio.PlayOneShot(fail);
+	}
+	public void playHauntedTrapSound(){
+		audio.PlayOneShot(hauntedTrap);
 	}
 }
