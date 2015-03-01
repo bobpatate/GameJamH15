@@ -16,11 +16,11 @@ public class HauntTrap : Towers {
     {
         maxLevel = 10;
         max_radius = 25;
-        min_reload_time = 0.1f;
+        min_reload_time = 1;
         base_radius = 7;
-        base_reload_time = 1.0f;
+        base_reload_time = 10;
         targets = new HashSet<Transform>();
-        fear_damage = 100;
+        fear_damage = float.MaxValue;
 
         level = 1;
         sc = transform.GetChild(0).GetComponent<SphereCollider>();
@@ -71,6 +71,7 @@ public class HauntTrap : Towers {
     public override void reload()
     {
         nb_ball_load = max_nb_ball_load;
+        next_attack_time = Time.time;
     }
 
     public override void upgrade()

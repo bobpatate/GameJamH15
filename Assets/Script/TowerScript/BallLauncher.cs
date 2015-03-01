@@ -6,7 +6,7 @@ public class BallLauncher : Towers
 {
     SphereCollider sc;
     public Transform ball_prefab;
-    public float ball_speed = 600;
+    public float ball_speed = 900;
     float max_nb_ball_load;
     float nb_ball_load;
 
@@ -16,9 +16,9 @@ public class BallLauncher : Towers
     {
         maxLevel = 10;
         max_radius = 25;
-        min_reload_time = 1000;
+        min_reload_time = 1;
         base_radius = 7;
-        base_reload_time = 5000;
+        base_reload_time = 5;
         targets = new HashSet<Transform>();
         fear_damage = 0;
 
@@ -38,10 +38,13 @@ public class BallLauncher : Towers
         {
             Vector3 direction = (target.position - transform.position).normalized;
             transform.rotation = Quaternion.LookRotation(direction);
-            Transform tmpBall = (Transform)Instantiate(ball_prefab, transform.position, Quaternion.identity);
-            tmpBall.rigidbody.AddForce(direction * ball_speed);
-            --nb_ball_load;
-            next_attack_time = Time.time + reload_time;
+            if (nb_ball_load > 0)
+            {
+                Transform tmpBall = (Transform)Instantiate(ball_prefab, transform.position, Quaternion.identity);
+                tmpBall.rigidbody.AddForce(direction * ball_speed);
+                --nb_ball_load;
+                next_attack_time = Time.time + reload_time;
+            }
         }
 
     }
