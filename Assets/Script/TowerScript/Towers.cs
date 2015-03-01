@@ -42,13 +42,7 @@ public abstract class Towers : MonoBehaviour {
 
     protected virtual void removeTargetThatEnded()
     {
-        foreach (Transform t in targets)
-        {
-            if (t == null)
-            {
-                targets.Remove(t);
-            }
-        }
+        targets.RemoveWhere(t => t == null);
     }
 
     public abstract void reload();

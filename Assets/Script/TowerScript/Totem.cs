@@ -11,9 +11,9 @@ public class Totem : Towers {
     {
         maxLevel = 10;
         max_radius = 25;
-        min_reload_time = 10;
-        base_radius = 7;
-        base_reload_time = 60;
+        min_reload_time = 0.1f;
+        base_radius = 5;
+        base_reload_time = 1;
         targets = new HashSet<Transform>();
         //fear_damage = 10;
 
@@ -31,6 +31,7 @@ public class Totem : Towers {
             	target.GetComponent<EnemyBehaviour>().addFearDamage(fear_damage);
 			}
         }
+        reload();
 
     }
 
