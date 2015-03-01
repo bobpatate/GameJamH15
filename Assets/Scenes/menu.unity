@@ -200,7 +200,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reload
+  m_Text: Enhance
 --- !u!222 &12879682
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2732,7 +2732,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enhance
+  m_Text: Reload
 --- !u!222 &219996131
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13402,8 +13402,9 @@ GameObject:
   - 65: {fileID: 1513822989}
   - 114: {fileID: 1513822992}
   - 54: {fileID: 1513822993}
-  - 114: {fileID: 1513822995}
   - 114: {fileID: 1513822994}
+  - 114: {fileID: 1513822988}
+  - 114: {fileID: 1513822995}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -13411,6 +13412,22 @@ GameObject:
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1513822988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11428310, guid: 3059891a1c99db54590047b0f04d2ea4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2040604476}
+  m_GameObject: {fileID: 1513822987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d3378225c9d1645a5468a4ff51f226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  base_movement_speed: 500
+  buildingSpeedRatio: {fileID: 11400000, guid: d42ad6282faecd046820807b4eb91026, type: 2}
+  base_building_speed: 1
+  base_enhancement_and_reload_speed: 50
 --- !u!65 &1513822989
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13500,7 +13517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   base_movement_speed: 100
-  base_building_speed: 2.5
+  buildingSpeedRatio: {fileID: 0}
+  base_building_speed: 1
   base_enhancement_and_reload_speed: 50
 --- !u!1 &1515782776
 GameObject:
@@ -18812,6 +18830,10 @@ MonoBehaviour:
   enhance: {fileID: 8300000, guid: 5b01a8d036615e34594e9d11b31f83f3, type: 3}
   Scream: {fileID: 8300000, guid: bd9db4a8d1700494699ec473f8e5ba22, type: 3}
   shoot: {fileID: 8300000, guid: e830c6ab614b4c64cb021a390b5bfddb, type: 3}
+  safe: {fileID: 8300000, guid: a96a41dbdcad4eb4c8e28523151ebc83, type: 3}
+  success: {fileID: 8300000, guid: 0a2e050394708d94199966ec5fd85130, type: 3}
+  fail: {fileID: 8300000, guid: 5c236e94c1ffe1541b40a7acd1b0e980, type: 3}
+  hauntedTrap: {fileID: 8300000, guid: ac7b4617e4de1874f80e977942c382c8, type: 3}
 --- !u!1001 &2081749324
 Prefab:
   m_ObjectHideFlags: 0

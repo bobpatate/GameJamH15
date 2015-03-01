@@ -41,6 +41,7 @@ public class Totem : Towers {
 
     public override void reload()
     {
+        isReloading = true;
         next_attack_time = Time.time;
     }
 

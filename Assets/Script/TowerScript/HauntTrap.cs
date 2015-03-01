@@ -80,6 +80,7 @@ public class HauntTrap : Towers {
 
     public override void reload()
     {
+        isReloading = true;
         nb_ball_load = max_nb_ball_load;
         next_attack_time = Time.time;
 		if(transform.position == initPosition)

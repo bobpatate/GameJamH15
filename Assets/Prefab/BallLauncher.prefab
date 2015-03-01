@@ -46,6 +46,7 @@ GameObject:
   - 23: {fileID: 2366824}
   - 114: {fileID: 11491336}
   - 114: {fileID: 11485182}
+  - 114: {fileID: 11401122}
   m_Layer: 10
   m_Name: BallLauncher
   m_TagString: Tower
@@ -165,6 +166,19 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11401122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286b57762ee049a409b4d14420e6e379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 50
+  height: 6
 --- !u!114 &11417164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,6 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861d36a8ec7962246abe3ad245fe30eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  base_building_time: 0
+  base_reload_time: 0
+  base_enhance_time: 0
   fear_damage: 0
   ball_prefab: {fileID: 408606, guid: 912f68a0be17c0d40b880ce6d055907a, type: 2}
   ball_speed: 600
