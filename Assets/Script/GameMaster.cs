@@ -165,7 +165,7 @@ public class GameMaster : MonoBehaviour
         InvokeRepeating("SpawnEnemy", 0, enemySpawnDelay);
 
         if (currentLevel != 0)
-            enemyTotal = Mathf.RoundToInt(enemyTotal * 1.2f);
+            enemyTotal = Mathf.RoundToInt(enemyTotal * 1.2f); 
         enemiesLeft = enemyTotal;
 
         enemiesToKillToWin = (int)(percentageToKill * enemyTotal);
