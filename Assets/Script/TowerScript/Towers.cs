@@ -2,14 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class Towers : MonoBehaviour {
+public abstract class Towers : MonoBehaviour
+{
 
-    [SerializeField] protected float base_building_time;
+    [SerializeField]
+    protected float base_building_time;
 
-    protected float currentBuildingTime = 0.0f;
-    protected float startTime = 0.0f;
+    protected float currentBuildingTime = 0;
 
-    protected bool hasJustBeenPlaced = true;
+    protected bool isBuilt = false;
 
     protected float maxLevel;
     protected float max_radius;
@@ -20,8 +21,9 @@ public abstract class Towers : MonoBehaviour {
     protected float reload_time;
     protected float next_attack_time;
     protected HashSet<Transform> targets;
-    [SerializeField] protected float fear_damage;
-	protected SphereCollider sc;
+    [SerializeField]
+    protected float fear_damage;
+    protected SphereCollider sc;
 
     protected GameObject player;
 
@@ -30,26 +32,20 @@ public abstract class Towers : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-
-        if(player)
+        if (!isBuilt)
         {
-            player.GetComponent<CharacterStats>().getBuildingSpeed();
+            player = GameObject.FindGameObjectWithTag("Player");
+            currentBuildingTime += Time.deltaTime;
+            isBuilt = getBuildPercent() >= 1;
         }
 
-        if(hasJustBeenPlaced)
+        if (isBuilt)
         {
-            startTime = Time.time;
-            hasJustBeenPlaced = false;
-        }
-
-        currentBuildingTime = Time.time - startTime;
-
-        removeTargetThatEnded();
-
-        if (targets.Count > 0 && Time.time >= next_attack_time && currentBuildingTime >= base_building_time - player.GetComponent<CharacterStats>().getBuildingSpeed())
-        {
-            Shoot();
+            removeTargetThatEnded();
+            if (targets.Count > 0 && Time.time >= next_attack_time)
+            {
+                Shoot();
+            }
         }
     }
 
@@ -89,9 +85,10 @@ public abstract class Towers : MonoBehaviour {
         return fear_damage;
     }
 
-	public virtual bool canUpgrade(){
-		return (level < maxLevel);
-	}
+    public virtual bool canUpgrade()
+    {
+        return (level < maxLevel);
+    }
 
     public virtual float getBuildingTime()
     {
@@ -103,7 +100,12 @@ public abstract class Towers : MonoBehaviour {
         return currentBuildingTime;
     }
 
-	public virtual float getRadius(){
-		return sc.radius;
-	}
+    public virtual float getRadius()
+    {
+        return sc.radius;
+    }
+
+    public virtual float getBuildPercent() {
+        return currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() / base_building_time;
+    }
 }
