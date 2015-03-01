@@ -47,7 +47,7 @@ public class GameMaster : MonoBehaviour
     private string currentGamePhase = "Day"; //or "Night"
     private float roundTotalTime = 0;
 
-	internal List<Transform> towers;
+	internal List<Transform> towers = new List<Transform>();
 
     private bool canSpawn = true;
 
@@ -143,6 +143,13 @@ public class GameMaster : MonoBehaviour
     {
         guiGO.transform.GetChild(0).gameObject.SetActive(true);
         guiGO.transform.GetChild(1).gameObject.SetActive(false);
+
+		if(towers.Count > 0){
+			foreach (Transform trans in towers){
+				Destroy(trans.gameObject);
+			}
+			towers = new List<Transform>();
+		}
 
 		//Reset all the shits
 		dayCountDown = dayTimer;
