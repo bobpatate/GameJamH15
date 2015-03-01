@@ -59,7 +59,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (!isScared && fear >= maxFear)
         {
-            launchHorrifiedAnimation();
+			stun_end_time = 0;
+			launchHorrifiedAnimation();
             scream();
 			isScared = true;
         }

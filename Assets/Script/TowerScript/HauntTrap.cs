@@ -45,7 +45,7 @@ public class HauntTrap : Towers {
     {
         Transform target = getTarget();
         PlayScaryAnimation();
-		transform.GetComponent<ParticleSystem> ().Play ();
+
         if(target != null)
         {
             if (nb_ball_load >= 1)
@@ -61,6 +61,7 @@ public class HauntTrap : Towers {
     protected void PlayScaryAnimation()
     {
         transform.position = initPosition;
+		transform.GetComponent<ParticleSystem> ().Play ();
     }
 
     private Transform getTarget()
