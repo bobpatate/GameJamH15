@@ -38,21 +38,23 @@ public class PlayerController : MonoBehaviour {
 	        transform.GetChild(0).rotation = rot;
 		}
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-			float dist = 9000.0f;
-			if(gm.towers.Count > 0){
-				foreach(Transform t in gm.towers){
-					float tmp = Vector3.Distance(t.position, transform.position);
-					if(tmp < dist){
-						dist = tmp;
-						tower = t;
-					}
+		float dist = 9000.0f;
+		if(gm.towers.Count > 0){
+			foreach(Transform t in gm.towers){
+				float tmp = Vector3.Distance(t.position, transform.position);
+				if(tmp < dist){
+					if(tower)
+						tower.FindChild("Spotlight").GetComponent<Light>().enabled = false;
+					dist = tmp;
+					tower = t;
+					tower.FindChild("Spotlight").GetComponent<Light>().enabled = true;
 				}
-			}else{
-				tower = null;
 			}
-
+		}else{
+			tower = null;
+		}
+		if (Input.GetButtonDown("Fire1"))
+        {
 			if(tower != null){
 				if(dist > 5.0f){
 					//On construit
@@ -69,19 +71,6 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 		if (Input.GetButtonDown ("Fire2")) {
-			float dist = 9000.0f;
-			if(gm.towers.Count > 0){
-				foreach(Transform t in gm.towers){
-					float tmp = Vector3.Distance(t.position, transform.position);
-					if(tmp < dist){
-						dist = tmp;
-						tower = t;
-					}
-				}
-			}else{
-				tower = null;
-			}
-
             if(tower != null && dist < 5.0f)
             {
                 tower.GetComponent<Towers>().reload();
@@ -89,19 +78,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetButtonDown ("Fire3")) {
-			float dist = 9000.0f;
-			if(gm.towers.Count > 0){
-				foreach(Transform t in gm.towers){
-					float tmp = Vector3.Distance(t.position, transform.position);
-					if(tmp < dist){
-						dist = tmp;
-						tower = t;
-					}
-				}
-			}else{
-				tower = null;
-			}
-
 			if(tower != null && tower.GetComponent<Towers>().canUpgrade() && dist < 5.0f){
 				tower.GetComponent<Towers>().upgrade();
 			}
@@ -143,8 +119,4 @@ public class PlayerController : MonoBehaviour {
 			axisInUse = false;
 		}
 	}
-
-	/*public void getTriggerInfo(GameObject tow){
-		tower = tow;
-	}*/
 }
