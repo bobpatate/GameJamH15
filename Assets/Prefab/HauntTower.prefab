@@ -200,10 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd759b163ee5f6346901308d5b1062d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_building_time: 3
   fear_damage: 100
   maxFearDamage: 300
   baseFearDamage: 100
+  BuildingMultiplicator: 1.79999995
 --- !u!135 &13551518
 SphereCollider:
   m_ObjectHideFlags: 1

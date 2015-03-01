@@ -4,9 +4,13 @@ using System.Collections.Generic;
 
 public class Totem : Towers {
 
+    public float buildingMultiplicator = 1.2f;
+
 	// Use this for initialization
     protected override void Start()
     {
+        player = GameObject.Find("Player");
+
         maxLevel = 10;
         max_radius = 25;
         min_reload_time = 0.1f;
@@ -20,6 +24,10 @@ public class Totem : Towers {
         sc.radius = base_radius;
         reload_time = base_reload_time;
         next_attack_time = Time.time;
+
+        Debug.Log(player.GetComponent<CharacterStats>().getBuildingSpeed());
+
+        base_building_time = player.GetComponent<CharacterStats>().getBuildingSpeed() * buildingMultiplicator;
     }
 
     protected override void Shoot()

@@ -9,10 +9,13 @@ public class BallLauncher : Towers
     public float ball_speed = 100;
     float max_nb_ball_load;
     float nb_ball_load;
+    public float BuildingMultiplicator = 1.6f;
 
     // Use this for initialization
     protected override void Start()
     {
+        player = GameObject.Find("Player");
+
         maxLevel = 10;
         max_radius = 25;
         min_reload_time = 1;
@@ -28,6 +31,8 @@ public class BallLauncher : Towers
         max_nb_ball_load = 1;
         nb_ball_load = max_nb_ball_load;
         next_attack_time = Time.time;
+
+        base_building_time = player.GetComponent<CharacterStats>().getBuildingSpeed() * BuildingMultiplicator;
     }
 
     protected override void Shoot()

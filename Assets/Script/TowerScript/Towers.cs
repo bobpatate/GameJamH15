@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 public abstract class Towers : MonoBehaviour {
 
-    [SerializeField] protected float base_building_time;
-
+    protected float base_building_time;
     protected float currentBuildingTime = 0.0f;
     protected float startTime = 0.0f;
 
@@ -30,26 +29,22 @@ public abstract class Towers : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-
-        if(player)
-        {
-            player.GetComponent<CharacterStats>().getBuildingSpeed();
-        }
-
         if(hasJustBeenPlaced)
         {
             startTime = Time.time;
-            hasJustBeenPlaced = false;
+            hasJustBeenPlaced = false;   
         }
 
         currentBuildingTime = Time.time - startTime;
 
         removeTargetThatEnded();
 
-        if (targets.Count > 0 && Time.time >= next_attack_time && currentBuildingTime >= base_building_time - player.GetComponent<CharacterStats>().getBuildingSpeed())
+        if (targets.Count > 0 && Time.time >= next_attack_time)
         {
-            Shoot();
+            if(currentBuildingTime >= base_building_time)
+            {
+                Shoot();
+            }
         }
     }
 
