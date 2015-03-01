@@ -74,7 +74,8 @@ public class HauntTrap : Towers {
     {
         nb_ball_load = max_nb_ball_load;
         next_attack_time = Time.time;
-		transform.position = new Vector3(transform.position.x, transform.position.y-1.1f, transform.position.z);
+		if(transform.position == initPosition)
+			transform.position = new Vector3(transform.position.x, transform.position.y-1.1f, transform.position.z);
     }
 
     public override void upgrade()
