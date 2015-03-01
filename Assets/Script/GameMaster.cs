@@ -144,12 +144,10 @@ public class GameMaster : MonoBehaviour
         guiGO.transform.GetChild(0).gameObject.SetActive(true);
         guiGO.transform.GetChild(1).gameObject.SetActive(false);
 
-		if(towers.Count > 0){
-			foreach (Transform trans in towers){
-				Destroy(trans.gameObject);
-			}
-			towers = new List<Transform>();
+		foreach (Transform trans in towers){
+			Destroy(trans.gameObject);
 		}
+		towers = new List<Transform>();
 
 		//Reset all the shits
 		dayCountDown = dayTimer;
