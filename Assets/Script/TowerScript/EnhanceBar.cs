@@ -10,7 +10,7 @@ public class EnhanceBar : MonoBehaviour {
     private float currentEnhanceTime = 0.0f;
     private float lastTickedTime = 0.0f;
 
-    private bool isCompleted = false;
+    private bool isCompleted = true;
     private float percentDone = 0;
 
     public float width = 50;
@@ -51,6 +51,11 @@ public class EnhanceBar : MonoBehaviour {
                 GameObject.Find("Player").GetComponent<PlayerController>().enabled = true;
             }
         }
+
+        if(gameObject.GetComponent<Towers>().getIsEnhancing())
+        {
+            isCompleted = false;
+        }
     }
 
     void OnGUI()
@@ -66,5 +71,4 @@ public class EnhanceBar : MonoBehaviour {
             GUI.DrawTexture(new Rect(box.x, box.y, box.width * percentDone, box.height), foreground, ScaleMode.StretchToFill);
         }
     }
-
 }

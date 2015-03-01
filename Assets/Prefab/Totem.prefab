@@ -49,6 +49,7 @@ GameObject:
   - 199: {fileID: 19968292}
   - 114: {fileID: 11432346}
   - 114: {fileID: 11483458}
+  - 114: {fileID: 11442756}
   m_Layer: 10
   m_Name: Totem
   m_TagString: Tower
@@ -192,6 +193,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 50
   height: 6
+--- !u!114 &11442756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3932e00f83143e40bf435d6c37d4858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 50
+  height: 6
 --- !u!114 &11467542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,8 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   base_building_time: 2.20000005
-  base_reload_time: 0
-  base_enhance_time: 0
+  base_reload_time: 1
+  base_enhance_time: 10
   fear_damage: 10
   buildingMultiplicator: 1.20000005
 --- !u!114 &11483458
