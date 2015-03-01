@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
 	private bool isScared = false;
     private float stun_end_time;
 	private GameObject dust;
+	[SerializeField] private float timeUntilSelfDestruct = 15.0f;
 
     public float maxFear = 100.0f;
     public Vector3 targetPoint = new Vector3(20, 20, 20); //Determine it through an empty GameObject corresponding to the exit of the map
@@ -36,6 +37,10 @@ public class EnemyBehaviour : MonoBehaviour
         if(fear >= maxFear)
         {
             gameObject.tag = "DeadEnemy";
+			timeUntilSelfDestruct -= timeUntilSelfDestruct * Time.deltaTime;
+
+			if(timeUntilSelfDestruct <= 0)
+				Destroy(gameObject);
         }
     }
 
