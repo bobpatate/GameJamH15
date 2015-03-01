@@ -14573,7 +14573,6 @@ GameObject:
   - 54: {fileID: 1513822993}
   - 114: {fileID: 1513822994}
   - 114: {fileID: 1513822988}
-  - 114: {fileID: 1513822995}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -14584,9 +14583,8 @@ GameObject:
 --- !u!114 &1513822988
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11428310, guid: 3059891a1c99db54590047b0f04d2ea4,
-    type: 2}
-  m_PrefabInternal: {fileID: 2040604476}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1513822987}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -14596,7 +14594,8 @@ MonoBehaviour:
   base_movement_speed: 500
   buildingSpeedRatio: {fileID: 11400000, guid: d42ad6282faecd046820807b4eb91026, type: 2}
   base_building_speed: 1
-  base_enhancement_and_reload_speed: 50
+  base_enhancement_and_reload_speed: 1
+  building_speed_stat: 20
 --- !u!65 &1513822989
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14673,22 +14672,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   base_xp_to_up: 7
   stat_points_per_up: 3
---- !u!114 &1513822995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11492960, guid: 3059891a1c99db54590047b0f04d2ea4,
-    type: 2}
-  m_PrefabInternal: {fileID: 2040604476}
-  m_GameObject: {fileID: 1513822987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2d3378225c9d1645a5468a4ff51f226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  base_movement_speed: 100
-  buildingSpeedRatio: {fileID: 0}
-  base_building_speed: 1
-  base_enhancement_and_reload_speed: 50
 --- !u!1 &1515782776
 GameObject:
   m_ObjectHideFlags: 0
@@ -19839,7 +19822,21 @@ Prefab:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11428310, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
+      propertyPath: base_enhancement_and_reload_speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428310, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
+      propertyPath: base_building_speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428310, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
+      propertyPath: building_speed_stat
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11492960, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
+    - {fileID: 11428310, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
   m_RootGameObject: {fileID: 1513822987}
   m_IsPrefabParent: 0

@@ -12,7 +12,7 @@ public class CharacterStats : MonoBehaviour
     float enhancement_and_reload_speed;
 
     float movement_speed_stat = 0;
-    float building_speed_stat = 0;
+    public float building_speed_stat = 0;
     float enhancement_and_reload_speed_stat = 0;
 
     public void Start()
