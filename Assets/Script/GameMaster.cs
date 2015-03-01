@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /*<summary>
  * Game's central entity. Is a singleton.
@@ -45,6 +46,8 @@ public class GameMaster : MonoBehaviour
     internal float dayCountDown; //time left to day. to display
     private string currentGamePhase = "Day"; //or "Night"
     private float roundTotalTime = 0;
+
+	internal List<Transform> towers;
 
     private bool canSpawn = true;
 
@@ -94,7 +97,7 @@ public class GameMaster : MonoBehaviour
 
     void Update()
     {
-        roundTotalTime += Time.deltaTime;
+		roundTotalTime += Time.deltaTime;
 
         //Lighting change 5 seconds before nighttime
         if ((int)roundTotalTime == (int)(dayTimer - 5))
