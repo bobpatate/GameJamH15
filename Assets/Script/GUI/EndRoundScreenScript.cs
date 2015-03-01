@@ -6,7 +6,9 @@ public class EndRoundScreenScript : MonoBehaviour
 {
 
     readonly string ROUND_RESULT_OK = "Success";
+    readonly Color ROUND_RESULT_OK_COLOR = new Color(0,124,16,255);
     readonly string ROUND_RESULT_FAIL = "Failure";
+    readonly Color ROUND_RESULT_FAIL_COLOR = new Color(215, 0, 16, 255);
     readonly string ENEMY_SCARED = "Enemy scared: ";
     readonly string EXPERIENCE_WON = "Experience won: ";
     readonly string LEVEL = "Level: ";
@@ -46,10 +48,12 @@ public class EndRoundScreenScript : MonoBehaviour
                     if (gm.isRoundSuccess())
                     {
                         child.GetComponent<Text>().text = ROUND_RESULT_OK;
+                        child.GetComponent<Text>().color = ROUND_RESULT_OK_COLOR;
                     }
                     else
                     {
                         child.GetComponent<Text>().text = ROUND_RESULT_FAIL;
+                        child.GetComponent<Text>().color = ROUND_RESULT_FAIL_COLOR;
                     }
                     break;
                 case "enemyScared":

@@ -28,16 +28,14 @@ public class Totem : Towers {
     {
         foreach(Transform target in targets) {
 			if(target){
-            	target.GetComponent<EnemyBehaviour>().addFearDamage(fear_damage);
+            	target.GetComponent<EnemyBehaviour>().addFearDamage(Time.deltaTime * fear_damage);
 			}
         }
-        reload();
-
     }
 
     public override void reload()
     {
-        next_attack_time = Time.time + reload_time;
+        next_attack_time = Time.time;
     }
 
     public override void upgrade()
