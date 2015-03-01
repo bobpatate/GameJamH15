@@ -76,6 +76,8 @@ public class BallLauncher : Towers
         float ratio = (level - 1) / (maxLevel - 1);
         sc.radius = base_radius + (max_radius - base_radius) * ratio;
         reload_time = base_reload_time + (min_reload_time - base_reload_time) * ratio;
+        currentBuildingTime = 0;
+        isBuilt = false;
     }
 
 

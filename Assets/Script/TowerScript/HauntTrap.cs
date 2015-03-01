@@ -83,5 +83,7 @@ public class HauntTrap : Towers {
         ++level;
         float ratio = (level - 1) / (maxLevel - 1);
         fear_damage = baseFearDamage + (maxFearDamage - baseFearDamage )* ratio;
+        currentBuildingTime = 0;
+        isBuilt = false;
     }
 }

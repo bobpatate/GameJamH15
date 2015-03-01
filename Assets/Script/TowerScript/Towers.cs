@@ -105,7 +105,8 @@ public abstract class Towers : MonoBehaviour
         return sc.radius;
     }
 
-    public virtual float getBuildPercent() {
-        return currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() / base_building_time;
+    public virtual float getBuildPercent()
+    {
+        return currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() / (Mathf.Pow(1.1f, level - 1) * base_building_time);
     }
 }

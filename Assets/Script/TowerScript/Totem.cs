@@ -43,5 +43,7 @@ public class Totem : Towers {
         sc.radius = base_radius + (max_radius - base_radius) * ratio;
         reload_time = base_reload_time + (min_reload_time - base_reload_time) * ratio;
 		transform.GetComponent<ParticleSystem> ().startSpeed += 0.4f;
+        currentBuildingTime = 0;
+        isBuilt = false;
     }
 }
