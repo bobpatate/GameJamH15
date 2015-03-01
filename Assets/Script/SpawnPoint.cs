@@ -24,13 +24,10 @@ public class SpawnPoint : MonoBehaviour {
 
     void OnTriggerEnter(Collider Other)
     {
-        if(Other.tag == "Enemy")
+        if(Other.tag == "DeadEnemy")
         {
-            if(Other.GetComponent<EnemyBehaviour>().getFear() >= Other.GetComponent<EnemyBehaviour>().getMaxFear())
-            {
-				GameMaster.instance.killedEnemy();
-				Destroy(Other.gameObject);
-            }
+            GameMaster.instance.killedEnemy();
+            Destroy(Other.gameObject);
         }
 
     }

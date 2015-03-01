@@ -50,11 +50,14 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (Input.GetButtonDown ("Fire2")) {
 			Debug.Log("Button B");
-			tower.GetComponent<Towers>().reload();
+            if(tower)
+            {
+                tower.GetComponent<Towers>().reload();
+            }
 		}
 		if (Input.GetButtonDown ("Fire3")) {
 			Debug.Log("Button X");
-			if(tower.GetComponent<Towers>().canUpgrade()){
+			if(tower && tower.GetComponent<Towers>().canUpgrade()){
 				tower.GetComponent<Towers>().upgrade();
 			}
 		}
@@ -100,7 +103,7 @@ public class PlayerController : MonoBehaviour {
 		tower = tow;
 	}
 
-	/*void OnTriggerEnter(Collider other){
+	void OnTriggerEnter(Collider other){
         if(other.tag == "tower")
         {
             tower = other.gameObject;
@@ -111,5 +114,5 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerExit(Collider other){
 		tower = null;
 		showConstructionUI = false;
-	}*/
+	}
 }
