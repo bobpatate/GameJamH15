@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d3378225c9d1645a5468a4ff51f226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_movement_speed: 600
-  base_building_speed: 100
+  base_movement_speed: 500
+  base_building_speed: 1
   base_enhancement_and_reload_speed: 50
 --- !u!1001 &100100000
 Prefab:

@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd759b163ee5f6346901308d5b1062d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_building_time: 2
+  base_building_time: 3
   fear_damage: 100
   maxFearDamage: 300
   baseFearDamage: 100
