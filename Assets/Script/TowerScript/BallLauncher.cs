@@ -12,6 +12,7 @@ public class BallLauncher : Towers
     public float BuildingMultiplicator = 1.6f;
 
     private float selectTargetRadius;
+	private Color initialColor;
 
     // Use this for initialization
     protected override void Start()
@@ -36,6 +37,8 @@ public class BallLauncher : Towers
         nb_ball_load = max_nb_ball_load;
         next_attack_time = Time.time;
 
+		initialColor = renderer.material.color;
+
         base_building_time = player.GetComponent<CharacterStats>().getBuildingSpeed() * BuildingMultiplicator;
     }
 
@@ -55,6 +58,8 @@ public class BallLauncher : Towers
                 tmpBall.GetComponent<BallTrigger>().setObjective(hit_target);
                 --nb_ball_load;
                 next_attack_time = Time.time + reload_time;
+
+				renderer.material.SetColor("_Color", new Color(0.2f, 0.2f, 0.3f));
             }
             else
             {
@@ -99,9 +104,10 @@ public class BallLauncher : Towers
     {
         if(nb_ball_load == 0)
         {
-            isReloading = true;
+			renderer.material.SetColor("_Color", initialColor);
+			isReloading = true;
             nb_ball_load = max_nb_ball_load;
-            next_attack_time = Time.time + reload_time;
+            //next_attack_time = Time.time + reload_time;
         }
     }
 
