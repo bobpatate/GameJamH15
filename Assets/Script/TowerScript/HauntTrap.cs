@@ -22,7 +22,7 @@ public class HauntTrap : Towers {
         max_radius = 25;
         min_reload_time = 1;
         base_radius = 7;
-        base_reload_time = 10;
+        base_reload_time = 15;
         base_enhance_time = 2;
         targets = new HashSet<Transform>();
         fear_damage = 100.0f;
