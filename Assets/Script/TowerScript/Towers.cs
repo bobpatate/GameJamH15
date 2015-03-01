@@ -21,6 +21,7 @@ public abstract class Towers : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update()
     {
+        removeTargetThatEnded();
         if (targets.Count > 0 && Time.time >= next_attack_time)
         {
             Shoot();
@@ -37,6 +38,17 @@ public abstract class Towers : MonoBehaviour {
     public virtual void removeTarget(Transform target)
     {
         targets.Remove(target);
+    }
+
+    protected virtual void removeTargetThatEnded()
+    {
+        foreach (Transform t in targets)
+        {
+            if (t == null)
+            {
+                targets.Remove(t);
+            }
+        }
     }
 
     public abstract void reload();
