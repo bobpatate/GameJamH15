@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	
-	GameObject tower = null;
+	Transform tower = null;
 	bool showConstructionUI;
 	private bool axisInUse;
     private ushort towerInUse = 0;
@@ -12,11 +12,12 @@ public class PlayerController : MonoBehaviour {
     public GameObject mGui;
     public GameObject[] spawnableTowers;
 
-	private GameMaster gm = GameMaster.instance;
+	private GameMaster gm;
 	
 	void Start(){
 		showConstructionUI = false;
 		axisInUse = false;
+		gm = GameMaster.instance;
 	}
 	
 	void Update () {
@@ -39,37 +40,69 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
-			Debug.Log("Button A");
+			float dist = 9000.0f;
+			if(gm.towers.Count > 0){
+				foreach(Transform t in gm.towers){
+					float tmp = Vector3.Distance(t.position, transform.position);
+					if(tmp < dist){
+						dist = tmp;
+						tower = t;
+					}
+				}
+			}else{
+				tower = null;
+			}
+
 			if(tower != null){
-				Debug.Log ("On entre");
-				float dist = Mathf.Sqrt(Mathf.Pow(tower.transform.position.x - transform.position.x, 2) + Mathf.Pow(tower.transform.position.z - transform.position.z, 2));
-				if(dist > 5){
+				if(dist > 5.0f){
 					//On construit
                     GameObject t = (GameObject)Instantiate(spawnableTowers[towerInUse], transform.position, spawnableTowers[towerInUse].transform.rotation);
+					gm.towers.Add(t.transform);
 				}else{
 					//On construit pas
 				}
 			}else{
-				Debug.Log ("On entre pas");
 				//On construit
                 GameObject t = (GameObject)Instantiate(spawnableTowers[towerInUse], transform.position, spawnableTowers[towerInUse].transform.rotation);
-
+				gm.towers.Add(t.transform);
 
 			}
 		}
 		if (Input.GetButtonDown ("Fire2")) {
-			//Debug.Log("Button B");
-            if(tower)
+			float dist = 9000.0f;
+			if(gm.towers.Count > 0){
+				foreach(Transform t in gm.towers){
+					float tmp = Vector3.Distance(t.position, transform.position);
+					if(tmp < dist){
+						dist = tmp;
+						tower = t;
+					}
+				}
+			}else{
+				tower = null;
+			}
+
+            if(tower != null && dist < 5.0f)
             {
-				Debug.Log("répare");
-				Debug.Log (tower.name);
                 tower.GetComponent<Towers>().reload();
             }
 		}
+
 		if (Input.GetButtonDown ("Fire3")) {
-			Debug.Log("Button X");
-			if(tower && tower.GetComponent<Towers>().canUpgrade()){
-				Debug.Log (tower.name);
+			float dist = 9000.0f;
+			if(gm.towers.Count > 0){
+				foreach(Transform t in gm.towers){
+					float tmp = Vector3.Distance(t.position, transform.position);
+					if(tmp < dist){
+						dist = tmp;
+						tower = t;
+					}
+				}
+			}else{
+				tower = null;
+			}
+
+			if(tower != null && tower.GetComponent<Towers>().canUpgrade() && dist < 5.0f){
 				tower.GetComponent<Towers>().upgrade();
 			}
 		}
@@ -111,7 +144,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	public void getTriggerInfo(GameObject tow){
+	/*public void getTriggerInfo(GameObject tow){
 		tower = tow;
-	}
+	}*/
 }
