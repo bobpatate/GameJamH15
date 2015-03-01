@@ -60,6 +60,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (!isScared && fear >= maxFear)
         {
             launchHorrifiedAnimation();
+            scream();
 			isScared = true;
         }
     }
@@ -72,6 +73,11 @@ public class EnemyBehaviour : MonoBehaviour
         targetPoint = spawnPoint.transform.position;
 		agent.speed = agent.speed*2;
 		dust.SetActive(true);
+    }
+
+    private void scream()
+    {
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     public void setStun(float duration)
