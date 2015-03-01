@@ -18,7 +18,10 @@ public class MenuController : MonoBehaviour {
 				if(transform.GetComponent<EndGameMenu>().getCurPos() == 0){
 					transform.GetComponent<EndGameMenu>().changeMenu();
 				}else{
-					GameObject.Find("GameMaster").GetComponent<GameMaster>().StartNextLevel();
+					if(GameMaster.instance.isRoundSuccess())
+						GameObject.Find("GameMaster").GetComponent<GameMaster>().StartNextLevel(1);
+					else
+						GameObject.Find("GameMaster").GetComponent<GameMaster>().StartNextLevel(0);
 				}
 			}else{
 				if(transform.GetComponent<EndGameMenu>().getCurPos() == 0){
