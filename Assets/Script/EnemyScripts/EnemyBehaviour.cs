@@ -32,6 +32,11 @@ public class EnemyBehaviour : MonoBehaviour
         {
             agent.enabled = false;
         }
+
+        if(fear >= maxFear)
+        {
+            gameObject.tag = "Untagged";
+        }
     }
 
     public void addFearDamage(float fear_to_add)

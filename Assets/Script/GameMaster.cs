@@ -118,6 +118,20 @@ public class GameMaster : MonoBehaviour {
 		}
 	}
 
+	public void StartNextLevel(){
+		currentLevel++;
+		StartLevel (currentLevel);
+		guiGO.transform.GetChild (0).gameObject.SetActive (true);
+		guiGO.transform.GetChild (1).gameObject.SetActive(false);
+		startTime = Time.time;
+		dayCountDown = dayTimer;
+		light.GetComponent<SunMoon> ().reset ();
+		enemiesSpawned = 0;
+		nb_enemy_scared = 0;
+		enemiesInGame = 0;
+		xp_won = 0;
+	}
+
 	//Initialize number of enemies to spawn
 	private void StartLevel(int currentLevel){
 		Time.timeScale = 1; //unpause game
