@@ -46,6 +46,7 @@ GameObject:
   - 23: {fileID: 2370220}
   - 114: {fileID: 11497746}
   - 114: {fileID: 11434284}
+  - 114: {fileID: 11415652}
   - 198: {fileID: 19804642}
   - 199: {fileID: 19904642}
   m_Layer: 10
@@ -167,6 +168,19 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11415652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286b57762ee049a409b4d14420e6e379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 50
+  height: 6
 --- !u!114 &11434284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,6 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd759b163ee5f6346901308d5b1062d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  base_building_time: 0
+  base_reload_time: 0
+  base_enhance_time: 0
   fear_damage: 100
   maxFearDamage: 300
   baseFearDamage: 100

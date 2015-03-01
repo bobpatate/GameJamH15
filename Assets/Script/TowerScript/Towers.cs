@@ -8,19 +8,30 @@ public abstract class Towers : MonoBehaviour
     [SerializeField]
     protected float base_building_time;
 
+    [SerializeField]
+    protected float base_reload_time;
+
+    [SerializeField]
+    protected float base_enhance_time;
+
     protected float currentBuildingTime = 0;
+    protected float currentReloadTime = 0;
+    protected float currentEnhanceTime = 0;
 
     protected bool isBuilt = false;
+    protected bool isReloading = false;
+    protected bool isEnhancing = false;
 
     protected float maxLevel;
     protected float max_radius;
     protected float min_reload_time;
     protected float base_radius;
-    protected float base_reload_time;
+
     protected float level;
     protected float reload_time;
     protected float next_attack_time;
     protected HashSet<Transform> targets;
+
     [SerializeField]
     protected float fear_damage;
     protected SphereCollider sc;
@@ -39,12 +50,30 @@ public abstract class Towers : MonoBehaviour
             isBuilt = getBuildPercent() >= 1;
         }
 
-        if (isBuilt)
+        if (isBuilt && !isReloading)
         {
             removeTargetThatEnded();
             if (targets.Count > 0 && Time.time >= next_attack_time)
             {
                 Shoot();
+            }
+        }
+
+        if(isReloading)
+        {
+            currentReloadTime += Time.deltaTime;
+            if(getReloadPercent() >= 1)
+            {
+                isReloading = false;
+            }
+        }
+
+        if(isEnhancing)
+        {
+            currentEnhanceTime += Time.deltaTime;
+            if(getEnhancePercent() >= 1)
+            {
+                isEnhancing = false;
             }
         }
     }
@@ -80,6 +109,11 @@ public abstract class Towers : MonoBehaviour
         return reload_time;
     }
 
+    public virtual float getCurrentReloadTime()
+    {
+        return currentReloadTime;
+    }
+
     public virtual float getFearDamage()
     {
         return fear_damage;
@@ -95,9 +129,19 @@ public abstract class Towers : MonoBehaviour
         return base_building_time;
     }
 
+    public virtual float getEnhanceTime()
+    {
+        return base_enhance_time;
+    }
+
     public virtual float getCurrentBuildingTime()
     {
         return currentBuildingTime;
+    }
+
+    public virtual float getCurrentEnhanceTime()
+    {
+        return currentEnhanceTime;
     }
 
     public virtual float getRadius()
@@ -108,5 +152,15 @@ public abstract class Towers : MonoBehaviour
     public virtual float getBuildPercent()
     {
         return currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() / (Mathf.Pow(1.1f, level - 1) * base_building_time);
+    }
+
+    public virtual float getReloadPercent()
+    {
+        return currentReloadTime * player.GetComponent<CharacterStats>().getStatEnhancementAndReloadSpeed() / (Mathf.Pow(1.1f, level - 1) * base_reload_time);
+    }
+
+    public virtual float getEnhancePercent()
+    {
+        return currentEnhanceTime * player.GetComponent<CharacterStats>().getStatEnhancementAndReloadSpeed() / (Mathf.Pow(1.1f, level - 1) * base_enhance_time);
     }
 }
