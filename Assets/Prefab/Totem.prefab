@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11467542}
   - 198: {fileID: 19868292}
   - 199: {fileID: 19968292}
+  - 114: {fileID: 11432346}
   m_Layer: 10
   m_Name: Totem
   m_TagString: Tower
@@ -113,6 +114,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686cbdf2e7d14e84f8a21cf79fd6db36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11432346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178924574efeb3949a96396cea449c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 50
+  height: 6
 --- !u!114 &11467542
 MonoBehaviour:
   m_ObjectHideFlags: 1

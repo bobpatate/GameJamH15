@@ -4,7 +4,12 @@ using System.Collections.Generic;
 
 public abstract class Towers : MonoBehaviour {
 
-    protected float base_building_time = 1;
+    protected float base_building_time = 1.0f;
+    protected float currentBuildingTime = 0.0f;
+    protected float startTime = 0.0f;
+
+    protected bool hasJustBeenPlaced = true;
+
     protected float maxLevel;
     protected float max_radius;
     protected float min_reload_time;
@@ -21,8 +26,17 @@ public abstract class Towers : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update()
     {
+        if(hasJustBeenPlaced)
+        {
+            startTime = Time.time;
+            hasJustBeenPlaced = false;
+        }
+
+        currentBuildingTime = Time.time - startTime;
+
         removeTargetThatEnded();
-        if (targets.Count > 0 && Time.time >= next_attack_time)
+
+        if (targets.Count > 0 && Time.time >= next_attack_time && currentBuildingTime >= base_building_time)
         {
             Shoot();
         }
@@ -71,5 +85,10 @@ public abstract class Towers : MonoBehaviour {
     public virtual float getBuildingTime()
     {
         return base_building_time;
+    }
+
+    public virtual float getCurrentBuildingTime()
+    {
+        return currentBuildingTime;
     }
 }
