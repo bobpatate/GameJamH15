@@ -248,7 +248,7 @@ public class GameMaster : MonoBehaviour
             GUIStyle gs = new GUIStyle(GUI.skin.box);
             gs.alignment = TextAnchor.MiddleCenter;
             gs.richText = true;
-            string timerText = "<size=22>Level "+currentLevel+"</size>\n\n";
+            string timerText = "<size=22>Level " + (currentLevel + 1) + "</size>\n\n";
             if (currentGamePhase.Equals("Day"))
             {
                 timerText += "Night in: " + dayCountDown.ToString("0");
