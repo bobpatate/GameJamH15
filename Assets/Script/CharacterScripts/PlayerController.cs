@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Fire3")) {
 			if(tower != null && tower.GetComponent<Towers>().canUpgrade() && dist < 5.0f){
-				Debug.Log ("Enhance");
+				AudioManager.instance.playEnhanceSound();
 				tower.GetComponent<Towers>().upgrade();
 			}
 		}

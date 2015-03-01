@@ -29,7 +29,8 @@ public class BallTrigger : MonoBehaviour {
     {
         if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyBehaviour>().setStun(5);
+			AudioManager.instance.playBallHitSound();
+			other.gameObject.GetComponent<EnemyBehaviour>().setStun(5);
             Destroy(gameObject);
         }
     }

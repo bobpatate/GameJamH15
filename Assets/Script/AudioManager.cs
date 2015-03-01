@@ -21,8 +21,9 @@ public class AudioManager : MonoBehaviour {
 	public AudioClip reload;
 	public AudioClip menuSelect;
 	public AudioClip menuShift;
-	public AudioClip Success;
+	public AudioClip enhance;
 	public AudioClip Scream;
+	public AudioClip shoot;
 	
 	public void playBallHitSound(){
 		audio.PlayOneShot(ballHit);
@@ -39,10 +40,13 @@ public class AudioManager : MonoBehaviour {
 	public void playMenuShiftSound(){
 		audio.PlayOneShot(menuShift);
 	}
-	public void playSuccessSound(){
-		audio.PlayOneShot(Success);
+	public void playEnhanceSound(){
+		audio.PlayOneShot(enhance);
 	}
 	public void playScreamSound(){
 		audio.PlayOneShot(Scream);
+	}
+	public void playShootSound(){
+		audio.PlayOneShot(shoot);
 	}
 }

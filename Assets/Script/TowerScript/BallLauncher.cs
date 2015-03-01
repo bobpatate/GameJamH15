@@ -39,7 +39,8 @@ public class BallLauncher : Towers
             transform.rotation = Quaternion.LookRotation(direction);
             if (nb_ball_load > 0)
             {
-                Transform tmpBall = (Transform)Instantiate(ball_prefab, transform.position, Quaternion.identity);
+				AudioManager.instance.playShootSound();
+				Transform tmpBall = (Transform)Instantiate(ball_prefab, transform.position, Quaternion.identity);
                 //tmpBall.rigidbody.AddForce(direction * ball_speed);
                 tmpBall.GetComponent<BallTrigger>().setObjective(target);
                 --nb_ball_load;
