@@ -47,12 +47,14 @@ public class EndRoundScreenScript : MonoBehaviour
                 case "roundResult":
                     if (gm.isRoundSuccess())
                     {
-                        child.GetComponent<Text>().text = ROUND_RESULT_OK;
+						//AudioManager.instance.playSuccessSound();
+						child.GetComponent<Text>().text = ROUND_RESULT_OK;
                         child.GetComponent<Text>().color = ROUND_RESULT_OK_COLOR;
                     }
                     else
                     {
-                        child.GetComponent<Text>().text = ROUND_RESULT_FAIL;
+						//AudioManager.instance.playFailSound();
+						child.GetComponent<Text>().text = ROUND_RESULT_FAIL;
                         child.GetComponent<Text>().color = ROUND_RESULT_FAIL_COLOR;
                     }
                     break;
