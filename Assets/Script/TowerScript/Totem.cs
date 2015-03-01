@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class Totem : Towers {
 
-    SphereCollider sc;
-
 	// Use this for initialization
     protected override void Start()
     {

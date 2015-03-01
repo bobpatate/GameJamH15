@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class HauntTrap : Towers {
 
-    SphereCollider sc;
-
     float max_nb_ball_load;
     float nb_ball_load;
 

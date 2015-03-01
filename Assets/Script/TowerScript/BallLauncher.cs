@@ -4,12 +4,11 @@ using System.Collections.Generic;
 
 public class BallLauncher : Towers
 {
-    SphereCollider sc;
+    
     public Transform ball_prefab;
     public float ball_speed = 900;
     float max_nb_ball_load;
     float nb_ball_load;
-
 
     // Use this for initialization
     protected override void Start()

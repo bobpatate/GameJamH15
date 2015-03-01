@@ -36,9 +36,23 @@ public class BuildingBar : MonoBehaviour {
         if (currentBuildingTime >= buildingTime) {
 			isCompleted = true;
 			GameObject.Find ("Player").GetComponent<PlayerController> ().enabled = true;
+			GameObject.Find ("Player").GetComponent<PlayerController> ().getTriggerInfo(gameObject);
 		} else {
 			GameObject.Find ("Player").GetComponent<PlayerController> ().enabled = false;
 		}
+        if (GameObject.Find("Player"))
+        {
+            currentBuildingTime = gameObject.GetComponent<Towers>().getCurrentBuildingTime();
+            if (currentBuildingTime >= buildingTime)
+            {
+                isCompleted = true;
+                GameObject.Find("Player").GetComponent<PlayerController>().enabled = true;
+            }
+            else
+            {
+                GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
+            }
+        }
     }
 
     void OnGUI()

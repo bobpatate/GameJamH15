@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public abstract class Towers : MonoBehaviour {
 
-    protected float base_building_time = 1.0f;
+    [SerializeField] protected float base_building_time;
     protected float currentBuildingTime = 0.0f;
     protected float startTime = 0.0f;
 
@@ -20,6 +20,7 @@ public abstract class Towers : MonoBehaviour {
     protected float next_attack_time;
     protected HashSet<Transform> targets;
     [SerializeField] protected float fear_damage;
+	protected SphereCollider sc;
 
     protected abstract void Start();
 
@@ -91,4 +92,8 @@ public abstract class Towers : MonoBehaviour {
     {
         return currentBuildingTime;
     }
+
+	public virtual float getRadius(){
+		return sc.radius;
+	}
 }
