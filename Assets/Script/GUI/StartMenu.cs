@@ -6,12 +6,18 @@ public class StartMenu : MonoBehaviour
 {
 
     private int currentPos;
-    private bool showControl = false;
-    private bool showNewGameGUI = false;
+    private int currentPosSubMenu;
+    private bool inSubMenu = false;
+    Transform controlsGUI;
+    Transform newGameGUI;
 
     // Use this for initialization
     void Start()
     {
+        controlsGUI = transform.GetChild(3);
+        controlsGUI.gameObject.SetActive(false);
+        newGameGUI = transform.GetChild(4);
+        newGameGUI.gameObject.SetActive(false);
         currentPos = 0;
         changeSprite();
     }
@@ -32,6 +38,17 @@ public class StartMenu : MonoBehaviour
     public int getCurrentPos()
     {
         return currentPos;
+    }
+
+    public void changePosSubMenu()
+    {
+        currentPosSubMenu = (currentPosSubMenu + 1) % 2;
+        changeSpriteSubMenu();
+    }
+
+    public int getCurrentPosSubMenu()
+    {
+        return currentPosSubMenu;
     }
 
     public void changeSprite()
@@ -75,35 +92,62 @@ public class StartMenu : MonoBehaviour
         }
     }
 
+    public void changeSpriteSubMenu()
+    {
+        foreach (Transform child in transform.GetChild(4))
+        {
+            if (child.name.Equals("Runner"))
+            {
+                if (currentPosSubMenu == 0)
+                {
+                    child.GetComponent<Image>().color = Color.red;
+                }
+                else
+                {
+                    child.GetComponent<Image>().color = new Color(255,255,255,0);
+                }
+
+            }
+            else if(child.name.Equals("Handyman"))
+            {
+                if (currentPosSubMenu == 1)
+                {
+                    child.GetComponent<Image>().color = Color.red;
+                }
+                else
+                {
+                    child.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+                }
+            }
+        }
+    }
+
     public void showControls()
     {
-        showControl = true;
+        controlsGUI.gameObject.SetActive(true);
     }
 
     public void hideControls()
     {
-        showControl = false;
+        controlsGUI.gameObject.SetActive(false);
     }
 
     public void showNewGame()
     {
-        showNewGameGUI = true;
+        newGameGUI.gameObject.SetActive(true);
+        inSubMenu = true;
+        currentPosSubMenu = 0;
+        changeSpriteSubMenu();
     }
 
     public void hideNewGame()
     {
-        showNewGameGUI = false;
+        newGameGUI.gameObject.SetActive(false);
+        inSubMenu = false;
     }
 
-    void OnGUI()
+    public bool getInSubMenu()
     {
-        if (showControl)
-        {
-
-        }
-        if (showNewGameGUI)
-        {
-
-        }
+        return inSubMenu;
     }
 }
