@@ -29,4 +29,9 @@ public class SunMoon : MonoBehaviour {
 	public void StartNight(){
 		transitionning = true;
 	}
+
+	public void reset(){
+		GetComponent<Light> ().intensity = initialIntensity;
+		GetComponent<Light> ().color = initialColor;
+	}
 }
