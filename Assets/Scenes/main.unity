@@ -5701,6 +5701,10 @@ Prefab:
       propertyPath: m_LightProbeAnchor
       value: 
       objectReference: {fileID: 1129582090}
+    - target: {fileID: 6539822, guid: c40126ad005ae62419576f5d65f6ead1, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c40126ad005ae62419576f5d65f6ead1, type: 2}
   m_RootGameObject: {fileID: 568027262}
@@ -5945,7 +5949,7 @@ BoxCollider:
   m_GameObject: {fileID: 568027262}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

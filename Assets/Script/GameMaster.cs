@@ -168,7 +168,8 @@ public class GameMaster : MonoBehaviour
 
         enemiesToKillToWin = (int)(percentageToKill * enemyTotal);
 
-        enemySpawnDelay -= currentLevel * 0.4f;
+		if(enemySpawnDelay > 1)
+			enemySpawnDelay = enemySpawnDelay * 0.8f;
     }
 
     //Show endgame, pause game
