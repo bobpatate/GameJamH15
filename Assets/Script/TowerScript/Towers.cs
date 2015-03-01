@@ -62,8 +62,10 @@ public abstract class Towers : MonoBehaviour
         if(isReloading)
         {
             currentReloadTime += Time.deltaTime;
+
             if(getReloadPercent() >= 1)
             {
+                currentReloadTime = 0;
                 isReloading = false;
             }
         }
@@ -73,6 +75,7 @@ public abstract class Towers : MonoBehaviour
             currentEnhanceTime += Time.deltaTime;
             if(getEnhancePercent() >= 1)
             {
+                currentEnhanceTime = 0;
                 isEnhancing = false;
             }
         }
@@ -156,7 +159,8 @@ public abstract class Towers : MonoBehaviour
 
     public virtual float getReloadPercent()
     {
-        return currentReloadTime * player.GetComponent<CharacterStats>().getStatEnhancementAndReloadSpeed() / (Mathf.Pow(1.1f, level - 1) * base_reload_time);
+        Debug.Log(currentReloadTime);
+        return currentReloadTime * player.GetComponent<CharacterStats>().getEnhancementAndReloadSpeed() / (Mathf.Pow(1.1f, level - 1) * base_reload_time);
     }
 
     public virtual float getEnhancePercent()

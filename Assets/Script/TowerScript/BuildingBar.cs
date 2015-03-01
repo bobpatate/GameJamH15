@@ -54,16 +54,19 @@ public class BuildingBar : MonoBehaviour {
 
     void OnGUI()
     {
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);// gets screen position.
+        screenPosition.y = Screen.height - (screenPosition.y + 1);// inverts y
         if (!isCompleted)
         {
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);// gets screen position.
-            screenPosition.y = Screen.height - (screenPosition.y + 1);// inverts y
-
             Rect box = new Rect(screenPosition.x - 20, screenPosition.y - 35, width, height);
 
             GUI.DrawTexture(new Rect(box.x, box.y, box.width, box.height), background, ScaleMode.StretchToFill);
             GUI.DrawTexture(new Rect(box.x, box.y, box.width * percentDone, box.height), foreground, ScaleMode.StretchToFill);
         }
+
+        Rect boxLevel = new Rect(screenPosition.x - 10, screenPosition.y + 20, 20, 20);
+
+        GUI.Box(new Rect(boxLevel.x, boxLevel.y, boxLevel.width, boxLevel.height), ""+gameObject.GetComponent<Towers>().getLevel());
     }
 
 }
