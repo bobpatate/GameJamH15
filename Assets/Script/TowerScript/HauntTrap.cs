@@ -11,13 +11,13 @@ public class HauntTrap : Towers {
 
     public float maxFearDamage = 300.0f;
     public float baseFearDamage = 100.0f;
-    public float BuildingMultiplicator = 1.8f;
 
     // Use this for initialization
     protected override void Start()
     {
         player = GameObject.Find("Player");
 
+        buildingMultiplicator = 1.8f;
         maxLevel = 10;
         max_radius = 25;
         min_reload_time = 1;
@@ -38,7 +38,7 @@ public class HauntTrap : Towers {
         initPosition = transform.position;
         transform.position = new Vector3(transform.position.x, transform.position.y-1.1f, transform.position.z);
 
-        base_building_time = player.GetComponent<CharacterStats>().getBuildingSpeed() * BuildingMultiplicator;
+        base_building_time = player.GetComponent<CharacterStats>().getBuildingSpeed() * buildingMultiplicator;
     }
 
     protected override void Shoot()

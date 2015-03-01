@@ -4,13 +4,12 @@ using System.Collections.Generic;
 
 public class Totem : Towers {
 
-    public float buildingMultiplicator = 1.2f;
-
 	// Use this for initialization
     protected override void Start()
     {
         player = GameObject.Find("Player");
 
+        buildingMultiplicator = 1.2f;
         maxLevel = 10;
         max_radius = 25;
         min_reload_time = 0.1f;

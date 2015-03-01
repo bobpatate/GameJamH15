@@ -14,6 +14,9 @@ public abstract class Towers : MonoBehaviour
     [SerializeField]
     protected float base_enhance_time;
 
+    [SerializeField]
+    protected float buildingMultiplicator;
+
     protected float currentBuildingTime = 0;
     protected float currentReloadTime = 0;
     protected float currentEnhanceTime = 0;
@@ -44,7 +47,6 @@ public abstract class Towers : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        Debug.Log(base_building_time);
         if (!isBuilt)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -163,7 +165,7 @@ public abstract class Towers : MonoBehaviour
 
     public virtual float getBuildPercent()
     {
-        return currentBuildingTime * base_building_time;
+        return currentBuildingTime * buildingMultiplicator;
     }
 
     public virtual float getReloadPercent()

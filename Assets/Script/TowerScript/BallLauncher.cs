@@ -9,7 +9,6 @@ public class BallLauncher : Towers
     public float ball_speed = 100;
     float max_nb_ball_load;
     float nb_ball_load;
-    public float BuildingMultiplicator = 1.6f;
 
     private float selectTargetRadius;
 	private Color initialColor;
@@ -19,6 +18,7 @@ public class BallLauncher : Towers
     {
         player = GameObject.Find("Player");
 
+        buildingMultiplicator = 1.6f;
         maxLevel = 10;
         max_radius = 25;
         min_reload_time = 1;
@@ -39,7 +39,7 @@ public class BallLauncher : Towers
 
 		initialColor = renderer.material.color;
 
-        base_building_time = player.GetComponent<CharacterStats>().getBuildingSpeed() * BuildingMultiplicator;
+        base_building_time = player.GetComponent<CharacterStats>().getBuildingSpeed() * buildingMultiplicator;
     }
 
     protected override void Shoot()
