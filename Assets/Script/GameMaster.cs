@@ -149,9 +149,11 @@ public class GameMaster : MonoBehaviour
         nb_enemy_scared = 0;
         enemiesInGame = 0;
         xp_won = 0;
+		enemiesLeft = enemyTotal;
 
 		currentLevel += lv;
-		StartLevel(currentLevel);
+		Time.timeScale = 1; //unpause game
+		playerRef.SetActive(true);
     }
 
     //Initialize number of enemies to spawn
