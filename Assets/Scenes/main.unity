@@ -6370,7 +6370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballHit: {fileID: 8300000, guid: 9be2306d51f487645be59a163881580e, type: 3}
-  buildReload: {fileID: 8300000, guid: 5872f3c37d1ee624fa5e9e65ead9fc78, type: 3}
+  build: {fileID: 8300000, guid: 5872f3c37d1ee624fa5e9e65ead9fc78, type: 3}
+  reload: {fileID: 8300000, guid: 5872f3c37d1ee624fa5e9e65ead9fc78, type: 3}
   menuSelect: {fileID: 8300000, guid: 9b54068cb4e320b4fbb0efd8eb4706eb, type: 3}
   menuShift: {fileID: 8300000, guid: 2b2853c7b18709944aa96da2d45ea7a2, type: 3}
   Success: {fileID: 8300000, guid: 5b01a8d036615e34594e9d11b31f83f3, type: 3}

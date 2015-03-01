@@ -17,7 +17,8 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	public AudioClip ballHit;
-	public AudioClip buildReload;
+	public AudioClip build;
+	public AudioClip reload;
 	public AudioClip menuSelect;
 	public AudioClip menuShift;
 	public AudioClip Success;
@@ -26,8 +27,11 @@ public class AudioManager : MonoBehaviour {
 	public void playBallHitSound(){
 		audio.PlayOneShot(ballHit);
 	}
-	public void playBuildReloadSound(){
-		audio.PlayOneShot(buildReload);
+	public void playBuildSound(){
+		audio.PlayOneShot(build);
+	}
+	public void playReloadSound(){
+		audio.PlayOneShot(reload);
 	}
 	public void playMenuSelectSound(){
 		audio.PlayOneShot(menuSelect);
