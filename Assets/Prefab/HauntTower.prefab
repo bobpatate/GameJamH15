@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd759b163ee5f6346901308d5b1062d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  base_building_time: 0
+  base_building_time: 1.79999995
   base_reload_time: 1
   base_enhance_time: 10
   fear_damage: 100

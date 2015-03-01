@@ -44,6 +44,7 @@ public abstract class Towers : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        Debug.Log(base_building_time);
         if (!isBuilt)
         {
             player = GameObject.FindGameObjectWithTag("Player");
