@@ -43,12 +43,11 @@ public class PlayerController : MonoBehaviour {
 			foreach(Transform t in gm.towers){
 				float tmp = Vector3.Distance(t.position, transform.position);
 				if(tmp < dist){
-					tower.GetComponent<Light>().enabled = false;
-					//tower.GetComponentInChildren<Light>().enabled = false;
+					if(tower)
+						tower.FindChild("Spotlight").GetComponent<Light>().enabled = false;
 					dist = tmp;
 					tower = t;
-					tower.GetComponent<Light>().enabled = true;
-					//tower.GetComponentInChildren<Light>().enabled = true;
+					tower.FindChild("Spotlight").GetComponent<Light>().enabled = true;
 				}
 			}
 		}else{

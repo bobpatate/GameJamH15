@@ -46,7 +46,6 @@ GameObject:
   - 23: {fileID: 2370220}
   - 114: {fileID: 11497746}
   - 114: {fileID: 11434284}
-  - 108: {fileID: 10893294}
   m_Layer: 10
   m_Name: HauntTower
   m_TagString: Tower
@@ -61,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123332}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: .720000029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 470220}
@@ -137,12 +136,12 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123332}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .469999999
-  m_Range: 2.53999996
+  m_Color: {r: .610294104, g: .725862026, b: 1, a: 1}
+  m_Intensity: .5
+  m_Range: 4
   m_SpotAngle: 50
   m_CookieSize: 10
   m_Shadows:
@@ -159,42 +158,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 1
-  m_ShadowSamples: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_IndirectIntensity: 1
-  m_AreaSize: {x: 1, y: 1}
---- !u!108 &10893294
-Light:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170220}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .469999999
-  m_Range: 2.53999996
-  m_SpotAngle: 50
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_Softness: 4
-    m_SoftnessFade: 1
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
-  m_ActuallyLightmapped: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_Lightmapping: 1
   m_ShadowSamples: 1
   m_ShadowRadius: 0
