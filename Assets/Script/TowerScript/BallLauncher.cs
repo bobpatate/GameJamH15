@@ -21,6 +21,7 @@ public class BallLauncher : Towers
         min_reload_time = 1;
         base_radius = 7;
         base_reload_time = 5;
+        base_enhance_time = 2;
         targets = new HashSet<Transform>();
         fear_damage = 0;
 
@@ -80,11 +81,10 @@ public class BallLauncher : Towers
     public override void upgrade()
     {
         ++level;
+        isEnhancing = true;
         float ratio = (level - 1) / (maxLevel - 1);
         sc.radius = base_radius + (max_radius - base_radius) * ratio;
         reload_time = base_reload_time + (min_reload_time - base_reload_time) * ratio;
-        currentBuildingTime = 0;
-        isBuilt = false;
     }
 
 

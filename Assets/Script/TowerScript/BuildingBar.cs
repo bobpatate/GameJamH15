@@ -37,7 +37,7 @@ public class BuildingBar : MonoBehaviour {
         if (!isCompleted)
         {
             percentDone = gameObject.GetComponent<Towers>().getBuildPercent();
-            isCompleted =  percentDone >= 1;
+            isCompleted = percentDone >= 1;
         }
 
 		if(GameObject.Find("Player")){

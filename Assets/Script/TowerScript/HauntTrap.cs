@@ -23,6 +23,7 @@ public class HauntTrap : Towers {
         min_reload_time = 1;
         base_radius = 7;
         base_reload_time = 10;
+        base_enhance_time = 2;
         targets = new HashSet<Transform>();
         fear_damage = 100.0f;
 
@@ -89,9 +90,9 @@ public class HauntTrap : Towers {
     public override void upgrade()
     {
         ++level;
+        isEnhancing = true;
         float ratio = (level - 1) / (maxLevel - 1);
         fear_damage = baseFearDamage + (maxFearDamage - baseFearDamage )* ratio;
-        currentBuildingTime = 0;
-        isBuilt = false;
+        currentEnhanceTime = 0;
     }
 }

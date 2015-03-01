@@ -6,7 +6,7 @@ public class CharacterStats : MonoBehaviour
     public float base_movement_speed = 500;
     public RatioCurve buildingSpeedRatio;
     public float base_building_speed = 1;
-    public float base_enhancement_and_reload_speed = 50;
+    public float base_enhancement_and_reload_speed = 1;
     float movement_speed;
     float building_speed;
     float enhancement_and_reload_speed;

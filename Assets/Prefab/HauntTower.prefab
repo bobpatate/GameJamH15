@@ -47,6 +47,7 @@ GameObject:
   - 114: {fileID: 11497746}
   - 114: {fileID: 11434284}
   - 114: {fileID: 11415652}
+  - 114: {fileID: 11471182}
   - 198: {fileID: 19804642}
   - 199: {fileID: 19904642}
   m_Layer: 10
@@ -205,6 +206,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686cbdf2e7d14e84f8a21cf79fd6db36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11471182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3932e00f83143e40bf435d6c37d4858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 50
+  height: 6
 --- !u!114 &11497746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,8 +231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   base_building_time: 0
-  base_reload_time: 0
-  base_enhance_time: 0
+  base_reload_time: 1
+  base_enhance_time: 10
   fear_damage: 100
   maxFearDamage: 300
   baseFearDamage: 100

@@ -47,36 +47,40 @@ public abstract class Towers : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
             currentBuildingTime += Time.deltaTime;
-            isBuilt = getBuildPercent() >= 1;
-        }
-
-        if (isBuilt && !isReloading)
-        {
-            removeTargetThatEnded();
-            if (targets.Count > 0 && Time.time >= next_attack_time)
+            if (getBuildPercent() >= 1)
             {
-                Shoot();
+                isBuilt = true;
             }
         }
 
-        if(isReloading)
+        if (isReloading)
         {
             currentReloadTime += Time.deltaTime;
-
-            if(getReloadPercent() >= 1)
+            if (getReloadPercent() >= 1)
             {
                 currentReloadTime = 0;
                 isReloading = false;
             }
         }
 
-        if(isEnhancing)
+        if (isEnhancing)
         {
+
             currentEnhanceTime += Time.deltaTime;
-            if(getEnhancePercent() >= 1)
+            if (getEnhancePercent() >= 1)
             {
+                Debug.Log("hello");
                 currentEnhanceTime = 0;
                 isEnhancing = false;
+            }
+        }
+
+        if (isBuilt && !isReloading && !isEnhancing)
+        {
+            removeTargetThatEnded();
+            if (targets.Count > 0 && Time.time >= next_attack_time)
+            {
+                Shoot();
             }
         }
     }
@@ -137,6 +141,11 @@ public abstract class Towers : MonoBehaviour
         return base_enhance_time;
     }
 
+    public virtual bool getIsEnhancing()
+    {
+        return isEnhancing;
+    }
+
     public virtual float getCurrentBuildingTime()
     {
         return currentBuildingTime;
@@ -154,17 +163,18 @@ public abstract class Towers : MonoBehaviour
 
     public virtual float getBuildPercent()
     {
+        Debug.Log("Build" + currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() + "/" + (Mathf.Pow(1.1f, level - 1) * base_building_time));
         return currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() / (Mathf.Pow(1.1f, level - 1) * base_building_time);
     }
 
     public virtual float getReloadPercent()
     {
-        Debug.Log(currentReloadTime);
         return currentReloadTime * player.GetComponent<CharacterStats>().getEnhancementAndReloadSpeed() / (Mathf.Pow(1.1f, level - 1) * base_reload_time);
     }
 
     public virtual float getEnhancePercent()
     {
-        return currentEnhanceTime * player.GetComponent<CharacterStats>().getStatEnhancementAndReloadSpeed() / (Mathf.Pow(1.1f, level - 1) * base_enhance_time);
+        Debug.Log("Enhance" + currentEnhanceTime * player.GetComponent<CharacterStats>().getEnhancementAndReloadSpeed() + "/" + (Mathf.Pow(1.1f, level - 1) * base_enhance_time));
+        return currentEnhanceTime * player.GetComponent<CharacterStats>().getEnhancementAndReloadSpeed() / (Mathf.Pow(1.1f, level - 1) * base_enhance_time);
     }
 }
