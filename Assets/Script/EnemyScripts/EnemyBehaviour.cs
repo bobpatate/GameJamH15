@@ -25,12 +25,12 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (Time.time >= stun_end_time)
         {
-            agent.enabled = true;
+            agent.speed = 3;
             agent.SetDestination(targetPoint);
         }
         else
         {
-            agent.enabled = false;
+            agent.speed = 0;
         }
 
         if(fear >= maxFear)
