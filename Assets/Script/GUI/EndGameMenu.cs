@@ -39,10 +39,10 @@ public class EndGameMenu : MonoBehaviour {
 				currentPos = 2;
 		} else {
 			currentPos += side;
-			if(currentPos > 1)
+			if(currentPos > 2)
 				currentPos = 0;
 			else if(currentPos < 0)
-				currentPos = 1;
+				currentPos = 2;
 		}
 		changeSprite ();
 	}
@@ -70,7 +70,12 @@ public class EndGameMenu : MonoBehaviour {
 					child.GetComponent<Image>().color = new Color(0, 0.7f, 0.1f);
 				else
 					child.GetComponent<Image>().color = Color.white;
-			}else if(child.name.Equals("mSpeed")){
+			}else if(child.name.Equals("quit")){
+				if(!inSubMenu && currentPos == 2)
+					child.GetComponent<Image>().color = new Color(0, 0.7f, 0.1f);
+				else
+					child.GetComponent<Image>().color = Color.white;
+			}if(child.name.Equals("mSpeed")){
 				if(inSubMenu && currentPos == 0)
 					child.GetComponent<Image>().color = new Color(0, 0.7f, 0.1f);
 				else

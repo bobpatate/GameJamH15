@@ -17,11 +17,13 @@ public class MenuController : MonoBehaviour {
 			if(!transform.GetComponent<EndGameMenu>().isInSubMenu()){
 				if(transform.GetComponent<EndGameMenu>().getCurPos() == 0){
 					transform.GetComponent<EndGameMenu>().changeMenu();
-				}else{
+				}else if(transform.GetComponent<EndGameMenu>().getCurPos() == 1){
 					if(GameMaster.instance.isRoundSuccess())
 						GameObject.Find("GameMaster").GetComponent<GameMaster>().StartNextLevel(1);
 					else
 						GameObject.Find("GameMaster").GetComponent<GameMaster>().StartNextLevel(0);
+				}else{
+					Application.Quit();
 				}
 			}else{
 				if(transform.GetComponent<EndGameMenu>().getCurPos() == 0){
