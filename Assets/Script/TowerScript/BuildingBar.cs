@@ -40,14 +40,16 @@ public class BuildingBar : MonoBehaviour {
             isCompleted =  percentDone >= 1;
         }
 
-        if (!isCompleted)
-        {
-            GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
-        }
-        else
-        {
-            GameObject.Find("Player").GetComponent<PlayerController>().enabled = true;
-        }
+		if(GameObject.Find("Player")){
+	        if (!isCompleted)
+	        {
+	            GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
+	        }
+	        else
+	        {
+	            GameObject.Find("Player").GetComponent<PlayerController>().enabled = true;
+	        }
+		}
     }
 
     void OnGUI()

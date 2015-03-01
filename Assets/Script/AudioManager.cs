@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour {
 	public AudioClip enhance;
 	public AudioClip Scream;
 	public AudioClip shoot;
+	public AudioClip safe;
 	
 	public void playBallHitSound(){
 		audio.PlayOneShot(ballHit);
@@ -48,5 +49,8 @@ public class AudioManager : MonoBehaviour {
 	}
 	public void playShootSound(){
 		audio.PlayOneShot(shoot);
+	}
+	public void playSafeSound(){
+		audio.PlayOneShot(safe);
 	}
 }

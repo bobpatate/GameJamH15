@@ -15,6 +15,7 @@ public class EndZone : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.CompareTag("Enemy")){
+			AudioManager.instance.playSafeSound();
 			Destroy(other.gameObject);
 			GameMaster.instance.safeEnemy();
 		}

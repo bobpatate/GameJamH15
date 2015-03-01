@@ -15,7 +15,7 @@ public class TowerCollision : MonoBehaviour {
 
 	void OnTriggerEnter( Collider other)
 	{
-		Debug.Log (other.gameObject.tag);
+		//Debug.Log (other.gameObject.tag);
 		if (other.gameObject.tag == "Enemy") {
 			transform.parent.GetComponent<Towers>().addTarget(other.gameObject.transform);
 		}
