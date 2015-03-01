@@ -20,6 +20,16 @@ public class CharacterStats : MonoBehaviour
         movement_speed = base_movement_speed;
         building_speed = base_building_speed;
         enhancement_and_reload_speed = base_enhancement_and_reload_speed;
+
+        switch (GameProperties.instance.getCharacter())
+        {
+            case 0:
+                addMovementSpeedStat();
+                break;
+            case 1:
+                addBuildingSpeedStats();
+                break;
+        }
     }
 
     public void addMovementSpeedStat()

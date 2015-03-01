@@ -47,12 +47,12 @@ public class StartMenuController : MonoBehaviour
                 {
                     case 0:
                         //Launch new game with first character
-                        GetComponent<GamePropertiesScript>().setCharacter(0);
+                        GameProperties.instance.setCharacter(0);
                         Application.LoadLevel(1);
                         break;
                     case 1:
                         //Launch new game with second character
-                        GetComponent<GamePropertiesScript>().setCharacter(1);
+                        GameProperties.instance.setCharacter(1);
                         Application.LoadLevel(1);
                         break;
                 }

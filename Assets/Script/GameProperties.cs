@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GamePropertiesScript : MonoBehaviour {
+public class GameProperties : MonoBehaviour {
 
-    private static GamePropertiesScript _instance;
+    private static GameProperties _instance;
 
-    public static GamePropertiesScript instance
+    public static GameProperties instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = GameObject.FindObjectOfType<GamePropertiesScript>();
+                _instance = GameObject.FindObjectOfType<GameProperties>();
                 DontDestroyOnLoad(_instance.gameObject);
             }
             return _instance;
@@ -37,5 +37,10 @@ public class GamePropertiesScript : MonoBehaviour {
     public void setCharacter(int i)
     {
         characterId = i;
+    }
+
+    public int getCharacter()
+    {
+        return characterId;
     }
 }
