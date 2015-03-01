@@ -19,7 +19,7 @@ public class StartMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Space))
         {
             if (!sm.getInSubMenu())
             {
@@ -59,7 +59,7 @@ public class StartMenuController : MonoBehaviour
             }
             
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") || Input.GetKeyDown(KeyCode.Escape))
         {
             sm.hideNewGame();
             sm.hideControls();
