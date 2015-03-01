@@ -44,12 +44,13 @@ public class HauntTrap : Towers {
     protected override void Shoot()
     {
         Transform target = getTarget();
-        PlayScaryAnimation();
+        
 
         if(target != null)
         {
             if (nb_ball_load >= 1)
             {
+				PlayScaryAnimation();
 				AudioManager.instance.playHauntedTrapSound();
 				target.GetComponent<EnemyBehaviour>().addFearDamage(fear_damage);
                 nb_ball_load--;
