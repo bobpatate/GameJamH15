@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /*<summary>
  * Game's central entity. Is a singleton.
@@ -45,6 +46,8 @@ public class GameMaster : MonoBehaviour
     internal float dayCountDown; //time left to day. to display
     private string currentGamePhase = "Day"; //or "Night"
     private float roundTotalTime = 0;
+
+	internal List<Transform> towers;
 
     private bool canSpawn = true;
 
@@ -94,7 +97,7 @@ public class GameMaster : MonoBehaviour
 
     void Update()
     {
-        roundTotalTime += Time.deltaTime;
+		roundTotalTime += Time.deltaTime;
 
         //Lighting change 5 seconds before nighttime
         if ((int)roundTotalTime == (int)(dayTimer - 5))
@@ -149,9 +152,11 @@ public class GameMaster : MonoBehaviour
         nb_enemy_scared = 0;
         enemiesInGame = 0;
         xp_won = 0;
+		enemiesLeft = enemyTotal;
 
 		currentLevel += lv;
-		StartLevel(currentLevel);
+		Time.timeScale = 1; //unpause game
+		playerRef.SetActive(true);
     }
 
     //Initialize number of enemies to spawn
@@ -163,7 +168,7 @@ public class GameMaster : MonoBehaviour
         InvokeRepeating("SpawnEnemy", 0, enemySpawnDelay);
 
         if (currentLevel != 0)
-            enemyTotal = Mathf.RoundToInt(enemyTotal * 1.2f);
+            enemyTotal = Mathf.RoundToInt(enemyTotal * 1.2f); 
         enemiesLeft = enemyTotal;
 
         enemiesToKillToWin = (int)(percentageToKill * enemyTotal);

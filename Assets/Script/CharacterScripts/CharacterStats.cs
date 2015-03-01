@@ -4,16 +4,23 @@ using System.Collections;
 public class CharacterStats : MonoBehaviour
 {
 
-    public float base_movement_speed = 600;
-    public float base_building_speed = 100;
+    public float base_movement_speed = 100;
+    public float base_building_speed = 1;
     public float base_enhancement_and_reload_speed = 50;
-    float movement_speed = 600;
-    float building_speed = 100;
-    float enhancement_and_reload_speed = 50;
+    float movement_speed;
+    float building_speed;
+    float enhancement_and_reload_speed;
 
     float movement_speed_stat = 0;
     float building_speed_stat = 0;
     float enhancement_and_reload_speed_stat = 0;
+
+    public void Start()
+    {
+        movement_speed = base_movement_speed;
+        building_speed = base_building_speed;
+        enhancement_and_reload_speed = base_enhancement_and_reload_speed;
+    }
 
     public void addMovementSpeedStat()
     {
