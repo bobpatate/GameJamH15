@@ -50,9 +50,13 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (Input.GetButtonDown ("Fire2")) {
 			Debug.Log("Button B");
+			tower.GetComponent<Towers>().reload();
 		}
 		if (Input.GetButtonDown ("Fire3")) {
 			Debug.Log("Button X");
+			if(tower.GetComponent<Towers>().canUpgrade()){
+				tower.GetComponent<Towers>().upgrade();
+			}
 		}
 
 		if (Input.GetAxisRaw ("LTrigger") != 0 || Input.GetKeyDown(KeyCode.Q)) {
