@@ -127,7 +127,7 @@ AudioSource:
   m_GameObject: {fileID: 105392}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: bd9db4a8d1700494699ec473f8e5ba22, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4e3954e4a1d862249aed6380f99896a8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505cb3c4d9890e143a9f77e7a5d9cd3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeUntilSelfDestruct: 15
   maxFear: 100
   targetPoint: {x: 8.5, y: 0, z: .699999988}
 --- !u!114 &11460040
