@@ -4,26 +4,38 @@ Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
     Renderer: Intel(R) HD Graphics 4000 (ID=0x166)
     Vendor:   Intel
-    VRAM:     2085 MB
+    VRAM:     128 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Jordan\Documents\GitHub\GameJamH15\ScreamAge_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Jordan\Documents\GitHub\GameJamH15\ScreamAge_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Jordan\Documents\GitHub\GameJamH15\ScreamAge_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Jordan\Documents\GitHub\GameJamH15\ScreamAge_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Jordan\Documents\GitHub\GameJamH15\ScreamAge_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Jordan\Documents\GitHub\GameJamH15\ScreamAge_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.069 seconds
+Platform assembly: C:\Users\Utilisateur\Documents\GameJamH15\ScreamAge_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Utilisateur\Documents\GameJamH15\ScreamAge_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Utilisateur\Documents\GameJamH15\ScreamAge_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Utilisateur\Documents\GameJamH15\ScreamAge_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Utilisateur\Documents\GameJamH15\ScreamAge_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Utilisateur\Documents\GameJamH15\ScreamAge_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.129 seconds
 <RI> Initializing input.
 <RI> Input initialized.
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-Platform assembly: C:\Users\Jordan\Documents\GitHub\GameJamH15\ScreamAge_Data\Managed\System.Core.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+Platform assembly: C:\Users\Utilisateur\Documents\GameJamH15\ScreamAge_Data\Managed\System.Core.dll (this message is harmless)
 WARNING: Shader Unsupported: 'Hidden/Nature/Tree Creator Leaves Optimized' - Pass '' shader state not supported
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
-Platform assembly: C:\Users\Jordan\Documents\GitHub\GameJamH15\ScreamAge_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 3.448367 ms
+Platform assembly: C:\Users\Utilisateur\Documents\GameJamH15\ScreamAge_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 3.242047 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1054.
-Total: 1.224562 ms (FindLiveObjects: 0.060178 ms CreateObjectMapping: 0.015860 ms MarkObjects: 0.257974 ms  DeleteObjects: 0.368534 ms)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1052.
+Total: 2.462610 ms (FindLiveObjects: 0.182457 ms CreateObjectMapping: 0.050175 ms MarkObjects: 0.590137 ms  DeleteObjects: 0.738954 ms)
 
 WARNING: Shader Unsupported: 'Hidden/TerrainEngine/Details/BillboardWavingDoublePass' - Pass '' shader state not supported
+hello
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+hello
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+hello
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
