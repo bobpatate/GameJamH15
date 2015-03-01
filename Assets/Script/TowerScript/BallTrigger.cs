@@ -17,7 +17,7 @@ public class BallTrigger : MonoBehaviour {
     {
         if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyBehaviour>().setStun(5000);
+            other.gameObject.GetComponent<EnemyBehaviour>().setStun(5);
             Destroy(gameObject);
         }
     }
