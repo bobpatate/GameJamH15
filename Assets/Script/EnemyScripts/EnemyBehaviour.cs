@@ -7,6 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
     private NavMeshAgent agent;
 	private bool isScared = false;
     private float stun_end_time;
+	private GameObject dust;
 
     public float maxFear = 100.0f;
     public Vector3 targetPoint = new Vector3(20, 20, 20); //Determine it through an empty GameObject corresponding to the exit of the map
@@ -15,6 +16,8 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+		dust = transform.FindChild("Dust").gameObject;
+		dust.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,6 +66,7 @@ public class EnemyBehaviour : MonoBehaviour
         GameObject spawnPoint = GameMaster.instance.spawnPoints[spawn];
         targetPoint = spawnPoint.transform.position;
 		agent.speed = agent.speed*2;
+		dust.SetActive(true);
     }
 
     public void setStun(float duration)
