@@ -14594,7 +14594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   base_movement_speed: 500
-  buildingSpeedRatio: {fileID: 0}
+  buildingSpeedRatio: {fileID: 11400000, guid: d42ad6282faecd046820807b4eb91026, type: 2}
   base_building_speed: 1
   base_enhancement_and_reload_speed: 50
 --- !u!65 &1513822989
@@ -14654,7 +14654,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -19834,6 +19834,10 @@ Prefab:
     - target: {fileID: 454300, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432108, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3059891a1c99db54590047b0f04d2ea4, type: 2}

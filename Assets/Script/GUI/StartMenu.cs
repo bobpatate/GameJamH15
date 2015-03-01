@@ -78,7 +78,7 @@ public class StartMenu : MonoBehaviour
                     child.GetComponent<Image>().color = Color.white;
                 }
             }
-            else
+            else if(child.name.Equals("Quit"))
             {
                 if (currentPos == 2)
                 {
