@@ -10,7 +10,7 @@ public class TowerCollision : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	void OnTriggerEnter( Collider other)
@@ -34,13 +34,6 @@ public class TowerCollision : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 			Debug.Log("Player Out");
 			other.gameObject.GetComponent<PlayerController>().getTriggerInfo(null);
-		}
-	}
-
-	void OnTriggerStay(Collider other){
-		if (other.gameObject.tag == "Player") {
-			Debug.Log("Player Stay");
-			other.gameObject.GetComponent<PlayerController>().getTriggerInfo(gameObject);
 		}
 	}
 }

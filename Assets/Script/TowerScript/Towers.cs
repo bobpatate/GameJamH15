@@ -20,6 +20,7 @@ public abstract class Towers : MonoBehaviour {
     protected float next_attack_time;
     protected HashSet<Transform> targets;
     [SerializeField] protected float fear_damage;
+	protected SphereCollider sc;
 
     protected abstract void Start();
 
@@ -91,4 +92,8 @@ public abstract class Towers : MonoBehaviour {
     {
         return currentBuildingTime;
     }
+
+	public virtual float getRadius(){
+		return sc.radius;
+	}
 }
