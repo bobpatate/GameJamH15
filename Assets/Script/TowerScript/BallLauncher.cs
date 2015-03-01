@@ -4,12 +4,14 @@ using System.Collections.Generic;
 
 public class BallLauncher : Towers
 {
-    
+
     public Transform ball_prefab;
     public float ball_speed = 100;
     float max_nb_ball_load;
     float nb_ball_load;
     public float BuildingMultiplicator = 1.6f;
+
+    private float selectTargetRadius;
 
     // Use this for initialization
     protected override void Start()
@@ -27,7 +29,8 @@ public class BallLauncher : Towers
 
         level = 1;
         sc = transform.GetChild(0).GetComponent<SphereCollider>();
-        sc.radius = base_radius;
+        selectTargetRadius = base_radius;
+        sc.radius = 200;
         reload_time = base_reload_time;
         max_nb_ball_load = 1;
         nb_ball_load = max_nb_ball_load;
@@ -38,25 +41,46 @@ public class BallLauncher : Towers
 
     protected override void Shoot()
     {
-        Transform target = getTarget();
-        if (target != null)
+        Transform target_to_follow = getTargetToFollow();
+        if (target_to_follow != null && nb_ball_load > 0)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
-            transform.rotation = Quaternion.LookRotation(direction);
-            if (nb_ball_load > 0)
+            Transform hit_target = getTargetToHit();
+            if (hit_target != null)
             {
-				AudioManager.instance.playShootSound();
-				Transform tmpBall = (Transform)Instantiate(ball_prefab, transform.position, Quaternion.identity);
-                //tmpBall.rigidbody.AddForce(direction * ball_speed);
-                tmpBall.GetComponent<BallTrigger>().setObjective(target);
+                Vector3 direction = (hit_target.position - transform.position).normalized;
+                transform.rotation = Quaternion.LookRotation(direction);
+
+                AudioManager.instance.playShootSound();
+                Transform tmpBall = (Transform)Instantiate(ball_prefab, transform.position, Quaternion.identity);
+                tmpBall.GetComponent<BallTrigger>().setObjective(hit_target);
                 --nb_ball_load;
                 next_attack_time = Time.time + reload_time;
+            }
+            else
+            {
+                Vector3 direction = (target_to_follow.position - transform.position).normalized;
+                transform.rotation = Quaternion.LookRotation(direction);
             }
         }
 
     }
 
-    private Transform getTarget()
+    private Transform getTargetToHit()
+    {
+        Transform res = null;
+        float pathSize = float.MaxValue;
+        foreach (Transform t in targets)
+        {
+            if (t.GetComponent<NavMeshAgent>().remainingDistance < pathSize && Vector3.Distance(transform.position, t.position) < selectTargetRadius)
+            {
+                pathSize = t.GetComponent<NavMeshAgent>().remainingDistance;
+                res = t;
+            }
+        }
+        return res;
+    }
+
+    private Transform getTargetToFollow()
     {
         Transform res = null;
         float pathSize = float.MaxValue;
@@ -83,7 +107,7 @@ public class BallLauncher : Towers
         ++level;
         isEnhancing = true;
         float ratio = (level - 1) / (maxLevel - 1);
-        sc.radius = base_radius + (max_radius - base_radius) * ratio;
+        selectTargetRadius = base_radius + (max_radius - base_radius) * ratio;
         reload_time = base_reload_time + (min_reload_time - base_reload_time) * ratio;
     }
 
