@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public abstract class Towers : MonoBehaviour {
 
-    protected static readonly float building_time = 1000;
+    protected float base_building_time = 1;
     protected float maxLevel;
     protected float max_radius;
     protected float min_reload_time;
@@ -67,4 +67,9 @@ public abstract class Towers : MonoBehaviour {
 	public virtual bool canUpgrade(){
 		return (level < maxLevel);
 	}
+
+    public virtual float getBuildingTime()
+    {
+        return base_building_time;
+    }
 }
