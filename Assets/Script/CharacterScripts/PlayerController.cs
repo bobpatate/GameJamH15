@@ -54,12 +54,14 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log("Button B");
             if(tower)
             {
+				Debug.Log (tower.name);
                 tower.GetComponent<Towers>().reload();
             }
 		}
 		if (Input.GetButtonDown ("Fire3")) {
 			Debug.Log("Button X");
 			if(tower && tower.GetComponent<Towers>().canUpgrade()){
+				Debug.Log (tower.name);
 				tower.GetComponent<Towers>().upgrade();
 			}
 		}
