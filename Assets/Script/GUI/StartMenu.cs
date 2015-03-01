@@ -59,7 +59,7 @@ public class StartMenu : MonoBehaviour
             {
                 if (currentPos == 0)
                 {
-                    child.GetComponent<Image>().color = Color.gray;
+					child.GetComponent<Image>().color = new Color(0, 0.7f, 0.1f);
                 }
                 else
                 {
@@ -71,7 +71,7 @@ public class StartMenu : MonoBehaviour
             {
                 if (currentPos == 1)
                 {
-					child.GetComponent<Image>().color = Color.gray;
+					child.GetComponent<Image>().color = new Color(0, 0.7f, 0.1f);
                 }
                 else
                 {
@@ -82,7 +82,7 @@ public class StartMenu : MonoBehaviour
             {
                 if (currentPos == 2)
                 {
-					child.GetComponent<Image>().color = Color.gray;
+					child.GetComponent<Image>().color = new Color(0, 0.7f, 0.1f);
                 }
                 else
                 {
@@ -100,7 +100,7 @@ public class StartMenu : MonoBehaviour
             {
                 if (currentPosSubMenu == 0)
                 {
-					child.GetComponent<Image>().color = Color.gray;
+					child.GetComponent<Image>().color = new Color(0.3f, 0.7f, 0.3f);
                 }
                 else
                 {
@@ -112,7 +112,7 @@ public class StartMenu : MonoBehaviour
             {
                 if (currentPosSubMenu == 1)
                 {
-					child.GetComponent<Image>().color = Color.gray;
+					child.GetComponent<Image>().color = new Color(0.3f, 0.7f, 0.3f);
                 }
                 else
                 {

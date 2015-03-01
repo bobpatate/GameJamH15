@@ -14471,7 +14471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   base_movement_speed: 500
-  buildingSpeedRatio: {fileID: 11400000, guid: d42ad6282faecd046820807b4eb91026, type: 2}
+  buildingSpeedRatio: {fileID: 0}
   base_building_speed: 1
   base_enhancement_and_reload_speed: 50
 --- !u!65 &1513822989
