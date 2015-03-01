@@ -81,11 +81,14 @@ public class HauntTrap : Towers {
 
     public override void reload()
     {
-        isReloading = true;
-        nb_ball_load = max_nb_ball_load;
-        next_attack_time = Time.time;
-		if(transform.position == initPosition)
-			transform.position = new Vector3(transform.position.x, transform.position.y-1.1f, transform.position.z);
+        if(nb_ball_load == 0)
+        {
+            isReloading = true;
+            nb_ball_load = max_nb_ball_load;
+            next_attack_time = Time.time;
+            if (transform.position == initPosition)
+                transform.position = new Vector3(transform.position.x, transform.position.y - 1.1f, transform.position.z);
+        }
     }
 
     public override void upgrade()

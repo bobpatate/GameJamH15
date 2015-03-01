@@ -21,6 +21,7 @@ public abstract class Towers : MonoBehaviour
     protected bool isBuilt = false;
     protected bool isReloading = false;
     protected bool isEnhancing = false;
+    protected bool canReload = true;
 
     protected float maxLevel;
     protected float max_radius;
@@ -53,7 +54,7 @@ public abstract class Towers : MonoBehaviour
             }
         }
 
-        if (isReloading)
+        if (isReloading && canReload)
         {
             currentReloadTime += Time.deltaTime;
             if (getReloadPercent() >= 1)
@@ -163,18 +164,16 @@ public abstract class Towers : MonoBehaviour
 
     public virtual float getBuildPercent()
     {
-        Debug.Log("Build" + currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() + "/" + (Mathf.Pow(1.1f, level - 1) * base_building_time));
         return currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() / (Mathf.Pow(1.1f, level - 1) * base_building_time);
     }
 
     public virtual float getReloadPercent()
     {
-        return currentReloadTime * player.GetComponent<CharacterStats>().getEnhancementAndReloadSpeed() / (Mathf.Pow(1.1f, level - 1) * base_reload_time);
+        return currentReloadTime * player.GetComponent<CharacterStats>().getEnhancementAndReloadSpeed() * 9 / base_reload_time;
     }
 
     public virtual float getEnhancePercent()
     {
-        Debug.Log("Enhance" + currentEnhanceTime * player.GetComponent<CharacterStats>().getEnhancementAndReloadSpeed() + "/" + (Mathf.Pow(1.1f, level - 1) * base_enhance_time));
         return currentEnhanceTime * player.GetComponent<CharacterStats>().getEnhancementAndReloadSpeed() / (Mathf.Pow(1.1f, level - 1) * base_enhance_time);
     }
 }
