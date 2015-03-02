@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadc1d5c81bcea04ea5e1451e3aed5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 65
+  width: 60
   height: 6
 --- !u!114 &11477940
 MonoBehaviour:
@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeUntilSelfDestruct: 15
   maxFear: 120
+  movementSpeed: 2.5
   targetPoint: {x: 8.5, y: 0, z: .699999988}
 --- !u!195 &19577938
 NavMeshAgent:

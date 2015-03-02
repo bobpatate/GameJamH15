@@ -11,6 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
 	[SerializeField] private float timeUntilSelfDestruct = 15.0f;
 
     public float maxFear = 100.0f;
+    public float movementSpeed = 2.5f;
     public Vector3 targetPoint = new Vector3(20, 20, 20); //Determine it through an empty GameObject corresponding to the exit of the map
  
     // Use this for initialization
@@ -26,7 +27,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (Time.time >= stun_end_time)
         {
-            agent.speed = 3;
+            agent.speed = movementSpeed;
             agent.SetDestination(targetPoint);
         }
         else

@@ -9,7 +9,7 @@ public class Totem : Towers {
     {
         player = GameObject.Find("Player");
 
-        buildingMultiplicator = 1.2f;
+        buildingMultiplicator = 0.7f;
         maxLevel = 10;
         max_radius = 25;
         min_reload_time = 0.1f;
@@ -26,8 +26,6 @@ public class Totem : Towers {
         next_attack_time = Time.time;
 
         canReload = false;
-
-        base_building_time = player.GetComponent<CharacterStats>().getBuildingSpeed() * buildingMultiplicator;
     }
 
     protected override void Shoot()

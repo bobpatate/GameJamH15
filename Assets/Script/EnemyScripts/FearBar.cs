@@ -41,7 +41,7 @@ public class FearBar : MonoBehaviour
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);// gets screen position.
         screenPosition.y = Screen.height - (screenPosition.y + 1);// inverts y
 
-        Rect box = new Rect(screenPosition.x - 20, screenPosition.y - 35, width, height);
+        Rect box = new Rect(screenPosition.x - width*0.5f, screenPosition.y - 35, width, height);
 
         GUI.DrawTexture(new Rect(box.x, box.y, box.width, box.height), background, ScaleMode.StretchToFill);
         GUI.DrawTexture(new Rect(box.x, box.y, box.width * fear / maxFear, box.height), foreground, ScaleMode.StretchToFill);

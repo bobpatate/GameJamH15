@@ -165,7 +165,7 @@ public abstract class Towers : MonoBehaviour
 
     public virtual float getBuildPercent()
     {
-        return currentBuildingTime * buildingMultiplicator;
+        return currentBuildingTime * player.GetComponent<CharacterStats>().getBuildingSpeed() / base_building_time * buildingMultiplicator;
     }
 
     public virtual float getReloadPercent()

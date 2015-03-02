@@ -59,6 +59,8 @@ public class GameMaster : MonoBehaviour
     private float xp_won = 0;
     private float life_left = 3;
 
+    private int lastTriedLevel = 1;
+
     private GameObject playerRef;
     private GameObject light;
 
@@ -178,8 +180,11 @@ public class GameMaster : MonoBehaviour
 
         enemiesToKillToWin = (int)(percentageToKill * enemyTotal);
 
-		if(enemySpawnDelay > 1)
-			enemySpawnDelay = enemySpawnDelay * 0.8f;
+		if(enemySpawnDelay > 1 && currentLevel != lastTriedLevel)
+        {
+            enemySpawnDelay = enemySpawnDelay * 0.9f;
+            lastTriedLevel = currentLevel;
+        }	
     }
 
     //Show endgame, pause game
@@ -240,6 +245,11 @@ public class GameMaster : MonoBehaviour
     public int getNbTotEnemy()
     {
         return enemyTotal;
+    }
+
+    public int getNbEnemyLeftToSpawn() 
+    {
+        return enemiesLeft;    
     }
 
     public float getNbXPWon()

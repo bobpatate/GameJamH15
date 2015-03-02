@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CharacterStats : MonoBehaviour
 {
-    public float base_movement_speed = 500;
+    public float base_movement_speed = 100;
     public RatioCurve buildingSpeedRatio;
     public float base_building_speed = 1;
     public float base_enhancement_and_reload_speed = 1;
