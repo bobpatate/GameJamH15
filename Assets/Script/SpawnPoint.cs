@@ -8,11 +8,10 @@ public class SpawnPoint : MonoBehaviour {
     public GameObject[] enemyToSpawn;
 
     private int level = 1;
-    private int difficulty;
     private int enemy;
     private int minEnemy;
-    private int enemyLeft;
-    private int totalEnemy;
+    private float enemyLeft;
+    private float totalEnemy;
     private float ratio;
 
 	// Use this for initialization
@@ -28,14 +27,12 @@ public class SpawnPoint : MonoBehaviour {
 	public void spawn()
     {
         level = GameMaster.instance.currentLevel;
-        enemyLeft = GameMaster.instance.getNbEnemyLeftToSpawn();
+        enemyLeft = GameMaster.instance.getNbEnemySpawned();
         totalEnemy = GameMaster.instance.getNbTotEnemy();
 
-        difficulty = Random.Range(0, level);
+        ratio = (float)(enemyLeft / totalEnemy);
 
-        ratio = enemyLeft / totalEnemy;
-
-        switch(difficulty)
+        switch(level)
         {
             case 0:
                 enemy = 0;
@@ -57,24 +54,24 @@ public class SpawnPoint : MonoBehaviour {
                 break;
         }
 
-        if(ratio <= 0.1f)
+        if(ratio >= 0.75f)
         {
             minEnemy = enemy;
         }
-        else if(ratio <= 0.3f && enemy >= 1)
+        else if(ratio >= 0.5f && enemy >= 1)
         {
             minEnemy = enemy-1;
         }
-        else if(ratio <= 0.55f && enemy >= 2)
+        else if(ratio >= 0.25f && enemy >= 2)
         {
             minEnemy = enemy-2;
         }
-        else if(ratio <= 0.75f && enemy >= 3)
+        else if(enemy >= 3)
         {
             minEnemy = enemy-3;
         }
 
-        spawnRandomizer = Random.Range(minEnemy, enemy);
+        spawnRandomizer = Random.Range(minEnemy, enemy+1);
         Instantiate(enemyToSpawn[spawnRandomizer], transform.position, transform.rotation);
 	}
 

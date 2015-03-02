@@ -11,7 +11,7 @@ public class Totem : Towers {
 
         buildingMultiplicator = 0.7f;
         maxLevel = 10;
-        max_radius = 25;
+        max_radius = 15;
         min_reload_time = 0.1f;
         base_radius = 5;
         base_reload_time = 1;

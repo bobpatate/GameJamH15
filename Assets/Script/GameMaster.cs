@@ -247,9 +247,9 @@ public class GameMaster : MonoBehaviour
         return enemyTotal;
     }
 
-    public int getNbEnemyLeftToSpawn() 
+    public int getNbEnemySpawned() 
     {
-        return enemiesLeft;    
+        return enemiesSpawned;    
     }
 
     public float getNbXPWon()

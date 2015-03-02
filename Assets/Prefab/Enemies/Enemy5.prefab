@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeUntilSelfDestruct: 15
   maxFear: 170
-  movementSpeed: 4
+  movementSpeed: 4.5
   targetPoint: {x: 8.5, y: 0, z: .699999988}
 --- !u!195 &19590112
 NavMeshAgent:
@@ -214,7 +214,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_Radius: .5
   m_Speed: 2.5
-  m_Acceleration: .200000003
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0

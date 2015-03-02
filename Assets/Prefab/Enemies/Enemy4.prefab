@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeUntilSelfDestruct: 30
   maxFear: 220
-  movementSpeed: 1.5
+  movementSpeed: 2.5
   targetPoint: {x: 8.5, y: 0, z: .699999988}
 --- !u!114 &11406832
 MonoBehaviour:

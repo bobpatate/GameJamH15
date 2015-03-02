@@ -202,8 +202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilSelfDestruct: 15
-  maxFear: 40
-  movementSpeed: 5
+  maxFear: 50
+  movementSpeed: 6
   targetPoint: {x: 8.5, y: 0, z: .699999988}
 --- !u!195 &19501150
 NavMeshAgent:
