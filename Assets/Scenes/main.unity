@@ -7644,6 +7644,9 @@ MonoBehaviour:
   enemyToSpawn:
   - {fileID: 105392, guid: dcdf90aab059b674f82c1ff74ce5409f, type: 2}
   - {fileID: 177938, guid: ab8154919789ee542889738ebcb63155, type: 2}
+  - {fileID: 101152, guid: f18354fc2d8a1b04bb6f4637e130bc44, type: 2}
+  - {fileID: 106830, guid: 0a1d2df271b22754d8b76dd3b04d3ac4, type: 2}
+  - {fileID: 190114, guid: 68bf5141977a57742a9e76145fef5eb7, type: 2}
 --- !u!65 &704648609
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8348,6 +8351,9 @@ MonoBehaviour:
   enemyToSpawn:
   - {fileID: 105392, guid: dcdf90aab059b674f82c1ff74ce5409f, type: 2}
   - {fileID: 177938, guid: ab8154919789ee542889738ebcb63155, type: 2}
+  - {fileID: 101152, guid: f18354fc2d8a1b04bb6f4637e130bc44, type: 2}
+  - {fileID: 106830, guid: 0a1d2df271b22754d8b76dd3b04d3ac4, type: 2}
+  - {fileID: 190114, guid: 68bf5141977a57742a9e76145fef5eb7, type: 2}
 --- !u!4 &754242875
 Transform:
   m_ObjectHideFlags: 0
@@ -11397,6 +11403,9 @@ MonoBehaviour:
   enemyToSpawn:
   - {fileID: 105392, guid: dcdf90aab059b674f82c1ff74ce5409f, type: 2}
   - {fileID: 177938, guid: ab8154919789ee542889738ebcb63155, type: 2}
+  - {fileID: 101152, guid: f18354fc2d8a1b04bb6f4637e130bc44, type: 2}
+  - {fileID: 106830, guid: 0a1d2df271b22754d8b76dd3b04d3ac4, type: 2}
+  - {fileID: 190114, guid: 68bf5141977a57742a9e76145fef5eb7, type: 2}
 --- !u!65 &1240618977
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13431,6 +13440,7 @@ MonoBehaviour:
   buildingSpeedRatio: {fileID: 11400000, guid: d42ad6282faecd046820807b4eb91026, type: 2}
   base_building_speed: 1
   base_enhancement_and_reload_speed: 1
+  building_speed_stat: 0
 --- !u!65 &1513822989
 BoxCollider:
   m_ObjectHideFlags: 0
