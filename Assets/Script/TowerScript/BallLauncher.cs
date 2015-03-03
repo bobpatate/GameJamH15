@@ -76,8 +76,11 @@ public class BallLauncher : Towers
         {
             if (t.GetComponent<NavMeshAgent>().remainingDistance < pathSize && Vector3.Distance(transform.position, t.position) < selectTargetRadius)
             {
-                pathSize = t.GetComponent<NavMeshAgent>().remainingDistance;
-                res = t;
+                if (t.gameObject.tag == "Enemy")
+                {
+                    pathSize = t.GetComponent<NavMeshAgent>().remainingDistance;
+                    res = t;
+                }
             }
         }
         return res;
@@ -91,8 +94,11 @@ public class BallLauncher : Towers
         {
             if (t.GetComponent<NavMeshAgent>().remainingDistance < pathSize)
             {
-                pathSize = t.GetComponent<NavMeshAgent>().remainingDistance;
-                res = t;
+                if(t.gameObject.tag == "Enemy")
+                {
+                    pathSize = t.GetComponent<NavMeshAgent>().remainingDistance;
+                    res = t;
+                }  
             }
         }
         return res;

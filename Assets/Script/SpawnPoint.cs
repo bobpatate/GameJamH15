@@ -49,6 +49,9 @@ public class SpawnPoint : MonoBehaviour {
             case 4:
                 enemy = 3;
                 break;
+            case 5:
+                enemy = 3;
+                break;
             default:
                 enemy = enemyToSpawn.Length-1;
                 break;
